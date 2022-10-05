@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BJJ9B1_HFT_2022231.Models
 {
-    class TeamPrincipals
+    public class TeamPrincipals
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
