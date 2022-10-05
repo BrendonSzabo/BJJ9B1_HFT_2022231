@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-namespace BJJ9B1_HFT_2022231
+namespace BJJ9B1_HFT_2022231.Client
 {
     class Program
     {

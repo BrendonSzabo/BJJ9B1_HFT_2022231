@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BJJ9B1_HFT_2022231.Logic
+namespace BJJ9B1_HFT_2022231.Repository
 {
     class F1DbContext : DbContext
     {
@@ -15,7 +15,7 @@ namespace BJJ9B1_HFT_2022231.Logic
 
         public F1DbContext()
         {
-            this.Database.EnsureCreated();
+            Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
@@ -25,7 +25,7 @@ namespace BJJ9B1_HFT_2022231.Logic
                 builder
                     .UseSqlServer(conn);
             }
-           
+
         }
     }
 }

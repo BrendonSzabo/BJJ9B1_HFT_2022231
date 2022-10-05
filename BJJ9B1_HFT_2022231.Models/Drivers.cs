@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BJJ9B1_HFT_2022231
+namespace BJJ9B1_HFT_2022231.Models
 {
     class Drivers
     {
