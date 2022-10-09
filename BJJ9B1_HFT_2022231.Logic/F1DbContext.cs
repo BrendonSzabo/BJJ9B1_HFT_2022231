@@ -22,7 +22,7 @@ namespace BJJ9B1_HFT_2022231.Repository
         {
             if (!builder.IsConfigured)
             {
-                string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Tamás Szabó\Desktop\hft_beadando\hft_beadando\F1DbMdf.mdf;Integrated Security=True";
+                string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\lordn\Desktop\BJJ9B1_HFT_2022231\BJJ9B1_HFT_2022231.Repository\F1Db.mdf;Integrated Security=True";
                 builder
                     .UseSqlServer(conn);
             }
