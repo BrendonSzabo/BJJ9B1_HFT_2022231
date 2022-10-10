@@ -12,17 +12,42 @@ namespace BJJ9B1_HFT_2022231.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid id { get; set; }
+        public int id { get; set; }
         [StringLength(240)]
+        
         public string PrincipalName { get; set; }
+        public int TeamID { get; set; }
         public DateTime DebutDate { get; set; }
         public DateTime Birth { get; set; }
-        public Guid TeamId { get; set; }
         public int ChampionshipWins { get; set; }
-        /// <summary>
-        /// First championship victory
-        /// </summary>
-        public DateTime FirstWin { get; set; }
+        public string? FirstWin { get; set; }
 
+        /// <summary>
+        /// Teams virtual method
+        /// </summary>
+        public virtual Teams Tm { get; set; }
+
+        public TeamPrincipals()
+        {
+        }
+
+        public TeamPrincipals(string s)
+        {
+            string[] f = s.Split('/');
+            this.id = int.Parse(f[0]);
+            PrincipalName = f[1];
+            DebutDate = Convert.ToDateTime(f[3]);
+            Birth = Convert.ToDateTime(f[4]);
+            ChampionshipWins = int.Parse(f[5]);
+            if (f[6] == "null")
+            {
+                FirstWin = null;
+            }
+            else
+            {
+                FirstWin = f[6];
+            }
+            TeamID = int.Parse(f[7]);
+        }
     }
 }
