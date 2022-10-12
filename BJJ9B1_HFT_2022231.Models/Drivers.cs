@@ -33,16 +33,15 @@ namespace BJJ9B1_HFT_2022231.Models
         public Drivers(string s)
         {
 
-            string[] split = s.Split(';');
-            id = Convert.ToInt32(split[0]);
-            DriverName = split[1];
-            Number = Convert.ToInt32(split[2]);
-            TeamId = Convert.ToInt32(split[3]);
-            Birth = Convert.ToDateTime(split[4].Replace('_', '.'));
-            CurrentPoints = Convert.ToInt32(split[5]);
-            GPWins = Convert.ToInt32(split[6]);
-            Podiums = Convert.ToInt32(split[7]);
-            ChampionshipVictories = Convert.ToInt32(split[8]);
+            //id/name/number/teamid/teamname/birth/nationality
+            string[] f = s.Split('/');
+            id = Convert.ToInt32(f[0]);
+            DriverName = f[1];
+            Number = Convert.ToInt32(f[2]);
+            TeamId = Convert.ToInt32(f[3]);
+            TeamName = f[4];
+            Born = Convert.ToDateTime(f[4]);
+            Nationality = f[5];
         }
     }
 }
