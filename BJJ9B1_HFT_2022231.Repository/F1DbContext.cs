@@ -1,4 +1,5 @@
-﻿using BJJ9B1_HFT_2022231.Models;
+﻿
+using BJJ9B1_HFT_2022231.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BJJ9B1_HFT_2022231.Repository
 {
-    internal public class F1DbContext : DbContext
+    public class F1DbContext : DbContext
     {
         
         public DbSet<Teams> Teams { get; set; }
