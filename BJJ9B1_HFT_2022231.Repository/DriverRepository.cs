@@ -15,12 +15,16 @@ namespace BJJ9B1_HFT_2022231.Repository
 
         public override Drivers Read(int id)
         {
-            throw new NotImplementedException();
+            return DbCont.Drivers.FirstOrDefault(x => x.id == id);
         }
 
         public override void Update(Drivers item)
         {
-            throw new NotImplementedException();
+            var o = Read(item.id);
+            foreach (var tmp in o.GetType().GetProperties())
+            {
+                tmp.SetValue(o, tmp.GetValue(item));
+            }
         }
     }
 }
