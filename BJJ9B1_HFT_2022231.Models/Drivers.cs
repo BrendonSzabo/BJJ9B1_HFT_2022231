@@ -32,7 +32,6 @@ namespace BJJ9B1_HFT_2022231.Models
         public virtual Teams Tm { get; set; }
         public Drivers(string s)
         {
-
             //id/name/number/teamid/teamname/birth/nationality
             string[] f = s.Split('/');
             id = Convert.ToInt32(f[0]);
