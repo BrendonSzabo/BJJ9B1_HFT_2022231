@@ -17,16 +17,11 @@ namespace BJJ9B1_HFT_2022231.Models
         public string DriverName { get; set; }
         public int Number { get; set; }
         public int TeamId { get; set; }
-        public DateTime Birth { get; set; }
-        public DateTime DebutDate { get; set; }
-        public DateTime FirstPole { get; set; }
-        public DateTime FirstGPVictory { get; set; }
-        public DateTime FirstChampionshipWin { get; set; }
-        public int ChampionshipVictories { get; set; }
-        public int CurrentPoints { get; set; }
-        public int RaceStarts { get; set; }
-        public int GPWins { get; set; }
-        public int Podiums { get; set; }
+        [StringLength(240)]
+        public string TeamName { get; set; }
+        public DateTime Born { get; set; }
+        [StringLength(240)]
+        public string Nationality { get; set; }
 
         public Drivers()
         {
