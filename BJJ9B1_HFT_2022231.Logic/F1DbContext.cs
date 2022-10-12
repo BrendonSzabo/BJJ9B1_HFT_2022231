@@ -80,14 +80,27 @@ namespace BJJ9B1_HFT_2022231.Repository
 
             modelBuilder.Entity<Drivers>().HasData(new Drivers[]
             {
-                new Drivers("1;Max Verstappen;33;1;1997_9_30;366;12;14;2"),
-                new Drivers("2;Sergio Perez;11;1;1990_1_26;253;3;9;0"),
-                new Drivers("3;Charles Leclerc;16;2;1997_10_16;252;3;9;0"),
-                new Drivers("4;Carlos Sainz;55;2;1994_09_1;202;1;8;0"),
-                new Drivers("5;Lando Norris;4;4;1999_11_13;101;0;1;0"),
-                new Drivers("6;Daniel Ricciardo;3;4;1989_07_1;29;0;0;0"),
-                new Drivers("7;Lewis Hamilton;44;3;1985_01_07;180;0;6;7"),
-                new Drivers("8;Geroge Russell;63;3;1998_02_15;207;0;7;0")
+                
+                new Drivers("1/Max Verstappen/1/1/Red Bull Racing/1997.9.30/Netherlands"),
+                new Drivers("2/Sergio Perez/11/1/Red Bull Racing/1990.1.26/Mexico"),
+                new Drivers("3/Charles Leclerc/16/2/Ferrari/1997.10.16/Monaco"),
+                new Drivers("4/Carlos Sainz/55/2/Ferrari/1994.9.1/Spain"),
+                new Drivers("5/Lando Norris/4/4/McLaren/1999.11.13/United Kingdom"),
+                new Drivers("6/Daniel Ricciardo/3/4/McLaren/1989.07.1/Australia"),
+                new Drivers("7/Lewis Hamilton/44/3/Mercedes-AMG Petronas Formula One Team/1985.01.7/United Kingdom"),
+                new Drivers("8/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom"),
+                new Drivers("9/Sebastian Vettel/5/7/Aston Martin Aramco Cognizant Formula One Team/1987.7.3/Germany"),
+                new Drivers("10/Nicholas Latifi/6/10/Williams Racing/1995.6.29/Canada"),
+                new Drivers("11/Pierre Gasly/10/9/Scuderia AlphaTauri/1996.2.7/France"),
+                new Drivers("12/Fernando Alonso/14/5/BWT Alpine F1 Team/1981.7.29/Spain"),
+                new Drivers("13/Lance Stroll/18/7/Aston Martin Aramco Cognizant Formula One Team/1998.10.29/Canada"),
+                new Drivers("14/Kevin Magnussen/20/8/Haas F1 Team/1992.10.5/Denamrk"),
+                new Drivers("15/Yuki Tsunoda/22/9/Scuderia AlphaTauri/2000.5.11/Japan"),
+                new Drivers("16/Alex Albon/23/10/Williams Racing/1996.3.23/Thailand"),
+                new Drivers("17/Zhou Guanyu/24/6/Alfa Romeo F1 Team Orlen/1999.5.30/China"),
+                new Drivers("18/Esteban Ocon/31/5/BWT Alpine F1 Team/1996.9.17/France"),
+                new Drivers("19/Mick Schumacher/47/8/Haas F1 Team/1999.3.22/Germany"),
+                new Drivers("20/ValtteriBottas/77/6/Alfa Romeo F1 Team Orlen/1989.8.28/Finland")
             });
         }
 
