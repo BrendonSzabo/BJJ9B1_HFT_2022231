@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BJJ9B1_HFT_2022231.Repository
 {
-    public class F1DbContext : DbContext
+    internal public class F1DbContext : DbContext
     {
         
         public DbSet<Teams> Teams { get; set; }
