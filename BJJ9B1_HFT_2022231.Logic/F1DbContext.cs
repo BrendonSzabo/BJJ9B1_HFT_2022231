@@ -100,7 +100,7 @@ namespace BJJ9B1_HFT_2022231.Repository
                 new Drivers("17/Zhou Guanyu/24/6/Alfa Romeo F1 Team Orlen/1999.5.30/China"),
                 new Drivers("18/Esteban Ocon/31/5/BWT Alpine F1 Team/1996.9.17/France"),
                 new Drivers("19/Mick Schumacher/47/8/Haas F1 Team/1999.3.22/Germany"),
-                new Drivers("20/ValtteriBottas/77/6/Alfa Romeo F1 Team Orlen/1989.8.28/Finland")
+                new Drivers("20/Valtteri Bottas/77/6/Alfa Romeo F1 Team Orlen/1989.8.28/Finland")
             });
         }
 
