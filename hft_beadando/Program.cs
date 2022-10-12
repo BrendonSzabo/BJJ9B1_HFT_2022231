@@ -8,10 +8,10 @@ namespace BJJ9B1_HFT_2022231.Client
     {
         static void Main(string[] args)
         {
-            F1DbContext db = new F1DbContext();
-            var vmi2 = db.Principals.ToList();
-            var vmi1 = db.Teams.ToList();
-            var vmi = db.Drivers.ToList();
+            F1DbContext db = new();
+            //var vmi2 = db.Principals.ToList();
+            //var vmi1 = db.Teams.ToList();
+            //var vmi = db.Drivers.ToList();
             
             foreach (var item in db.Principals.ToList())
             {

@@ -15,12 +15,12 @@ namespace BJJ9B1_HFT_2022231.Repository
 
         public override Teams Read(int id)
         {
-            return DbCont.Teams.FirstOrDefault(x => x.id == id);
+            return DbCont.Teams.FirstOrDefault(x => x.Id == id);
         }
 
         public override void Update(Teams item)
         {
-            var o = Read(item.id);
+            var o = Read(item.Id);
             foreach (var tmp in o.GetType().GetProperties())
             {
                 tmp.SetValue(o, tmp.GetValue(item));

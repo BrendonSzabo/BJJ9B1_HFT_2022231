@@ -12,7 +12,7 @@ namespace BJJ9B1_HFT_2022231.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+        public int Id { get; set; }
         [StringLength(240)]
         public string DriverName { get; set; }
         public int Number { get; set; }
@@ -34,7 +34,7 @@ namespace BJJ9B1_HFT_2022231.Models
         {
             //id/name/number/teamid/teamname/birth/nationality
             string[] f = s.Split('/');
-            id = Convert.ToInt32(f[0]);
+            Id = Convert.ToInt32(f[0]);
             DriverName = f[1];
             Number = Convert.ToInt32(f[2]);
             TeamId = Convert.ToInt32(f[3]);

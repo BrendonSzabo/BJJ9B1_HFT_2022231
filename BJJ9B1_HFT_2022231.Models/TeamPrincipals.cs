@@ -12,7 +12,7 @@ namespace BJJ9B1_HFT_2022231.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id { get; set; }
+        public int Id { get; set; }
         [StringLength(240)]
         
         public string PrincipalName { get; set; }
@@ -34,7 +34,7 @@ namespace BJJ9B1_HFT_2022231.Models
         public TeamPrincipals(string s)
         {
             string[] f = s.Split('/');
-            this.id = int.Parse(f[0]);
+            this.Id = int.Parse(f[0]);
             PrincipalName = f[1];
             DebutDate = Convert.ToDateTime(f[3]);
             Birth = Convert.ToDateTime(f[4]);
