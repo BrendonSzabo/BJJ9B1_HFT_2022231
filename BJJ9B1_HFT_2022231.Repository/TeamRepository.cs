@@ -21,6 +21,10 @@ namespace BJJ9B1_HFT_2022231.Repository
         public override void Update(Teams item)
         {
             var o = Read(item.id);
+            foreach (var tmp in o.GetType().GetProperties())
+            {
+                tmp.SetValue(o, tmp.GetValue(item));
+            }
         }
     }
 }
