@@ -39,8 +39,8 @@ namespace BJJ9B1_HFT_2022231.Models
             Number = Convert.ToInt32(f[2]);
             TeamId = Convert.ToInt32(f[3]);
             TeamName = f[4];
-            Born = Convert.ToDateTime(f[4]);
-            Nationality = f[5];
+            Born = Convert.ToDateTime(f[5]);
+            Nationality = f[6];
         }
     }
 }
