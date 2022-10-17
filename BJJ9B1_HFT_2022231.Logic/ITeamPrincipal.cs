@@ -13,6 +13,6 @@ namespace BJJ9B1_HFT_2022231.Logic
         void Create(TeamPrincipals item);
         void Update(TeamPrincipals item);
         void Delete(int id);
-        Drivers Read(int id);
+        TeamPrincipals Read(int id);
     }
 }

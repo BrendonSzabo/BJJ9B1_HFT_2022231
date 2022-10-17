@@ -9,11 +9,11 @@ namespace BJJ9B1_HFT_2022231.Logic
 {
     public interface ITeam
     {
-        IEnumerable<Drivers> ReadAll();
-        void Update(Drivers item);
-        void Create(Drivers item);
+        IEnumerable<Teams> ReadAll();
+        void Update(Teams item);
+        void Create(Teams item);
         void Delete(int id);
-        Drivers Read(int id);
+        Teams Read(int id);
         
     }
 }
