@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BJJ9B1_HFT_2022231.Logic
 {
-    internal class TeamPrincipalLogic : ITeamPrincipal
+    public class TeamPrincipalLogic : ITeamPrincipal
     {
         IRepository<TeamPrincipals> Repo;
         public TeamPrincipalLogic(IRepository<TeamPrincipals> repository)

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace BJJ9B1_HFT_2022231.Logic
 {
-    internal class DriverLogic : IDriver
+    public class DriverLogic : IDriver
     {
         IRepository<Drivers> Repo;
         public DriverLogic(IRepository<Drivers> repo)
