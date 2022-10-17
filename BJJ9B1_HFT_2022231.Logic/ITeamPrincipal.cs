@@ -9,9 +9,9 @@ namespace BJJ9B1_HFT_2022231.Logic
 {
     internal interface ITeamPrincipal
     {
-        IEnumerable<Drivers> ReadAll();
-        void Create(Drivers item);
-        void Update(Drivers item);
+        IEnumerable<TeamPrincipals> ReadAll();
+        void Create(TeamPrincipals item);
+        void Update(TeamPrincipals item);
         void Delete(int id);
         Drivers Read(int id);
     }

@@ -16,9 +16,17 @@ namespace BJJ9B1_HFT_2022231.Logic
             this.Repo = repository;
         }
 
-        public void Create(Drivers item)
+        public void Create(TeamPrincipals item)
         {
-            throw new NotImplementedException();
+
+            if (18 > DateTime.Now.Year - item.Born.Year || DateTime.Now.Year - item.Born.Year > 60)
+            {
+                throw new Exception("Person ineligible for team principal position due to age.");
+            }
+            else
+            {
+                Repo.Create(item);
+            }
         }
 
         public void Delete(int id)
@@ -31,12 +39,12 @@ namespace BJJ9B1_HFT_2022231.Logic
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Drivers> ReadAll()
+        public IEnumerable<TeamPrincipals> ReadAll()
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Drivers item)
+        public void Update(TeamPrincipals item)
         {
             throw new NotImplementedException();
         }
