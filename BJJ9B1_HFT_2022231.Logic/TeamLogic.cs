@@ -15,7 +15,7 @@ namespace BJJ9B1_HFT_2022231.Logic
         {
             this.Repo = repository;
         }
-
+        #region Crud
         public void Create(Teams item)
         {
             if (Repo.ReadAll().Count() >= 10)
@@ -73,5 +73,62 @@ namespace BJJ9B1_HFT_2022231.Logic
             }
             Repo.Update(item);
         }
+        #endregion
+        #region non-Crud
+        public IEnumerable<Teams> GetBeastTeam()
+        {
+            if (Repo == null)
+            {
+                throw new Exception("Repository is null.");
+            }
+            return Repo
+                .ReadAll()
+                .Where(t => t.Ranking == 1);
+        }
+        public IEnumerable<Teams> GetWorstTeam()
+        {
+            if (Repo == null)
+            {
+                throw new Exception("Repository is null.");
+            }
+            return Repo
+                .ReadAll()
+                .Where(t => t.Ranking == 10);
+        }
+        public IEnumerable<Teams> GetTeamWithMostWin()
+        {
+            if (Repo == null)
+            {
+                throw new Exception("Repository is null.");
+            }
+            return Repo
+                .ReadAll()
+                .Where(t => t.Wins != 0)
+                .OrderBy(t => t.Wins)
+                .Take(1);
+        }
+        public IEnumerable<string> GetBeastTeamPrincipal()
+        {
+            if (Repo == null)
+            {
+                throw new Exception("Repository is null.");
+            }
+            return Repo
+                .ReadAll()
+                .Where(t => t.Ranking == 1)
+                .Select(t => t.Princ.PrincipalName);
+        }
+        public IEnumerable<Teams> TeamsDebutIn20thCentury()
+        {
+            if (Repo == null)
+            {
+                throw new Exception("Repository is null.");
+            }
+            return Repo
+                .ReadAll()
+                .Where(t => 2000 > t.FirstEntry.Year && t.FirstEntry.Year > 1900)
+                .OrderBy(t => t.FirstEntry.Year);
+        }
+        #endregion
     }
 }
