@@ -1,4 +1,5 @@
 ﻿using BJJ9B1_HFT_2022231.Models;
+using BJJ9B1_HFT_2022231.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,31 +10,33 @@ namespace BJJ9B1_HFT_2022231.Logic
 {
     internal class TeamPrincipalLogic : ITeamPrincipal
     {
-        public TeamPrincipalLogic()
+        IRepository<TeamPrincipals> Repo;
+        public TeamPrincipalLogic(IRepository<TeamPrincipals> repository)
         {
+            this.Repo = repository;
         }
 
-        void ITeamPrincipal.Create(Drivers item)
-        {
-            throw new NotImplementedException();
-        }
-
-        void ITeamPrincipal.Delete(int id)
+        public void Create(Drivers item)
         {
             throw new NotImplementedException();
         }
 
-        Drivers ITeamPrincipal.Read(int id)
+        public void Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        IEnumerable<Drivers> ITeamPrincipal.ReadAll()
+        public Drivers Read(int id)
         {
             throw new NotImplementedException();
         }
 
-        void ITeamPrincipal.Update(Drivers item)
+        public IEnumerable<Drivers> ReadAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Drivers item)
         {
             throw new NotImplementedException();
         }

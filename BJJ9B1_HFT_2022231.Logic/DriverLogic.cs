@@ -14,7 +14,16 @@ namespace BJJ9B1_HFT_2022231.Logic
             this.Repo = repo;
         }
         #region Crud
-        void IDriver.Create(Drivers item)
+        public IEnumerable<Drivers> ReadAll()
+        {
+            if (Repo == null)
+            {
+                throw new Exception("Repository is null.");
+            }
+            return Repo.ReadAll();
+        }
+
+        public void Create(Drivers item)
         {
             if (18 > DateTime.Now.Year - item.Born.Year)
             {
@@ -30,7 +39,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             }
         }
 
-        void IDriver.Delete(int id)
+        public void Delete(int id)
         {
             if (Repo != null)
             {
@@ -42,26 +51,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             }
         }
 
-        Drivers IDriver.Read(int id)
-        {
-            var driver = Repo.Read(id);
-            if (driver == null)
-            {
-                throw new Exception("Driver does not exist");
-            }
-            return driver;
-        }
-
-        IEnumerable<Drivers> IDriver.ReadAll()
-        {
-            if (Repo == null)
-            {
-                throw new Exception("Repository is null.");
-            }
-            return Repo.ReadAll();
-        }
-
-        void IDriver.Update(Drivers item)
+        public void Update(Drivers item)
         {
             if (Repo == null)
             {
@@ -71,6 +61,16 @@ namespace BJJ9B1_HFT_2022231.Logic
             {
                 Repo.Update(item);
             }
+        }
+
+        public Drivers Read(int id)
+        {
+            var driver = Repo.Read(id);
+            if (driver == null)
+            {
+                throw new Exception("Driver does not exist");
+            }
+            return driver;
         }
         #endregion
         #region non-Crud
@@ -154,6 +154,9 @@ namespace BJJ9B1_HFT_2022231.Logic
                 .Where(t => t.Id == o);
 
         }
+
+       
+
         #endregion
     }
 }
