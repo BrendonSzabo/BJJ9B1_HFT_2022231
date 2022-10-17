@@ -73,6 +73,87 @@ namespace BJJ9B1_HFT_2022231.Logic
             }
         }
         #endregion
+        #region non-Crud
+        public IEnumerable<Drivers> GetBestTeamDriver()
+        {
+            if (Repo == null)
+            {
+                throw new Exception("Repository is null.");
+            }
+            return Repo
+                .ReadAll()
+                .Where(t => t.Tm.Ranking == 1)
+                .OrderBy(t => t.DriverName);
+        }
+        public IEnumerable<Drivers> GetWorstTeamDriver()
+        {
+            if (Repo == null)
+            {
+                throw new Exception("Repository is null.");
+            }
+            return Repo
+                .ReadAll()
+                .Where(t => t.Tm.Ranking == 10)
+                .OrderBy(t => t.DriverName);
+        }
+        public IEnumerable<Drivers> GetDutchDrivers()
+        {
+            if (Repo == null)
+            {
+                throw new Exception("Repository is null.");
+            }
+            return Repo
+                .ReadAll()
+                .Where(t => t.Nationality == "Netherlands")
+                .OrderBy(t => t.DriverName);
+        }
+        public IEnumerable<Drivers> GetBritishDrivers()
+        {
+            if (Repo == null)
+            {
+                throw new Exception("Repository is null.");
+            }
+            return Repo
+                .ReadAll()
+                .Where(t => t.Nationality == "United Kingdom")
+                .OrderBy(t => t.DriverName);
+        }
+        public IEnumerable<Drivers> GetOldestDriver()
+        {
+            if (Repo == null)
+            {
+                throw new Exception("Repository is null.");
+            }
+            var d = Repo.ReadAll().ToList();
+            int t = 0;
+            foreach (var item in d)
+            {
+               t = Math.Max(DateTime.Now.Year - item.Born.Year, t);
+            }
+            int o = d.Where(i => DateTime.Now.Year - i.Born.Year == t).Select(i => i.Id).First();
+            return Repo
+                .ReadAll()
+                .Where(t => t.Id == o);
+                
+        }
+        public IEnumerable<Drivers> GetYoungestDriver()
+        {
+            if (Repo == null)
+            {
+                throw new Exception("Repository is null.");
+            }
+            var d = Repo.ReadAll().ToList();
+            int t = 600;
+            foreach (var item in d)
+            {
+                t = Math.Min(DateTime.Now.Year - item.Born.Year, t);
+            }
+            int o = d.Where(i => DateTime.Now.Year - i.Born.Year == t).Select(i => i.Id).First();
+            return Repo
+                .ReadAll()
+                .Where(t => t.Id == o);
 
+        }
+        #endregion
     }
 }
