@@ -124,17 +124,11 @@ namespace BJJ9B1_HFT_2022231.Logic
             {
                 throw new Exception("Repository is null.");
             }
-            var d = Repo.ReadAll().ToList();
-            int t = 0;
-            foreach (var item in d)
-            {
-               t = Math.Max(DateTime.Now.Year - item.Born.Year, t);
-            }
-            int o = d.Where(i => DateTime.Now.Year - i.Born.Year == t).Select(i => i.Id).First();
             return Repo
                 .ReadAll()
-                .Where(t => t.Id == o);
-                
+                .OrderBy(t => DateTime.Now.Year - t.Born.Year)
+                .Take(1);
+
         }
         public IEnumerable<Drivers> GetYoungestDriver()
         {
@@ -142,21 +136,12 @@ namespace BJJ9B1_HFT_2022231.Logic
             {
                 throw new Exception("Repository is null.");
             }
-            var d = Repo.ReadAll().ToList();
-            int t = 600;
-            foreach (var item in d)
-            {
-                t = Math.Min(DateTime.Now.Year - item.Born.Year, t);
-            }
-            int o = d.Where(i => DateTime.Now.Year - i.Born.Year == t).Select(i => i.Id).First();
             return Repo
                 .ReadAll()
-                .Where(t => t.Id == o);
-
+                .OrderBy(t => DateTime.Now.Year - t.Born.Year)
+                .Reverse()
+                .Take(1);
         }
-
-       
-
         #endregion
     }
 }
