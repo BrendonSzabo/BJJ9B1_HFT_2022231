@@ -29,6 +29,10 @@ namespace BJJ9B1_HFT_2022231.Logic
             {
                 throw new Exception("Driver ineligible due to young age.");
             }
+            else if(item.DriverName == "")
+            {
+                throw new Exception("Driver needs to have a name.");
+            }
             else if (item == null)
             {
                 throw new Exception("Null value detected.");
@@ -74,7 +78,7 @@ namespace BJJ9B1_HFT_2022231.Logic
         }
         #endregion
         #region non-Crud
-        public IEnumerable<Drivers> GetBestTeamDriver()
+        public IEnumerable<Drivers> GetBestDriver()
         {
             if (Repo == null)
             {
@@ -85,7 +89,7 @@ namespace BJJ9B1_HFT_2022231.Logic
                 .Where(t => t.Tm.Ranking == 1)
                 .OrderBy(t => t.DriverName);
         }
-        public IEnumerable<Drivers> GetWorstTeamDriver()
+        public IEnumerable<Drivers> GetWorstDriver()
         {
             if (Repo == null)
             {

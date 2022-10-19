@@ -105,6 +105,63 @@ namespace BJJ9B1_HFT_2022231.Test
             Assert.IsFalse(D.Contains(GR));
         }
 
+        [Test]
+        public void CreateNameTest()
+        {
+            Drivers GR = new Drivers("22/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom");
+            GR.DriverName = "";
+            try
+            {
+                Dlogic.Create(GR);
+            }
+            catch (Exception e)
+            {
+                Assert.That(e.Message, Is.EqualTo("Driver needs to have a name."));
+            }
+        }
+        [Test]
+        public void CreateAgeTest()
+        {
+            Drivers GR = new Drivers("22/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom");
+            GR.Born = DateTime.Now;
+            try
+            {
+                Dlogic.Create(GR);
+            }
+            catch (Exception e)
+            {
+                Assert.That(e.Message, Is.EqualTo("Driver ineligible due to young age."));
+            }
+        }
 
+        [Test]
+        public void CreateNullTest()
+        {
+            try
+            {
+                Dlogic.Create(null);
+            }
+            catch (Exception e)
+            {
+
+                Assert.That(e.Message, Is.EqualTo("Null value detected."));
+            }
+        }
+        [Test]
+        public void BestDriverTest()
+        {
+            Assert.That(Dlogic.GetBestDriver, Is.EqualTo("Max Verstappen"));
+        }
+        [Test]
+        public void GetBritishDriversTest()
+        {
+            var Brits = new List<Drivers>
+            {
+                new Drivers("7/Lewis Hamilton/44/3/Mercedes-AMG Petronas Formula One Team/1985.01.7/United Kingdom"),
+                new Drivers("8/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom"),
+                new Drivers("5/Lando Norris/4/4/McLaren/1999.11.13/United Kingdom")
+            }.OrderBy(t => t.DriverName);
+            Assert.That(Dlogic.GetBritishDrivers, Is.EqualTo("Max Verstappen"));
+        }
     }
 }
