@@ -87,7 +87,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             return Repo
                 .ReadAll()
                 .Where(t => t.Tm.Ranking == 1)
-                .OrderBy(t => t.DriverName);
+                .Take(1);
         }
         public IEnumerable<Drivers> GetWorstDriver()
         {

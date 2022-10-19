@@ -86,7 +86,7 @@ namespace BJJ9B1_HFT_2022231.Test
                 new Drivers("7/Lewis Hamilton/44/3/Mercedes-AMG Petronas Formula One Team/1985.01.7/United Kingdom"),
                 new Drivers("8/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom")
             };
-            Assert.That(Dlogic.ReadAll().ToList(), Is.EqualTo(D));
+            Assert.That(Dlogic.ReadAll().ToList().OrderBy(t=>t.Id), Is.EqualTo(D.OrderBy(t => t.Id)));
         }
         [Test]
         public void DriverUpdateTest()
@@ -150,7 +150,8 @@ namespace BJJ9B1_HFT_2022231.Test
         [Test]
         public void BestDriverTest()
         {
-            Assert.That(Dlogic.GetBestDriver, Is.EqualTo("Max Verstappen"));
+            var d = Dlogic.GetBestDriver();
+            Assert.That(d, Is.EqualTo("Max Verstappen"));
         }
         [Test]
         public void GetBritishDriversTest()
@@ -161,7 +162,7 @@ namespace BJJ9B1_HFT_2022231.Test
                 new Drivers("8/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom"),
                 new Drivers("5/Lando Norris/4/4/McLaren/1999.11.13/United Kingdom")
             }.OrderBy(t => t.DriverName);
-            Assert.That(Dlogic.GetBritishDrivers, Is.EqualTo("Max Verstappen"));
+            Assert.That(Dlogic.GetBritishDrivers().ToList(), Is.EqualTo(Brits));
         }
     }
 }
