@@ -96,17 +96,6 @@ namespace BJJ9B1_HFT_2022231.Logic
                 .Where(t => t.Tm.Ranking == 10)
                 .OrderBy(t => t.DriverName);
         }
-        public IEnumerable<Drivers> GetDutchDrivers()
-        {
-            if (Repo == null)
-            {
-                throw new Exception("Repository is null.");
-            }
-            return Repo
-                .ReadAll()
-                .Where(t => t.Nationality == "Netherlands")
-                .OrderBy(t => t.DriverName);
-        }
         public IEnumerable<Drivers> GetBritishDrivers()
         {
             if (Repo == null)

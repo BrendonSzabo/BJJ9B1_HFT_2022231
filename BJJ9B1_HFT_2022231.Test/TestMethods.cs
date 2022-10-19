@@ -34,7 +34,7 @@ namespace BJJ9B1_HFT_2022231.Test
                 new Drivers("5/Lando Norris/4/4/McLaren/1999.11.13/United Kingdom"),
                 new Drivers("6/Daniel Ricciardo/3/4/McLaren/1989.07.1/Australia"),
                 new Drivers("7/Lewis Hamilton/44/3/Mercedes-AMG Petronas Formula One Team/1985.01.7/United Kingdom"),
-                new Drivers("8/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom"),
+                
             }.AsQueryable());
             Dlogic = new DriverLogic(mockDrivers.Object);
 
@@ -60,10 +60,51 @@ namespace BJJ9B1_HFT_2022231.Test
         }
 
         [Test]
-        public void Test1()
+        public void DriverCreateTest()
         {
-
+            Drivers GR = new Drivers("8/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom");
+            Dlogic.Create(GR);
+            Assert.Contains(GR, Dlogic.ReadAll().ToList());
         }
+        [Test]
+        public void DriverReadTest()
+        {
+            Drivers GR = new Drivers("8/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom");
+            Assert.That(Dlogic.Read(8), Is.EqualTo(GR));
+        }
+        [Test]
+        public void DriverReadAllTest()
+        {
+            List<Drivers> D = new List<Drivers>
+            {
+                new Drivers("1/Max Verstappen/1/1/Red Bull Racing/1997.9.30/Netherlands"),
+                new Drivers("2/Sergio Perez/11/1/Red Bull Racing/1990.1.26/Mexico"),
+                new Drivers("3/Charles Leclerc/16/2/Ferrari/1997.10.16/Monaco"),
+                new Drivers("4/Carlos Sainz/55/2/Ferrari/1994.9.1/Spain"),
+                new Drivers("5/Lando Norris/4/4/McLaren/1999.11.13/United Kingdom"),
+                new Drivers("6/Daniel Ricciardo/3/4/McLaren/1989.07.1/Australia"),
+                new Drivers("7/Lewis Hamilton/44/3/Mercedes-AMG Petronas Formula One Team/1985.01.7/United Kingdom"),
+                new Drivers("8/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom")
+            };
+            Assert.That(Dlogic.ReadAll().ToList(), Is.EqualTo(D));
+        }
+        [Test]
+        public void DriverUpdateTest()
+        {
+            Drivers GR = new Drivers("22/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom");
+            Dlogic.Update(GR);
+            var D = Dlogic.ReadAll().ToList();
+            Assert.Contains(GR, D);
+        }
+        [Test]
+        public void DriverDeleteTest()
+        {
+            Drivers GR = new Drivers("22/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom");
+            Dlogic.Delete(GR.Id);
+            var D = Dlogic.ReadAll().ToList();
+            Assert.IsFalse(D.Contains(GR));
+        }
+
 
     }
 }
