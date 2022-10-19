@@ -20,6 +20,7 @@ namespace BJJ9B1_HFT_2022231.Models
         public DateTime DebutDate { get; set; }
         public DateTime Birth { get; set; }
         public int ChampionshipWins { get; set; }
+        [StringLength(240)]
         public string? FirstWin { get; set; }
 
         /// <summary>

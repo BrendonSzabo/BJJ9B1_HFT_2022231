@@ -23,7 +23,7 @@ namespace BJJ9B1_HFT_2022231.Models
         public int Wins { get; set; }
 
         /// <summary>
-        /// Driver virtual method
+        /// Driver virtual collection method
         /// </summary>
         public virtual ICollection<Drivers> Drv { get; set; }
         /// <summary>
