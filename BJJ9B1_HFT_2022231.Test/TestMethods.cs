@@ -58,7 +58,7 @@ namespace BJJ9B1_HFT_2022231.Test
             }.AsQueryable());
             TPlogic = new TeamPrincipalLogic(mockTeamPrincipals.Object);
         }
-
+        #region Driver tests
         [Test]
         public void DriverCreateTest()
         {
@@ -70,16 +70,7 @@ namespace BJJ9B1_HFT_2022231.Test
         { 
             Assert.That(() => Dlogic.Read(4).ToString(), Is.EqualTo(new Drivers("4/Carlos Sainz/55/2/Ferrari/1994.9.1/Spain").ToString()));
         }
-        [Test]
-        public void TeamReadTest()
-        {
-            Assert.That(() => Tlogic.Read(4).ToString(), Is.EqualTo(new Teams("4/McLaren F1 Team/1966.1.1/4/129/id.andreasseidl/923").ToString()));
-        }
-        [Test]
-        public void TeamPrincipalReadTest()
-        {
-            Assert.That(() => TPlogic.Read(4).ToString(), Is.EqualTo(new TeamPrincipals("4/Andreas Seidl/id.mclaren/2019.1.1/1976.1.6/0/2021.9.12/4").ToString()));
-        }
+        
         [Test]
         public void DriverReadAllTest()
         {
@@ -134,5 +125,45 @@ namespace BJJ9B1_HFT_2022231.Test
         {
             Assert.That(() => Dlogic.GetBritishDrivers(), Throws.Nothing);
         }
+        #endregion
+        #region Team tests
+        [Test]
+        public void TeamReadTest()
+        {
+            Assert.That(() => Tlogic.Read(4).ToString(), Is.EqualTo(new Teams("4/McLaren F1 Team/1966.1.1/4/129/id.andreasseidl/923").ToString()));
+        }
+        [Test]
+        public void TeamReadAllTest()
+        {
+            Assert.That(() => Tlogic.ReadAll(), Throws.Nothing);
+        }
+        [Test]
+        public void TeamUpdateTest()
+        {
+            Assert.That(() => Tlogic.Update(new Teams("4/McLaren F1 Team xd/1966.1.1/4/129/id.andreasseidl/923")), Throws.Nothing);
+        }
+        [Test]
+        public void TeamCreateTest()
+        {
+            Assert.That(() => Tlogic.Create(new Teams("5/BWT Alpine F1 Team/2021.1.1/5/125/id.otmarszafnauer/39")), Throws.Nothing);
+        }
+        [Test]
+        public void TeamDeleteTest()
+        {
+            Assert.That(() => Tlogic.Delete(4), Throws.Nothing);
+        }
+        [Test]
+        public void GetBestTeamTest()
+        {
+            Assert.That(() => Tlogic.GetBeastTeam().ToString(), Is.EqualTo())
+        }
+        #endregion
+        #region Team Principal tests
+        [Test]
+        public void TeamPrincipalReadTest()
+        {
+            Assert.That(() => TPlogic.Read(4).ToString(), Is.EqualTo(new TeamPrincipals("4/Andreas Seidl/id.mclaren/2019.1.1/1976.1.6/0/2021.9.12/4").ToString()));
+        }
+        #endregion
     }
 }

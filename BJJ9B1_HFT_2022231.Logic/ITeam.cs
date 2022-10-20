@@ -10,6 +10,11 @@ namespace BJJ9B1_HFT_2022231.Logic
         void Create(Teams item);
         void Delete(int id);
         Teams Read(int id);
-        
+        Teams GetBeastTeam();
+        Teams GetWorstTeam();
+        IEnumerable<Teams> GetTeamWithMostWin();
+        string GetBeastTeamPrincipal();
+        IEnumerable<Teams> TeamsDebutIn20thCentury();
+
     }
 }

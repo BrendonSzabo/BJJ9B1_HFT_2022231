@@ -19,9 +19,8 @@ namespace BJJ9B1_HFT_2022231.Models
         public int TeamID { get; set; }
         public DateTime DebutDate { get; set; }
         public DateTime Birth { get; set; }
-        public int ChampionshipWins { get; set; }
-        [StringLength(240)]
-        public string? FirstWin { get; set; }
+        public int? ChampionshipWins { get; set; }
+        public DateTime? FirstWin { get; set; }
 
         /// <summary>
         /// Teams virtual method
@@ -31,24 +30,27 @@ namespace BJJ9B1_HFT_2022231.Models
         public TeamPrincipals()
         {
         }
-
+        /// <summary>
+        /// constructor values
+        /// </summary>
+        /// <param name="s">id/name/teamid/debutdate/birth/wins/teamid</param>
         public TeamPrincipals(string s)
         {
             string[] f = s.Split('/');
             this.Id = int.Parse(f[0]);
             PrincipalName = f[1];
-            DebutDate = Convert.ToDateTime(f[3]);
-            Birth = Convert.ToDateTime(f[4]);
-            ChampionshipWins = int.Parse(f[5]);
+            DebutDate = Convert.ToDateTime(f[2]);
+            Birth = Convert.ToDateTime(f[3]);
+            ChampionshipWins = int.Parse(f[4]);
             if (f[6] == "null")
             {
                 FirstWin = null;
             }
             else
             {
-                FirstWin = f[6];
+                FirstWin = Convert.ToDateTime(f[5]);
             }
-            TeamID = int.Parse(f[7]);
+            TeamID = int.Parse(f[6]);
         }
     }
 }

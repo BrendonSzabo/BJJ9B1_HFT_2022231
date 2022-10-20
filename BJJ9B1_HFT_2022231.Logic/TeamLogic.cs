@@ -78,7 +78,7 @@ namespace BJJ9B1_HFT_2022231.Logic
         }
         #endregion
         #region non-Crud
-        public IEnumerable<Teams> GetBeastTeam()
+        public Teams GetBeastTeam()
         {
             if (Repo == null)
             {
@@ -86,9 +86,10 @@ namespace BJJ9B1_HFT_2022231.Logic
             }
             return Repo
                 .ReadAll()
-                .Where(t => t.Ranking == 1);
+                .Where(t => t.Ranking == 1)
+                .Single();
         }
-        public IEnumerable<Teams> GetWorstTeam()
+        public Teams GetWorstTeam()
         {
             if (Repo == null)
             {
@@ -96,7 +97,8 @@ namespace BJJ9B1_HFT_2022231.Logic
             }
             return Repo
                 .ReadAll()
-                .Where(t => t.Ranking == 10);
+                .Where(t => t.Ranking == 10)
+                .Single();
         }
         public IEnumerable<Teams> GetTeamWithMostWin()
         {
@@ -110,7 +112,7 @@ namespace BJJ9B1_HFT_2022231.Logic
                 .OrderBy(t => t.Wins)
                 .Take(1);
         }
-        public IEnumerable<string> GetBeastTeamPrincipal()
+        public string GetBeastTeamPrincipal()
         {
             if (Repo == null)
             {
@@ -119,7 +121,8 @@ namespace BJJ9B1_HFT_2022231.Logic
             return Repo
                 .ReadAll()
                 .Where(t => t.Ranking == 1)
-                .Select(t => t.Princ.PrincipalName);
+                .Select(t => t.Princ.PrincipalName)
+                .Single();
         }
         public IEnumerable<Teams> TeamsDebutIn20thCentury()
         {

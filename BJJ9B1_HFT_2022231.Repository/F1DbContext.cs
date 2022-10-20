@@ -53,35 +53,37 @@ namespace BJJ9B1_HFT_2022231.Repository
 
             modelBuilder.Entity<TeamPrincipals>().HasData(new TeamPrincipals[]
             {
-                new TeamPrincipals("5/Otmar Szafnauer/id.alpine/1998.1.1/1964.8.13/0/2020.12.6/5"),
-                new TeamPrincipals("2/Mattia Binotto/id.ferrari/2019.1.1/1969.11.3/0/2019.9.1/2"),
-                new TeamPrincipals("4/Andreas Seidl/id.mclaren/2019.1.1/1976.1.6/0/2021.9.12/4"),
-                new TeamPrincipals("1/Christian Horner/id.rb/2005.1.1/1973.11.16/6/2009.4.19/1"),
-                new TeamPrincipals("7/Mike Krack/id.aston/1998.1.1/1972.3.18/0/null/7"),
-                new TeamPrincipals("9/Guenther Steiner/id.haas/1986.1.1/1965.4.7/0/null/9"),
-                new TeamPrincipals("8/Franz Tost/id.Alphatauri/2006.1.1/1956.1.20/0/2008.9.14/8"),
-                new TeamPrincipals("6/Frédéric Vasseur/id.alfa/2016.1.1/1968.1.1/0/null/6"),
-                new TeamPrincipals("10/Jost Capito/id.williams/2021.1.1/1958.9.29/0/null/10"),
-                new TeamPrincipals("3/Toto Wolff/id.merc/2013.1.1/1972.1.12./7/2013.5.26/3")
+                //id/name/teamid/debutdate/birth/wins/teamid
+                new TeamPrincipals("5/Otmar Szafnauer/1998.1.1/1964.8.13/0/2020.12.6/5"),
+                new TeamPrincipals("2/Mattia Binotto/2019.1.1/1969.11.3/0/2019.9.1/2"),
+                new TeamPrincipals("4/Andreas Seidl/2019.1.1/1976.1.6/0/2021.9.12/4"),
+                new TeamPrincipals("1/Christian Horner/2005.1.1/1973.11.16/6/2009.4.19/1"),
+                new TeamPrincipals("7/Mike Krack/1998.1.1/1972.3.18/0/null/7"),
+                new TeamPrincipals("9/Guenther Steiner/1986.1.1/1965.4.7/0/null/9"),
+                new TeamPrincipals("8/Franz Tost/2006.1.1/1956.1.20/0/2008.9.14/8"),
+                new TeamPrincipals("6/Frédéric Vasseur/2016.1.1/1968.1.1/0/null/6"),
+                new TeamPrincipals("10/Jost Capito/2021.1.1/1958.9.29/0/null/10"),
+                new TeamPrincipals("3/Toto Wolff/2013.1.1/1972.1.12./7/2013.5.26/3")
             });
 
             modelBuilder.Entity<Teams>().HasData(new Teams[]
             {
-                new Teams("1/Red Bull Racing/2005.1.1/1/576/id.christianhorner/343"),
-                new Teams("2/Scuderia Ferrari/1950.1.1/2/439/id.binotto/1048"),
-                new Teams("3/Mercedes-AMG Petronas Formula One Team/1954.1.1/3/373/id.totowolff/264"),
-                new Teams("4/McLaren F1 Team/1966.1.1/4/129/id.andreasseidl/923"),
-                new Teams("5/BWT Alpine F1 Team/2021.1.1/5/125/id.otmarszafnauer/39"),
-                new Teams("6/Alfa Romeo F1 Team Orlen/1950.1.1/6/52/id.frédéricvasseur/481"),
-                new Teams("7/Aston Martin Aramco Cognizant Formula One Team/1959.1.1/7/37/id.mikekrack/45"),
-                new Teams("8/Haas F1 Team/2016.1.1/8/34/id.gunthersteiner/138"),
-                new Teams("9/Scuderia AlphaTauri/2020.1.1/9/34/id.franztost/56"),
-                new Teams("10/Williams Racing/1977.1.1/10/6/id.jostcapito/786")
+                //id/name/firstentry/rank/championshippoints/racestarts
+                new Teams("1/Red Bull Racing/2005.1.1/1/576/343"),
+                new Teams("2/Scuderia Ferrari/1950.1.1/2/439/1048"),
+                new Teams("3/Mercedes-AMG Petronas Formula One Team/1954.1.1/3/373/264"),
+                new Teams("4/McLaren F1 Team/1966.1.1/4/129/923"),
+                new Teams("5/BWT Alpine F1 Team/2021.1.1/5/125/39"),
+                new Teams("6/Alfa Romeo F1 Team Orlen/1950.1.1/6/52/481"),
+                new Teams("7/Aston Martin Aramco Cognizant Formula One Team/1959.1.1/7/37/45"),
+                new Teams("8/Haas F1 Team/2016.1.1/8/34/138"),
+                new Teams("9/Scuderia AlphaTauri/2020.1.1/9/34/56"),
+                new Teams("10/Williams Racing/1977.1.1/10/6/786")
             });
 
             modelBuilder.Entity<Drivers>().HasData(new Drivers[]
             {
-                
+                //id/name/number/rank/teamname/birthdate/nationality
                 new Drivers("1/Max Verstappen/1/1/Red Bull Racing/1997.9.30/Netherlands"),
                 new Drivers("2/Sergio Perez/11/1/Red Bull Racing/1990.1.26/Mexico"),
                 new Drivers("3/Charles Leclerc/16/2/Ferrari/1997.10.16/Monaco"),

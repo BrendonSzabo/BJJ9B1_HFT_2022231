@@ -30,6 +30,10 @@ namespace BJJ9B1_HFT_2022231.Models
         /// Teams virtual method
         /// </summary>
         public virtual Teams Tm { get; set; }
+        /// <summary>
+        /// constructor values
+        /// </summary>
+        /// <param name="s">id/name/number/rank/teamname/birthdate/nationality</param>
         public Drivers(string s)
         {
             //id/name/number/teamid/teamname/birth/nationality

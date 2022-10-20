@@ -35,17 +35,19 @@ namespace BJJ9B1_HFT_2022231.Models
         {
             Drv = new HashSet<Drivers>();
         }
-
+        /// <summary>
+        /// constructor values
+        /// </summary>
+        /// <param name="s">id/name/firstentry/rank/championshippoints/racestarts</param>
         public Teams(string s)
         {
-
             string[] f = s.Split('/');
             this.Id = int.Parse(f[0]);
-            Ranking = int.Parse(f[3]);
             TeamName = f[1];
             FirstEntry = Convert.ToDateTime(f[2]);
+            Ranking = int.Parse(f[3]);
             ConstructorPoints = int.Parse(f[4]);
-            RaceStarts = int.Parse(f[6]);
+            RaceStarts = int.Parse(f[5]);
             Drv = new HashSet<Drivers>();
         }
     }
