@@ -53,7 +53,7 @@ namespace BJJ9B1_HFT_2022231.Repository
 
             modelBuilder.Entity<TeamPrincipals>().HasData(new TeamPrincipals[]
             {
-                //id/name/teamid/debutdate/birth/wins/teamid
+                //id/name/debutdate/birth/wins/firstwin/teamid
                 new TeamPrincipals("5/Otmar Szafnauer/1998.1.1/1964.8.13/0/2020.12.6/5"),
                 new TeamPrincipals("2/Mattia Binotto/2019.1.1/1969.11.3/0/2019.9.1/2"),
                 new TeamPrincipals("4/Andreas Seidl/2019.1.1/1976.1.6/0/2021.9.12/4"),

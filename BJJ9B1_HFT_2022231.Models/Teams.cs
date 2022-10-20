@@ -50,5 +50,10 @@ namespace BJJ9B1_HFT_2022231.Models
             RaceStarts = int.Parse(f[5]);
             Drv = new HashSet<Drivers>();
         }
+
+        public override string ToString()
+        {
+            return $"Id: {Id}, Team Name: {TeamName}, First Entry: {FirstEntry.Year}.{FirstEntry.Month}.{FirstEntry.Day}, Rank: {Ranking}, Championship points: {ConstructorPoints}, Race Starts: {RaceStarts}";
+        }
     }
 }

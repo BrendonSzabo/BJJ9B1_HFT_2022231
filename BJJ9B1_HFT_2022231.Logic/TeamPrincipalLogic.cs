@@ -75,7 +75,7 @@ namespace BJJ9B1_HFT_2022231.Logic
         }
         #endregion
         #region non-Crud
-        public string GetMostChampionshipWinTeamPrincipal()
+        public TeamPrincipals GetMostChampionshipWinTeamPrincipal()
         {
             if (Repo == null)
             {
@@ -84,7 +84,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             return this.Repo
                 .ReadAll()
                 .OrderBy(t => t.ChampionshipWins)
-                .Select(p => p.PrincipalName)
+                .Reverse()
                 .First();
         }
         public IEnumerable<TeamPrincipals> GetPrincipalsWithWin()

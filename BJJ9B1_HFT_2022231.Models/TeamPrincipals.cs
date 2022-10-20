@@ -33,7 +33,7 @@ namespace BJJ9B1_HFT_2022231.Models
         /// <summary>
         /// constructor values
         /// </summary>
-        /// <param name="s">id/name/teamid/debutdate/birth/wins/teamid</param>
+        /// <param name="s">id/name/debutdate/birth/wins/firstwin/teamid</param>
         public TeamPrincipals(string s)
         {
             string[] f = s.Split('/');
@@ -51,6 +51,11 @@ namespace BJJ9B1_HFT_2022231.Models
                 FirstWin = Convert.ToDateTime(f[5]);
             }
             TeamID = int.Parse(f[6]);
+        }
+
+        public override string ToString()
+        {
+            return $"Id: {Id}, Name: {PrincipalName}, Team Id: {TeamID}, Debute Date: {DebutDate.Year}.{DebutDate.Month}.{DebutDate.Day}, Birth Date: {Birth.Year}.{Birth.Month}.{Birth.Day}, Wins: {ChampionshipWins}, Team Id: {TeamID}";
         }
     }
 }

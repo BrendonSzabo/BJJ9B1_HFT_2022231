@@ -34,7 +34,7 @@ namespace BJJ9B1_HFT_2022231.Test
                 new Drivers("5/Lando Norris/4/4/McLaren/1999.11.13/United Kingdom"),
                 new Drivers("6/Daniel Ricciardo/3/4/McLaren/1989.07.1/Australia"),
                 new Drivers("7/Lewis Hamilton/44/3/Mercedes-AMG Petronas Formula One Team/1985.01.7/United Kingdom"),
-                
+
             }.AsQueryable());
             Dlogic = new DriverLogic(mockDrivers.Object);
 
@@ -63,15 +63,15 @@ namespace BJJ9B1_HFT_2022231.Test
         [Test]
         public void DriverCreateTest()
         {
-        Assert.That(() => Dlogic.Create(new Drivers("8/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom")), Throws.Nothing);
+            Assert.That(() => Dlogic.Create(new Drivers("8/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom")), Throws.Nothing);
         }
 
         [Test]
         public void DriverReadTest()
-        { 
+        {
             Assert.That(() => Dlogic.Read(4).ToString(), Is.EqualTo(new Drivers("4/Carlos Sainz/55/2/Ferrari/1994.9.1/Spain").ToString()));
         }
-        
+
         [Test]
         public void DriverReadAllTest()
         {
@@ -201,6 +201,36 @@ namespace BJJ9B1_HFT_2022231.Test
             Assert.That(() => TPlogic.ReadAll(), Throws.Nothing);
         }
         [Test]
+        public void TeamPrincipalUpdateTest()
+        {
+            TeamPrincipals Tp = new TeamPrincipals("3/Toto Wolffie/2013.1.1/1972.1.12./7/2013.5.26/3");
+            Assert.That(() => TPlogic.Update(Tp), Throws.Nothing);
+        }
+        [Test]
+        public void TeamPrincipalDelete()
+        {
+            Assert.That(() => TPlogic.Delete(4), Throws.Nothing);
+        }
+        [Test]
+        public void GetMostChampionshipWinTeamPrincipal()
+        {
+            Assert.That(() => TPlogic.GetMostChampionshipWinTeamPrincipal().ToString(), Is.EqualTo(new TeamPrincipals("3/Toto Wolff/2013.1.1/1972.1.12./7/2013.5.26/3").ToString()));
+        }
+        [Test]
+        public void GetPrincipalsWithWinTest()
+        {
+            Assert.That(() => TPlogic.GetPrincipalsWithWin(), Throws.Nothing);
+        }
+        [Test]
+        public void GetPrincipalWhoDebutedIn20thCentury()
+        {
+            Assert.That(() => TPlogic.GetPrincipalWhoDebutedIn20thCentury(), Throws.Nothing);
+        }
+        [Test]
+        public void GetPrincipalWithChampionship()
+        {
+            Assert.That(() => TPlogic.GetPrincipalWithChampionship(), Throws.Nothing);
+        }
         #endregion
     }
 }
