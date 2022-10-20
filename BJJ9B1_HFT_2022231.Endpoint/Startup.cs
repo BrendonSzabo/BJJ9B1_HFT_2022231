@@ -40,8 +40,8 @@ namespace BJJ9B1_HFT_2022231.Endpoint
             services.AddTransient<IDriver, DriverLogic>();
 
             services.AddControllers();
-            services.AddSwaggerGen(t => t.SwaggerDoc("V1", new OpenApiInfo
-            { Title = "BJJ9B1_HFT_2022231.Endpoint", Version = "V1" })
+            services.AddSwaggerGen(t => t.SwaggerDoc("v1", new OpenApiInfo
+            { Title = "BJJ9B1_HFT_2022231.Endpoint", Version = "v1" })
             );
         }
 
@@ -52,7 +52,7 @@ namespace BJJ9B1_HFT_2022231.Endpoint
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(t => t.SwaggerEndpoint("/swagger/v1/swagger.json", "BJJ9B1_HFT_2022231.Endpoint V11"));
+                app.UseSwaggerUI(t => t.SwaggerEndpoint("/swagger/v1/swagger.json", "BJJ9B1_HFT_2022231.Endpoint v1"));
             }
 
             app.UseExceptionHandler(t => t.Run(async context =>
