@@ -112,7 +112,7 @@ namespace BJJ9B1_HFT_2022231.Logic
                 .OrderBy(t => t.Wins)
                 .Take(1);
         }
-        public string GetBeastTeamPrincipal()
+        public string GetBestTeamPrincipal()
         {
             if (Repo == null)
             {

@@ -41,20 +41,20 @@ namespace BJJ9B1_HFT_2022231.Test
             mockTeams = new Mock<IRepository<Teams>>();
             mockTeams.Setup(m => m.ReadAll()).Returns(new List<Teams>()
             {
-                new Teams("1/Red Bull Racing/2005.1.1/1/576/id.christianhorner/343"),
+                new Teams("1/Red Bull Racing/2005.1.1/1/576/343"),
                 new Teams("2/Scuderia Ferrari/1950.1.1/2/439/id.binotto/1048"),
-                new Teams("3/Mercedes-AMG Petronas Formula One Team/1954.1.1/3/373/id.totowolff/264"),
-                new Teams("4/McLaren F1 Team/1966.1.1/4/129/id.andreasseidl/923"),
+                new Teams("3/Mercedes-AMG Petronas Formula One Team/1954.1.1/3/373/264"),
+                new Teams("4/McLaren F1 Team/1966.1.1/4/129/923"),
             }.AsQueryable());
             Tlogic = new TeamLogic(mockTeams.Object);
 
             mockTeamPrincipals = new Mock<IRepository<TeamPrincipals>>();
             mockTeamPrincipals.Setup(m => m.ReadAll()).Returns(new List<TeamPrincipals>()
             {
-                new TeamPrincipals("3/Toto Wolff/id.merc/2013.1.1/1972.1.12./7/2013.5.26/3"),
-                new TeamPrincipals("2/Mattia Binotto/id.ferrari/2019.1.1/1969.11.3/0/2019.9.1/2"),
-                new TeamPrincipals("4/Andreas Seidl/id.mclaren/2019.1.1/1976.1.6/0/2021.9.12/4"),
-                new TeamPrincipals("1/Christian Horner/id.rb/2005.1.1/1973.11.16/6/2009.4.19/1"),
+                new TeamPrincipals("3/Toto Wolff/2013.1.1/1972.1.12./7/2013.5.26/3"),
+                new TeamPrincipals("2/Mattia Binotto/2019.1.1/1969.11.3/0/2019.9.1/2"),
+                new TeamPrincipals("4/Andreas Seidl/2019.1.1/1976.1.6/0/2021.9.12/4"),
+                new TeamPrincipals("1/Christian Horner/2005.1.1/1973.11.16/6/2009.4.19/1"),
             }.AsQueryable());
             TPlogic = new TeamPrincipalLogic(mockTeamPrincipals.Object);
         }
@@ -155,7 +155,27 @@ namespace BJJ9B1_HFT_2022231.Test
         [Test]
         public void GetBestTeamTest()
         {
-            Assert.That(() => Tlogic.GetBeastTeam().ToString(), Is.EqualTo())
+            Assert.That(() => Tlogic.GetBeastTeam().ToString(), Is.EqualTo(new Teams("1/Red Bull Racing/2005.1.1/1/576/343").ToString()));
+        }
+        [Test]
+        public void GetWorstTeamTest()
+        {
+            Assert.That(() => Tlogic.GetWorstTeam().ToString(), Is.EqualTo(new Teams("4/McLaren F1 Team/1966.1.1/4/129/923").ToString()));
+        }
+        [Test]
+        public void GetTeamWithMostPointsTest()
+        {
+            Assert.That(() => Tlogic.GetTeamWithMostWin(), Throws.Nothing);
+        }
+        [Test]
+        public void GetBestTeamPrincipalTest()
+        {
+            Assert.That(() => Tlogic.GetBestTeamPrincipal(), Is.EqualTo("Christian Horner"));
+        }
+        [Test]
+        public void TeamsDebutIn20thCenturyTest()
+        {
+            Assert.That(() => Tlogic.TeamsDebutIn20thCentury(), Throws.Nothing);
         }
         #endregion
         #region Team Principal tests
