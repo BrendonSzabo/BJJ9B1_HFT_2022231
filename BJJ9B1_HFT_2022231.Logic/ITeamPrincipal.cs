@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BJJ9B1_HFT_2022231.Logic
 {
-    internal interface ITeamPrincipal
+    public interface ITeamPrincipal
     {
         IEnumerable<TeamPrincipals> ReadAll();
         void Create(TeamPrincipals item);
