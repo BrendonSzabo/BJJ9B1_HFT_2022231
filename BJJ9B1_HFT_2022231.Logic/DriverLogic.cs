@@ -69,7 +69,14 @@ namespace BJJ9B1_HFT_2022231.Logic
 
         public Drivers Read(int id)
         {
-            var driver = Repo.Read(id);
+            if (Repo == null)
+            {
+                throw new Exception("Repository is null");
+            }
+            var driver = Repo
+                .ReadAll()
+                .Where(t => t.Id == id)
+                .Single();
             if (driver == null)
             {
                 throw new Exception("Driver does not exist");
@@ -86,8 +93,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             }
             return Repo
                 .ReadAll()
-                .Where(t => t.Tm.Ranking == 1)
-                .Take(1);
+                .Where(t => t.Tm.Ranking == 1);
         }
         public IEnumerable<Drivers> GetWorstDriver()
         {
@@ -111,7 +117,7 @@ namespace BJJ9B1_HFT_2022231.Logic
                 .Where(t => t.Nationality == "United Kingdom")
                 .OrderBy(t => t.DriverName);
         }
-        public IEnumerable<Drivers> GetOldestDriver()
+        public Drivers GetOldestDriver()
         {
             if (Repo == null)
             {
@@ -120,7 +126,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             return Repo
                 .ReadAll()
                 .OrderBy(t => DateTime.Now.Year - t.Born.Year)
-                .Take(1);
+                .Single();
 
         }
         public IEnumerable<Drivers> GetYoungestDriver()

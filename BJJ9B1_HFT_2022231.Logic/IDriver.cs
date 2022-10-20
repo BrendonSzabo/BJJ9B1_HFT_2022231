@@ -1,9 +1,5 @@
 ﻿using BJJ9B1_HFT_2022231.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BJJ9B1_HFT_2022231.Logic
 {
@@ -14,6 +10,10 @@ namespace BJJ9B1_HFT_2022231.Logic
         void Delete(int id);
         void Update(Drivers item);
         Drivers Read(int id);
-
+        IEnumerable<Drivers> GetBestDriver();
+        IEnumerable<Drivers> GetWorstDriver();
+        IEnumerable<Drivers> GetBritishDrivers();
+        Drivers GetOldestDriver();
+        IEnumerable<Drivers> GetYoungestDriver();
     }
 }

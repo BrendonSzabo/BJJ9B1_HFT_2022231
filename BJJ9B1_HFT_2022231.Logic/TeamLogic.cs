@@ -42,14 +42,17 @@ namespace BJJ9B1_HFT_2022231.Logic
         {
             if (Repo == null)
             {
-                throw new Exception("Repository is null.");
+                throw new Exception("Repository is null");
             }
-            var t = Repo.Read(id);
-            if (t == null)
+            var Team = Repo
+                .ReadAll()
+                .Where(t => t.Id == id)
+                .Single();
+            if (Team == null)
             {
                 throw new Exception("Team not found");
             }
-            return t;
+            return Team;
         }
 
         public IEnumerable<Teams> ReadAll()

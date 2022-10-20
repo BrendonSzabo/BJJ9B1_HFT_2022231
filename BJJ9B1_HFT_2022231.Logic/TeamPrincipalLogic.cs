@@ -42,7 +42,10 @@ namespace BJJ9B1_HFT_2022231.Logic
             {
                 throw new Exception("Repository is null");
             }
-            var tp = Repo.Read(id);
+            var tp = Repo
+                .ReadAll()
+                .Where(t => t.Id == id)
+                .Single(); ;
             if (tp == null)
             {
                 throw new Exception("This principal does not exist.");
