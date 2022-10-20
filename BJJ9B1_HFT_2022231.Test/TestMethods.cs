@@ -42,9 +42,10 @@ namespace BJJ9B1_HFT_2022231.Test
             mockTeams.Setup(m => m.ReadAll()).Returns(new List<Teams>()
             {
                 new Teams("1/Red Bull Racing/2005.1.1/1/576/343"),
-                new Teams("2/Scuderia Ferrari/1950.1.1/2/439/id.binotto/1048"),
+                new Teams("2/Scuderia Ferrari/1950.1.1/2/439/1048"),
                 new Teams("3/Mercedes-AMG Petronas Formula One Team/1954.1.1/3/373/264"),
                 new Teams("4/McLaren F1 Team/1966.1.1/4/129/923"),
+                new Teams("10/Williams Racing/1977.1.1/10/6/786"),
             }.AsQueryable());
             Tlogic = new TeamLogic(mockTeams.Object);
 
@@ -80,7 +81,6 @@ namespace BJJ9B1_HFT_2022231.Test
         public void DriverUpdateTest()
         {
             Drivers GR = new Drivers("22/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom");
-            Dlogic.Update(GR);
             Assert.That(() => Dlogic.Update(GR), Throws.Nothing);
         }
         [Test]
@@ -115,9 +115,9 @@ namespace BJJ9B1_HFT_2022231.Test
         }
 
         [Test]
-        public void BestDriverTest()
+        public void GetBestDriverTest()
         {
-            Assert.That(() => Dlogic.GetBestDriver(),Throws.Nothing);
+            Assert.That(() => Dlogic.GetBestDrivers(), Throws.Nothing);
         }
 
         [Test]
@@ -125,12 +125,27 @@ namespace BJJ9B1_HFT_2022231.Test
         {
             Assert.That(() => Dlogic.GetBritishDrivers(), Throws.Nothing);
         }
+        [Test]
+        public void GetWorstDriverTest()
+        {
+            Assert.That(() => Dlogic.GetWorstDrivers(), Throws.Nothing);
+        }
+        [Test]
+        public void GetOldestDriverTest()
+        {
+            Assert.That(() => Dlogic.GetOldestDriver(), Throws.Nothing);
+        }
+        [Test]
+        public void GetYoungestDriverTest()
+        {
+            Assert.That(() => Dlogic.GetYoungestDriver(), Throws.Nothing);
+        }
         #endregion
         #region Team tests
         [Test]
         public void TeamReadTest()
         {
-            Assert.That(() => Tlogic.Read(4).ToString(), Is.EqualTo(new Teams("4/McLaren F1 Team/1966.1.1/4/129/id.andreasseidl/923").ToString()));
+            Assert.That(() => Tlogic.Read(4).ToString(), Is.EqualTo(new Teams("4/McLaren F1 Team/1966.1.1/4/129/923").ToString()));
         }
         [Test]
         public void TeamReadAllTest()
@@ -140,17 +155,18 @@ namespace BJJ9B1_HFT_2022231.Test
         [Test]
         public void TeamUpdateTest()
         {
-            Assert.That(() => Tlogic.Update(new Teams("4/McLaren F1 Team xd/1966.1.1/4/129/id.andreasseidl/923")), Throws.Nothing);
+            Teams teams = new Teams("4/McLaren F1 Team xd/1966.1.1/4/129/923");
+            Assert.That(() => Tlogic.Update(teams), Throws.Nothing);
         }
         [Test]
         public void TeamCreateTest()
         {
-            Assert.That(() => Tlogic.Create(new Teams("5/BWT Alpine F1 Team/2021.1.1/5/125/id.otmarszafnauer/39")), Throws.Nothing);
+            Assert.That(() => Tlogic.Create(new Teams("5/BWT Alpine F1 Team/2021.1.1/5/125/39")), Throws.Nothing);
         }
         [Test]
         public void TeamDeleteTest()
         {
-            Assert.That(() => Tlogic.Delete(4), Throws.Nothing);
+            Assert.That(() => Tlogic.Delete(2), Throws.Nothing);
         }
         [Test]
         public void GetBestTeamTest()
@@ -160,17 +176,12 @@ namespace BJJ9B1_HFT_2022231.Test
         [Test]
         public void GetWorstTeamTest()
         {
-            Assert.That(() => Tlogic.GetWorstTeam().ToString(), Is.EqualTo(new Teams("4/McLaren F1 Team/1966.1.1/4/129/923").ToString()));
+            Assert.That(() => Tlogic.GetWorstTeam().ToString(), Is.EqualTo(new Teams("10/Williams Racing/1977.1.1/10/6/786").ToString()));
         }
         [Test]
         public void GetTeamWithMostPointsTest()
         {
             Assert.That(() => Tlogic.GetTeamWithMostWin(), Throws.Nothing);
-        }
-        [Test]
-        public void GetBestTeamPrincipalTest()
-        {
-            Assert.That(() => Tlogic.GetBestTeamPrincipal(), Is.EqualTo("Christian Horner"));
         }
         [Test]
         public void TeamsDebutIn20thCenturyTest()
@@ -182,8 +193,14 @@ namespace BJJ9B1_HFT_2022231.Test
         [Test]
         public void TeamPrincipalReadTest()
         {
-            Assert.That(() => TPlogic.Read(4).ToString(), Is.EqualTo(new TeamPrincipals("4/Andreas Seidl/id.mclaren/2019.1.1/1976.1.6/0/2021.9.12/4").ToString()));
+            Assert.That(() => TPlogic.Read(4).ToString(), Is.EqualTo(new TeamPrincipals("4/Andreas Seidl/2019.1.1/1976.1.6/0/2021.9.12/4").ToString()));
         }
+        [Test]
+        public void TeamPrincipalReadAllTest()
+        {
+            Assert.That(() => TPlogic.ReadAll(), Throws.Nothing);
+        }
+        [Test]
         #endregion
     }
 }

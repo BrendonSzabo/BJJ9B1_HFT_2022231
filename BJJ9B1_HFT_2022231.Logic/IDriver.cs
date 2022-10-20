@@ -10,10 +10,10 @@ namespace BJJ9B1_HFT_2022231.Logic
         void Delete(int id);
         void Update(Drivers item);
         Drivers Read(int id);
-        IEnumerable<Drivers> GetBestDriver();
-        IEnumerable<Drivers> GetWorstDriver();
+        IEnumerable<Drivers> GetBestDrivers();
+        IEnumerable<Drivers> GetWorstDrivers();
         IEnumerable<Drivers> GetBritishDrivers();
         Drivers GetOldestDriver();
-        IEnumerable<Drivers> GetYoungestDriver();
+        Drivers GetYoungestDriver();
     }
 }

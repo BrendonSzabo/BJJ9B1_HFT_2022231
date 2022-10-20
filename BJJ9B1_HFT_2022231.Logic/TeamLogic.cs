@@ -25,18 +25,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             Repo.Create(item);
         }
 
-        public void Delete(int id)
-        {
-            if (Repo == null)
-            {
-                throw new Exception("Repository is null.");
-            }
-            if (Repo.Read(id) == null)
-            {
-                throw new Exception("Team not found");
-            }
-            Repo.Delete(id);
-        }
+        
 
         public Teams Read(int id)
         {
@@ -54,6 +43,18 @@ namespace BJJ9B1_HFT_2022231.Logic
             }
             return Team;
         }
+        public void Delete(int id)
+        {
+            if (Repo == null)
+            {
+                throw new Exception("Repository is null.");
+            }
+            if (Repo.ReadAll().Where(t=>t.Id == id).Single() == null)
+            {
+                throw new Exception("Team not found");
+            }
+            Repo.Delete(id);
+        }
 
         public IEnumerable<Teams> ReadAll()
         {
@@ -70,7 +71,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             {
                 throw new Exception("Repository is null.");
             }
-            if (Repo.Read(item.Id) == null)
+            if (Repo.ReadAll().Where(t => t.Id == item.Id).Single() == null)
             {
                 throw new Exception("Team not found.");
             }
@@ -112,7 +113,7 @@ namespace BJJ9B1_HFT_2022231.Logic
                 .OrderBy(t => t.Wins)
                 .Take(1);
         }
-        public string GetBestTeamPrincipal()
+        public TeamPrincipals GetBestTeamPrincipal()
         {
             if (Repo == null)
             {
@@ -121,7 +122,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             return Repo
                 .ReadAll()
                 .Where(t => t.Ranking == 1)
-                .Select(t => t.Princ.PrincipalName)
+                .Select(t => t.Princ)
                 .Single();
         }
         public IEnumerable<Teams> TeamsDebutIn20thCentury()

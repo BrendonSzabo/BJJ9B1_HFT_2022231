@@ -85,7 +85,7 @@ namespace BJJ9B1_HFT_2022231.Logic
         }
         #endregion
         #region non-Crud
-        public IEnumerable<Drivers> GetBestDriver()
+        public IEnumerable<Drivers> GetBestDrivers()
         {
             if (Repo == null)
             {
@@ -93,9 +93,10 @@ namespace BJJ9B1_HFT_2022231.Logic
             }
             return Repo
                 .ReadAll()
-                .Where(t => t.Tm.Ranking == 1);
+                .Where(t => t.Tm.Ranking == 1)
+                .OrderBy(t => t.Number);
         }
-        public IEnumerable<Drivers> GetWorstDriver()
+        public IEnumerable<Drivers> GetWorstDrivers()
         {
             if (Repo == null)
             {
@@ -104,7 +105,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             return Repo
                 .ReadAll()
                 .Where(t => t.Tm.Ranking == 10)
-                .OrderBy(t => t.DriverName);
+                .OrderBy(t => t.Number);
         }
         public IEnumerable<Drivers> GetBritishDrivers()
         {
@@ -126,10 +127,10 @@ namespace BJJ9B1_HFT_2022231.Logic
             return Repo
                 .ReadAll()
                 .OrderBy(t => DateTime.Now.Year - t.Born.Year)
-                .Single();
+                .First();
 
         }
-        public IEnumerable<Drivers> GetYoungestDriver()
+        public Drivers GetYoungestDriver()
         {
             if (Repo == null)
             {
@@ -139,7 +140,7 @@ namespace BJJ9B1_HFT_2022231.Logic
                 .ReadAll()
                 .OrderBy(t => DateTime.Now.Year - t.Born.Year)
                 .Reverse()
-                .Take(1);
+                .First();
         }
         #endregion
     }

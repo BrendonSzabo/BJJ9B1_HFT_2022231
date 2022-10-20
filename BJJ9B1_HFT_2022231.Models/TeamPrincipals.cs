@@ -42,7 +42,7 @@ namespace BJJ9B1_HFT_2022231.Models
             DebutDate = Convert.ToDateTime(f[2]);
             Birth = Convert.ToDateTime(f[3]);
             ChampionshipWins = int.Parse(f[4]);
-            if (f[6] == "null")
+            if (f[5] == "null")
             {
                 FirstWin = null;
             }

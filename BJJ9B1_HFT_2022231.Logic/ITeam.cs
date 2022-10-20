@@ -13,7 +13,7 @@ namespace BJJ9B1_HFT_2022231.Logic
         Teams GetBeastTeam();
         Teams GetWorstTeam();
         IEnumerable<Teams> GetTeamWithMostWin();
-        string GetBestTeamPrincipal();
+        TeamPrincipals GetBestTeamPrincipal();
         IEnumerable<Teams> TeamsDebutIn20thCentury();
 
     }
