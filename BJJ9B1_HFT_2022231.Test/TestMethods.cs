@@ -62,10 +62,9 @@ namespace BJJ9B1_HFT_2022231.Test
         [Test]
         public void DriverCreateTest()
         {
-            Drivers GR = new Drivers("8/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom");
-            Dlogic.Create(GR);
-            Assert.Contains(GR, Dlogic.ReadAll().ToList());
+        Assert.That(() => Dlogic.Create(new Drivers("8/George Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom")), Throws.Nothing);
         }
+
         [Test]
         public void DriverReadTest()
         {
@@ -110,49 +109,30 @@ namespace BJJ9B1_HFT_2022231.Test
         {
             Drivers GR = new Drivers("22/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom");
             GR.DriverName = "";
-            try
-            {
-                Dlogic.Create(GR);
-            }
-            catch (Exception e)
-            {
-                Assert.That(e.Message, Is.EqualTo("Driver needs to have a name."));
-            }
+            Assert.That(() => Dlogic.Create(GR), Throws.Exception);
         }
+
         [Test]
         public void CreateAgeTest()
         {
             Drivers GR = new Drivers("22/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom");
             GR.Born = DateTime.Now;
-            try
-            {
-                Dlogic.Create(GR);
-            }
-            catch (Exception e)
-            {
-                Assert.That(e.Message, Is.EqualTo("Driver ineligible due to young age."));
-            }
+            Assert.That(() => Dlogic.Create(GR), Throws.Exception);
         }
 
         [Test]
         public void CreateNullTest()
         {
-            try
-            {
-                Dlogic.Create(null);
-            }
-            catch (Exception e)
-            {
-
-                Assert.That(e.Message, Is.EqualTo("Null value detected."));
-            }
+            Assert.That(() => Dlogic.Create(null), Throws.Exception);
         }
+
         [Test]
         public void BestDriverTest()
         {
             var d = Dlogic.GetBestDriver();
-            Assert.That(d, Is.EqualTo("Max Verstappen"));
+            Assert.That(d, Is.EqualTo(new Drivers("1/Max Verstappen/1/1/Red Bull Racing/1997.9.30/Netherlands")));
         }
+
         [Test]
         public void GetBritishDriversTest()
         {
