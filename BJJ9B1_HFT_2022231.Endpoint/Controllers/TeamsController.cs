@@ -18,31 +18,31 @@ namespace BJJ9B1_HFT_2022231.Endpoint.Controllers
         [HttpGet]
         public IEnumerable<Teams> ReadAll()
         {
-            return this.logic.ReadAll();
+            return this.logic.ReadAllTeam();
         }
 
         [HttpGet("{id}")]
         public Teams Read(int id)
         {
-            return this.logic.Read(id);
+            return this.logic.ReadTeam(id);
         }
 
         [HttpPost]
         public void Create([FromBody] Teams value)
         {
-            this.logic.Create(value);
+            this.logic.CreateTeam(value);
         }
 
         [HttpPut]
         public void Update([FromBody] Teams value)
         {
-            this.logic.Update(value);
+            this.logic.UpdateTeam(value);
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            this.logic.Delete(id);
+            this.logic.DeleteTeam(id);
         }
     }
 }

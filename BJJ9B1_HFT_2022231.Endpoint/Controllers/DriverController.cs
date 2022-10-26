@@ -18,27 +18,27 @@ namespace BJJ9B1_HFT_2022231.Endpoint.Controllers
         [HttpGet]
         public IEnumerable<Drivers> ReadAll()
         {
-            return this.logic.ReadAll();
+            return this.logic.ReadAllDriver();
         }
         [HttpPost]
         public void Create([FromBody] Drivers value)
         {
-            this.logic.Create(value);
+            this.logic.CreateDriver(value);
         }
         [HttpGet("{id}")]
         public Drivers Read(int id)
         {
-            return this.logic.Read(id);
+            return this.logic.ReadDriver(id);
         }
         [HttpPut]
         public void Update([FromBody] Drivers value)
         {
-            this.logic.Update(value);
+            this.logic.UpdateDriver(value);
         }
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            this.logic.Delete(id);
+            this.logic.DeleteDriver(id);
         }
     }
 }

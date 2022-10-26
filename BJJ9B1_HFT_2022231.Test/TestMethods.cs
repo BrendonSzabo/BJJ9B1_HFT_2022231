@@ -63,32 +63,32 @@ namespace BJJ9B1_HFT_2022231.Test
         [Test]
         public void DriverCreateTest()
         {
-            Assert.That(() => Dlogic.Create(new Drivers("8/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom")), Throws.Nothing);
+            Assert.That(() => Dlogic.CreateDriver(new Drivers("8/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom")), Throws.Nothing);
         }
 
         [Test]
         public void DriverReadTest()
         {
-            Assert.That(() => Dlogic.Read(4).ToString(), Is.EqualTo(new Drivers("4/Carlos Sainz/55/2/Ferrari/1994.9.1/Spain").ToString()));
+            Assert.That(() => Dlogic.ReadDriver(4).ToString(), Is.EqualTo(new Drivers("4/Carlos Sainz/55/2/Ferrari/1994.9.1/Spain").ToString()));
         }
 
         [Test]
         public void DriverReadAllTest()
         {
-            Assert.That(() => Dlogic.ReadAll(), Throws.Nothing);
+            Assert.That(() => Dlogic.ReadAllDriver(), Throws.Nothing);
         }
         [Test]
         public void DriverUpdateTest()
         {
             Drivers GR = new Drivers("22/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom");
-            Assert.That(() => Dlogic.Update(GR), Throws.Nothing);
+            Assert.That(() => Dlogic.UpdateDriver(GR), Throws.Nothing);
         }
         [Test]
         public void DriverDeleteTest()
         {
             Drivers GR = new Drivers("22/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom");
-            Dlogic.Delete(GR.Id);
-            var D = Dlogic.ReadAll().ToList();
+            Dlogic.DeleteDriver(GR.Id);
+            var D = Dlogic.ReadAllDriver().ToList();
             Assert.IsFalse(D.Contains(GR));
         }
 
@@ -97,7 +97,7 @@ namespace BJJ9B1_HFT_2022231.Test
         {
             Drivers GR = new Drivers("22/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom");
             GR.DriverName = "";
-            Assert.That(() => Dlogic.Create(GR), Throws.Exception);
+            Assert.That(() => Dlogic.CreateDriver(GR), Throws.Exception);
         }
 
         [Test]
@@ -105,13 +105,13 @@ namespace BJJ9B1_HFT_2022231.Test
         {
             Drivers GR = new Drivers("22/Geroge Russell/63/3/Mercedes-AMG Petronas Formula One Team/1998.02.15/United Kingdom");
             GR.Born = DateTime.Now;
-            Assert.That(() => Dlogic.Create(GR), Throws.Exception);
+            Assert.That(() => Dlogic.CreateDriver(GR), Throws.Exception);
         }
 
         [Test]
         public void CreateNullTest()
         {
-            Assert.That(() => Dlogic.Create(null), Throws.Exception);
+            Assert.That(() => Dlogic.CreateDriver(null), Throws.Exception);
         }
 
         [Test]
@@ -145,28 +145,28 @@ namespace BJJ9B1_HFT_2022231.Test
         [Test]
         public void TeamReadTest()
         {
-            Assert.That(() => Tlogic.Read(4).ToString(), Is.EqualTo(new Teams("4/McLaren F1 Team/1966.1.1/4/129/923").ToString()));
+            Assert.That(() => Tlogic.ReadTeam(4).ToString(), Is.EqualTo(new Teams("4/McLaren F1 Team/1966.1.1/4/129/923").ToString()));
         }
         [Test]
         public void TeamReadAllTest()
         {
-            Assert.That(() => Tlogic.ReadAll(), Throws.Nothing);
+            Assert.That(() => Tlogic.ReadAllTeam(), Throws.Nothing);
         }
         [Test]
         public void TeamUpdateTest()
         {
             Teams teams = new Teams("4/McLaren F1 Team xd/1966.1.1/4/129/923");
-            Assert.That(() => Tlogic.Update(teams), Throws.Nothing);
+            Assert.That(() => Tlogic.UpdateTeam(teams), Throws.Nothing);
         }
         [Test]
         public void TeamCreateTest()
         {
-            Assert.That(() => Tlogic.Create(new Teams("5/BWT Alpine F1 Team/2021.1.1/5/125/39")), Throws.Nothing);
+            Assert.That(() => Tlogic.CreateTeam(new Teams("5/BWT Alpine F1 Team/2021.1.1/5/125/39")), Throws.Nothing);
         }
         [Test]
         public void TeamDeleteTest()
         {
-            Assert.That(() => Tlogic.Delete(2), Throws.Nothing);
+            Assert.That(() => Tlogic.DeleteTeam(2), Throws.Nothing);
         }
         [Test]
         public void GetBestTeamTest()
@@ -193,23 +193,23 @@ namespace BJJ9B1_HFT_2022231.Test
         [Test]
         public void TeamPrincipalReadTest()
         {
-            Assert.That(() => TPlogic.Read(4).ToString(), Is.EqualTo(new TeamPrincipals("4/Andreas Seidl/2019.1.1/1976.1.6/0/2021.9.12/4").ToString()));
+            Assert.That(() => TPlogic.ReadTeamPrincipal(4).ToString(), Is.EqualTo(new TeamPrincipals("4/Andreas Seidl/2019.1.1/1976.1.6/0/2021.9.12/4").ToString()));
         }
         [Test]
         public void TeamPrincipalReadAllTest()
         {
-            Assert.That(() => TPlogic.ReadAll(), Throws.Nothing);
+            Assert.That(() => TPlogic.ReadAllTeamPrincipal(), Throws.Nothing);
         }
         [Test]
         public void TeamPrincipalUpdateTest()
         {
             TeamPrincipals Tp = new TeamPrincipals("3/Toto Wolffie/2013.1.1/1972.1.12./7/2013.5.26/3");
-            Assert.That(() => TPlogic.Update(Tp), Throws.Nothing);
+            Assert.That(() => TPlogic.UpdateTeamPrincipal(Tp), Throws.Nothing);
         }
         [Test]
         public void TeamPrincipalDelete()
         {
-            Assert.That(() => TPlogic.Delete(4), Throws.Nothing);
+            Assert.That(() => TPlogic.DeleteTeamPrincipal(4), Throws.Nothing);
         }
         [Test]
         public void GetMostChampionshipWinTeamPrincipal()

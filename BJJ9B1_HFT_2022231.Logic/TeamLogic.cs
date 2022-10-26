@@ -16,7 +16,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             this.Repo = repository;
         }
         #region Crud
-        public void Create(Teams item)
+        public void CreateTeam(Teams item)
         {
             if (Repo.ReadAll().Count() >= 10)
             {
@@ -27,7 +27,7 @@ namespace BJJ9B1_HFT_2022231.Logic
 
         
 
-        public Teams Read(int id)
+        public Teams ReadTeam(int id)
         {
             if (Repo == null)
             {
@@ -43,7 +43,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             }
             return Team;
         }
-        public void Delete(int id)
+        public void DeleteTeam(int id)
         {
             if (Repo == null)
             {
@@ -56,7 +56,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             Repo.Delete(id);
         }
 
-        public IEnumerable<Teams> ReadAll()
+        public IEnumerable<Teams> ReadAllTeam()
         {
             if (Repo == null)
             {
@@ -65,7 +65,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             return Repo.ReadAll();
         }
 
-        public void Update(Teams item)
+        public void UpdateTeam(Teams item)
         {
             if (Repo == null)
             {

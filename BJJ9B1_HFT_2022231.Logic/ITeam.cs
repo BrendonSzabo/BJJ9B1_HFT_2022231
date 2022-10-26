@@ -5,11 +5,11 @@ namespace BJJ9B1_HFT_2022231.Logic
 {
     public interface ITeam
     {
-        IEnumerable<Teams> ReadAll();
-        void Update(Teams item);
-        void Create(Teams item);
-        void Delete(int id);
-        Teams Read(int id);
+        IEnumerable<Teams> ReadAllTeam();
+        void UpdateTeam(Teams item);
+        void CreateTeam(Teams item);
+        void DeleteTeam(int id);
+        Teams ReadTeam(int id);
         Teams GetBeastTeam();
         Teams GetWorstTeam();
         IEnumerable<Teams> GetTeamWithMostWin();

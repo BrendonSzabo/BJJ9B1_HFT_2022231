@@ -14,7 +14,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             this.Repo = repository;
         }
         #region Crud
-        public void Create(TeamPrincipals item)
+        public void CreateTeamPrincipal(TeamPrincipals item)
         {
 
             if (18 > DateTime.Now.Year - item.Birth.Year || DateTime.Now.Year - item.Birth.Year > 60)
@@ -27,7 +27,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             }
         }
 
-        public void Delete(int id)
+        public void DeleteTeamPrincipal(int id)
         {
             if (Repo == null)
             {
@@ -36,7 +36,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             Repo.Delete(id);
         }
 
-        public TeamPrincipals Read(int id)
+        public TeamPrincipals ReadTeamPrincipal(int id)
         {
             if (Repo == null)
             {
@@ -53,7 +53,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             return tp;
         }
 
-        public IEnumerable<TeamPrincipals> ReadAll()
+        public IEnumerable<TeamPrincipals> ReadAllTeamPrincipal()
         {
             if (Repo == null)
             {
@@ -62,7 +62,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             return Repo.ReadAll();
         }
 
-        public void Update(TeamPrincipals item)
+        public void UpdateTeamPrincipal(TeamPrincipals item)
         {
             if (Repo == null)
             {

@@ -5,11 +5,11 @@ namespace BJJ9B1_HFT_2022231.Logic
 {
     public interface ITeamPrincipal
     {
-        IEnumerable<TeamPrincipals> ReadAll();
-        void Create(TeamPrincipals item);
-        void Update(TeamPrincipals item);
-        void Delete(int id);
-        TeamPrincipals Read(int id);
+        IEnumerable<TeamPrincipals> ReadAllTeamPrincipal();
+        void CreateTeamPrincipal(TeamPrincipals item);
+        void UpdateTeamPrincipal(TeamPrincipals item);
+        void DeleteTeamPrincipal(int id);
+        TeamPrincipals ReadTeamPrincipal(int id);
         TeamPrincipals GetMostChampionshipWinTeamPrincipal();
         IEnumerable<TeamPrincipals> GetPrincipalsWithWin();
         IEnumerable<TeamPrincipals> GetPrincipalWhoDebutedIn20thCentury();

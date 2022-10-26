@@ -19,31 +19,31 @@ namespace BJJ9B1_HFT_2022231.Endpoint.Controllers
         [HttpGet]
         public IEnumerable<TeamPrincipals> ReadAll()
         {
-            return this.logic.ReadAll();
+            return this.logic.ReadAllTeamPrincipal();
         }
 
         [HttpGet("{id}")]
-        public TeamPrincipals Get(int id)
+        public TeamPrincipals Read(int id)
         {
-            return this.logic.Read(id);
+            return this.logic.ReadTeamPrincipal(id);
         }
 
         [HttpPost]
         public void Create([FromBody] TeamPrincipals value)
         {
-            this.logic.Create(value);
+            this.logic.CreateTeamPrincipal(value);
         }
 
         [HttpPut]
         public void Update([FromBody] TeamPrincipals value)
         {
-            this.logic.Update(value);
+            this.logic.UpdateTeamPrincipal(value);
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            this.logic.Delete(id);
+            this.logic.DeleteTeamPrincipal(id);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             this.Repo = repo;
         }
         #region Crud
-        public IEnumerable<Drivers> ReadAll()
+        public IEnumerable<Drivers> ReadAllDriver()
         {
             if (Repo == null)
             {
@@ -23,7 +23,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             return Repo.ReadAll();
         }
 
-        public void Create(Drivers item)
+        public void CreateDriver(Drivers item)
         {
             if (18 > DateTime.Now.Year - item.Born.Year)
             {
@@ -43,7 +43,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             }
         }
 
-        public void Delete(int id)
+        public void DeleteDriver(int id)
         {
             if (Repo != null)
             {
@@ -55,7 +55,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             }
         }
 
-        public void Update(Drivers item)
+        public void UpdateDriver(Drivers item)
         {
             if (Repo == null)
             {
@@ -67,7 +67,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             }
         }
 
-        public Drivers Read(int id)
+        public Drivers ReadDriver(int id)
         {
             if (Repo == null)
             {
