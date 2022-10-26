@@ -16,10 +16,10 @@ namespace BJJ9B1_HFT_2022231.Logic
         #region Crud
         public IEnumerable<Drivers> ReadAllDriver()
         {
-            if (Repo == null)
-            {
-                throw new Exception("Repository is null.");
-            }
+           //if (Repo == null)
+           // {
+           //     throw new Exception("Repository is null.");
+           // }
             return Repo.ReadAll();
         }
 

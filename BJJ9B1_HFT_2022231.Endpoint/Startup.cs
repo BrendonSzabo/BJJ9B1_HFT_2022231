@@ -41,8 +41,8 @@ namespace BJJ9B1_HFT_2022231.Endpoint
 
             services.AddControllers();
             services.AddSwaggerGen(t => t.SwaggerDoc("v1", new OpenApiInfo
-            { Title = "BJJ9B1_HFT_2022231.Endpoint", Version = "v1" })
-            );
+            { Title = "BJJ9B1_HFT_2022231.Endpoint", Version = "v1" }
+            ));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace BJJ9B1_HFT_2022231.Models
 {
@@ -38,6 +39,8 @@ namespace BJJ9B1_HFT_2022231.Models
         /// <summary>
         /// Teams virtual method
         /// </summary>
+        /// 
+        [JsonIgnore]
         public virtual Teams Tm { get; set; }
         /// <summary>
         /// constructor values

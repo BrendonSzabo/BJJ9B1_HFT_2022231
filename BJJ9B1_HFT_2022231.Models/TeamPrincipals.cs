@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace BJJ9B1_HFT_2022231.Models
@@ -33,6 +34,8 @@ namespace BJJ9B1_HFT_2022231.Models
         /// <summary>
         /// Teams virtual method
         /// </summary>
+        /// 
+        
         public virtual Teams Tm { get; set; }
 
         public TeamPrincipals()
