@@ -13,15 +13,21 @@ namespace BJJ9B1_HFT_2022231.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Range(1, 10)]
+        [Required]
         public int Id { get; set; }
         [StringLength(240)]
+        [Required]
         
         public string PrincipalName { get; set; }
         [Range(1,10)]
+        [Required]
         public int TeamID { get; set; }
+        [Required]
         public DateTime DebutDate { get; set; }
+        [Required]
         public DateTime Birth { get; set; }
-        public int? ChampionshipWins { get; set; }
+        [Required]
+        public int ChampionshipWins { get; set; }
         public DateTime? FirstWin { get; set; }
 
         /// <summary>

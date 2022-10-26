@@ -13,16 +13,23 @@ namespace BJJ9B1_HFT_2022231.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Range(1, 30)]
+        [Required]
         public int Id { get; set; }
         [StringLength(240)]
+        [Required]
         public string DriverName { get; set; }
+        [Required]
         public int Number { get; set; }
         [Range(1,10)]
+        [Required]
         public int TeamId { get; set; }
         [StringLength(240)]
+        [Required]
         public string TeamName { get; set; }
+        [Required]
         public DateTime Born { get; set; }
         [StringLength(240)]
+        [Required]
         public string Nationality { get; set; }
 
         public Drivers()
