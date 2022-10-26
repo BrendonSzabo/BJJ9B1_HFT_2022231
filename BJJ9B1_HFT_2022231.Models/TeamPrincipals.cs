@@ -12,10 +12,12 @@ namespace BJJ9B1_HFT_2022231.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Range(1, 10)]
         public int Id { get; set; }
         [StringLength(240)]
         
         public string PrincipalName { get; set; }
+        [Range(1,10)]
         public int TeamID { get; set; }
         public DateTime DebutDate { get; set; }
         public DateTime Birth { get; set; }
