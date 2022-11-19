@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BJJ9B1_HFT_2022231.Logic;
+using BJJ9B1_HFT_2022231.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,36 +11,100 @@ namespace BJJ9B1_HFT_2022231.Endpoint.Controllers
     [ApiController]
     public class StatisticsController : ControllerBase
     {
-        // GET: api/<StatisticsController>
+        readonly IDriver driverLogic;
+        readonly ITeam teamsLogic;
+        readonly ITeamPrincipal teamprincipalsLogic;
+
+        public StatisticsController(IDriver driverLogic, ITeam teamsLogic, ITeamPrincipal principalsLogic)
+        {
+            this.driverLogic = driverLogic;
+            this.teamsLogic = teamsLogic;
+            this.teamprincipalsLogic = principalsLogic;
+        }
+        #region driver httpget
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Drivers> GetBestDrivers()
         {
-            return new string[] { "value1", "value2" };
+            return this.driverLogic.GetBestDrivers();
         }
 
-        // GET api/<StatisticsController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet]
+        public IEnumerable<Drivers> GetWorstDrivers()
         {
-            return "value";
+            return this.driverLogic.GetWorstDrivers();
         }
 
-        // POST api/<StatisticsController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpGet]
+        public IEnumerable<Drivers> GetBritishDrivers()
         {
+            return this.driverLogic.GetBritishDrivers();
         }
 
-        // PUT api/<StatisticsController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpGet]
+        public Drivers GetOldestDriver()
         {
+            return this.driverLogic.GetOldestDriver();
         }
 
-        // DELETE api/<StatisticsController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpGet]
+        public Drivers GetYoungestDriver()
         {
+            return this.driverLogic.GetYoungestDriver();
         }
+        #endregion
+        #region teams httpget
+        [HttpGet]
+        public Teams GetBeastTeam()
+        {
+            return this.teamsLogic.GetBeastTeam();
+        }
+        [HttpGet]
+        public Teams GetWorstTeam()
+        {
+            return this.teamsLogic.GetWorstTeam();
+        }
+        [HttpGet]
+        public IEnumerable<Teams> GetTeamWithMostWin()
+        {
+            return this.teamsLogic.GetTeamWithMostWin();
+        }
+        [HttpGet]
+        public TeamPrincipals GetBestTeamPrincipal()
+        {
+            return this.teamsLogic.GetBestTeamPrincipal();
+        }
+        [HttpGet]
+        public IEnumerable<Teams> TeamsDebutIn20thCentury()
+        {
+            return this.teamsLogic.TeamsDebutIn20thCentury();
+        }
+        #endregion
+        #region team principal httpget
+        [HttpGet]
+        public TeamPrincipals GetMostChampionshipWinTeamPrincipal()
+        {
+            return this.teamprincipalsLogic.GetMostChampionshipWinTeamPrincipal();
+        }
+        [HttpGet]
+        public IEnumerable<TeamPrincipals> GetPrincipalsWithWin()
+        {
+            return this.teamprincipalsLogic.GetPrincipalsWithWin();
+        }
+        [HttpGet]
+        public IEnumerable<TeamPrincipals> GetPrincipalWhoDebutedIn20thCentury()
+        {
+            return this.teamprincipalsLogic.GetPrincipalWhoDebutedIn20thCentury();
+        }
+        [HttpGet]
+        public IEnumerable<TeamPrincipals> GetPrincipalWithChampionship()
+        {
+            return this.teamprincipalsLogic.GetPrincipalWithChampionship();
+        }
+        [HttpGet]
+        public TeamPrincipals GetPrincipalOfBestTeam()
+        {
+            return this.teamprincipalsLogic.GetPrincipalOfBestTeam();
+        }
+        #endregion
     }
 }
