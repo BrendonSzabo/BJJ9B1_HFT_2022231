@@ -1,5 +1,10 @@
+using BJJ9B1_HFT_2022231.Logic;
+using BJJ9B1_HFT_2022231.Models;
+using BJJ9B1_HFT_2022231.Repository;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,6 +30,15 @@ namespace BJJ9B1_HFT_2022231.Endpoint
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<F1DbContext>();
+
+            services.AddTransient<IRepository<TeamPrincipals>, TeamPrincipalRepository>();
+            services.AddTransient<IRepository<Teams>, TeamRepository>();
+            services.AddTransient<IRepository<Drivers>, DriverRepository>();
+
+            services.AddTransient<ITeamPrincipal, TeamPrincipalLogic>();
+            services.AddTransient<ITeam, TeamLogic>();
+            services.AddTransient<IDriver, DriverLogic>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -42,6 +56,15 @@ namespace BJJ9B1_HFT_2022231.Endpoint
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BJJ9B1_HFT_2022231.Endpoint v1"));
             }
+            app.UseExceptionHandler(t => t.Run(async context =>
+            {
+                var exc = context.Features
+                .Get<IExceptionHandlerFeature>()
+                .Error;
+                var msg = new { Msg = exc.Message };
+                await context.Response.WriteAsJsonAsync(msg);
+            }
+            ));
 
             app.UseRouting();
 
