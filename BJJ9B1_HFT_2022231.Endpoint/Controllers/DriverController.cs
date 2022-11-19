@@ -19,14 +19,14 @@ namespace BJJ9B1_HFT_2022231.Endpoint.Controllers
         }
         // GET: api/<DriverController>
         [HttpGet]
-        public IEnumerable<Drivers> Get()
+        public IEnumerable<Drivers> ReadAll()
         {
             return this.logic.ReadAllDriver();
         }
 
         // GET api/<DriverController>/5
         [HttpGet("{id}")]
-        public Drivers Get(int id)
+        public Drivers Read(int id)
         {
             return logic.ReadDriver(id);
         }
