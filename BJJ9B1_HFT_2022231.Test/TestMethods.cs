@@ -171,7 +171,7 @@ namespace BJJ9B1_HFT_2022231.Test
         [Test]
         public void GetBestTeamTest()
         {
-            Assert.That(() => Tlogic.GetBeastTeam().ToString(), Is.EqualTo(new Teams("1/Red Bull Racing/2005.1.1/1/576/343").ToString()));
+            Assert.That(() => Tlogic.GetBestTeam().ToString(), Is.EqualTo(new Teams("1/Red Bull Racing/2005.1.1/1/576/343").ToString()));
         }
         [Test]
         public void GetWorstTeamTest()
@@ -224,12 +224,12 @@ namespace BJJ9B1_HFT_2022231.Test
         [Test]
         public void GetPrincipalWhoDebutedIn20thCentury()
         {
-            Assert.That(() => TPlogic.GetPrincipalWhoDebutedIn20thCentury(), Throws.Nothing);
+            Assert.That(() => TPlogic.GetPrincipalsWhoDebutedIn20thCentury(), Throws.Nothing);
         }
         [Test]
         public void GetPrincipalWithChampionship()
         {
-            Assert.That(() => TPlogic.GetPrincipalWithChampionship(), Throws.Nothing);
+            Assert.That(() => TPlogic.GetPrincipalsWithChampionship(), Throws.Nothing);
         }
         #endregion
     }

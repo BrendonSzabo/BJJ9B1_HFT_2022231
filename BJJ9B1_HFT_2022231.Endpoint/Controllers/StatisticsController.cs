@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace BJJ9B1_HFT_2022231.Endpoint.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]/[action]")]
     [ApiController]
     public class StatisticsController : ControllerBase
     {
@@ -54,9 +54,9 @@ namespace BJJ9B1_HFT_2022231.Endpoint.Controllers
         #endregion
         #region teams httpget
         [HttpGet]
-        public Teams GetBeastTeam()
+        public Teams GetBestTeam()
         {
-            return this.teamsLogic.GetBeastTeam();
+            return this.teamsLogic.GetBestTeam();
         }
         [HttpGet]
         public Teams GetWorstTeam()
@@ -64,7 +64,7 @@ namespace BJJ9B1_HFT_2022231.Endpoint.Controllers
             return this.teamsLogic.GetWorstTeam();
         }
         [HttpGet]
-        public IEnumerable<Teams> GetTeamWithMostWin()
+        public Teams GetTeamWithMostWin()
         {
             return this.teamsLogic.GetTeamWithMostWin();
         }
@@ -93,12 +93,12 @@ namespace BJJ9B1_HFT_2022231.Endpoint.Controllers
         [HttpGet]
         public IEnumerable<TeamPrincipals> GetPrincipalWhoDebutedIn20thCentury()
         {
-            return this.teamprincipalsLogic.GetPrincipalWhoDebutedIn20thCentury();
+            return this.teamprincipalsLogic.GetPrincipalsWhoDebutedIn20thCentury();
         }
         [HttpGet]
         public IEnumerable<TeamPrincipals> GetPrincipalWithChampionship()
         {
-            return this.teamprincipalsLogic.GetPrincipalWithChampionship();
+            return this.teamprincipalsLogic.GetPrincipalsWithChampionship();
         }
         [HttpGet]
         public TeamPrincipals GetPrincipalOfBestTeam()

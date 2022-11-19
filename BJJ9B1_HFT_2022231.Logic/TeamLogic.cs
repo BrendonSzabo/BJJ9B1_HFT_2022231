@@ -79,7 +79,7 @@ namespace BJJ9B1_HFT_2022231.Logic
         }
         #endregion
         #region non-Crud
-        public Teams GetBeastTeam()
+        public Teams GetBestTeam()
         {
             if (Repo == null)
             {
@@ -101,7 +101,7 @@ namespace BJJ9B1_HFT_2022231.Logic
                 .Where(t => t.Ranking == 10)
                 .Single();
         }
-        public IEnumerable<Teams> GetTeamWithMostWin()
+        public Teams GetTeamWithMostWin()
         {
             if (Repo == null)
             {
@@ -111,7 +111,7 @@ namespace BJJ9B1_HFT_2022231.Logic
                 .ReadAll()
                 .Where(t => t.Wins != 0)
                 .OrderBy(t => t.Wins)
-                .Take(1);
+                .First();
         }
         public TeamPrincipals GetBestTeamPrincipal()
         {

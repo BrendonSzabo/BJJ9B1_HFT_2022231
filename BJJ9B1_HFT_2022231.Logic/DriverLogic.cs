@@ -127,6 +127,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             return Repo
                 .ReadAll()
                 .OrderBy(t => DateTime.Now.Year - t.Born.Year)
+                .Reverse()
                 .First();
 
         }
@@ -139,7 +140,6 @@ namespace BJJ9B1_HFT_2022231.Logic
             return Repo
                 .ReadAll()
                 .OrderBy(t => DateTime.Now.Year - t.Born.Year)
-                .Reverse()
                 .First();
         }
         #endregion

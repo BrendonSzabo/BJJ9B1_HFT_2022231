@@ -98,7 +98,7 @@ namespace BJJ9B1_HFT_2022231.Logic
                 .Where(t => t.FirstWin != null)
                 .OrderBy(t => t.PrincipalName);
         }
-        public IEnumerable<TeamPrincipals> GetPrincipalWhoDebutedIn20thCentury()
+        public IEnumerable<TeamPrincipals> GetPrincipalsWhoDebutedIn20thCentury()
         {
             if (Repo == null)
             {
@@ -106,10 +106,10 @@ namespace BJJ9B1_HFT_2022231.Logic
             }
             return Repo
                 .ReadAll()
-                .Where(t => t.Birth.Year > 1900 && 2000>t.Birth.Year)
+                .Where(t => 2000 > t.DebutDate.Year && t.DebutDate.Year > 1900)
                 .OrderBy(t => t.Birth.Year);
         }
-        public IEnumerable<TeamPrincipals> GetPrincipalWithChampionship()
+        public IEnumerable<TeamPrincipals> GetPrincipalsWithChampionship()
         {
             if (Repo == null)
             {
