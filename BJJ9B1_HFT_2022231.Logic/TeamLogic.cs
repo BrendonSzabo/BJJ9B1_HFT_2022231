@@ -79,51 +79,44 @@ namespace BJJ9B1_HFT_2022231.Logic
         }
         #endregion
         #region non-Crud
-        public Teams GetBestTeam()
+        public IEnumerable<Teams> GetBestTeam()
         {
             if (Repo == null)
             {
                 throw new Exception("Repository is null.");
             }
-            return Repo
+            return new List<Teams>(){Repo
                 .ReadAll()
-                .Where(t => t.Ranking == 1)
-                .Single();
+                .OrderBy(t => t.Ranking)
+                .Reverse()
+                .First()
+            };
         }
-        public Teams GetWorstTeam()
+        public IEnumerable<Teams> GetWorstTeam()
         {
             if (Repo == null)
             {
                 throw new Exception("Repository is null.");
             }
-            return Repo
+            return new List<Teams>(){Repo
                 .ReadAll()
-                .Where(t => t.Ranking == 10)
-                .Single();
+                .OrderBy(t => t.Ranking)
+                .First()
+            };
         }
-        public Teams GetTeamWithMostWin()
+        public IEnumerable<TeamPrincipals> GetBestTeamPrincipal()
         {
             if (Repo == null)
             {
                 throw new Exception("Repository is null.");
             }
-            return Repo
+            return new List<TeamPrincipals>(){Repo
                 .ReadAll()
-                .Where(t => t.Wins != 0)
-                .OrderBy(t => t.Wins)
-                .First();
-        }
-        public TeamPrincipals GetBestTeamPrincipal()
-        {
-            if (Repo == null)
-            {
-                throw new Exception("Repository is null.");
-            }
-            return Repo
-                .ReadAll()
-                .Where(t => t.Ranking == 1)
+                .OrderBy(t => t.Ranking)
+                .Reverse()
                 .Select(t => t.Princ)
-                .Single();
+                .First()
+            };
         }
         public IEnumerable<Teams> TeamsDebutIn20thCentury()
         {

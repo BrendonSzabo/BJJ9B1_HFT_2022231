@@ -64,11 +64,6 @@ namespace BJJ9B1_HFT_2022231.Endpoint.Controllers
             return this.teamsLogic.GetWorstTeam();
         }
         [HttpGet]
-        public Teams GetTeamWithMostWin()
-        {
-            return this.teamsLogic.GetTeamWithMostWin();
-        }
-        [HttpGet]
         public TeamPrincipals GetBestTeamPrincipal()
         {
             return this.teamsLogic.GetBestTeamPrincipal();

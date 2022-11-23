@@ -13,7 +13,7 @@ namespace BJJ9B1_HFT_2022231.Logic
         IEnumerable<Drivers> GetBestDrivers();
         IEnumerable<Drivers> GetWorstDrivers();
         IEnumerable<Drivers> GetBritishDrivers();
-        Drivers GetOldestDriver();
-        Drivers GetYoungestDriver();
+        IEnumerable<Drivers> GetOldestDriver();
+        IEnumerable<Drivers> GetYoungestDriver();
     }
 }

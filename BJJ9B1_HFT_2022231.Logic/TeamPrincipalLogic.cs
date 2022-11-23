@@ -75,17 +75,18 @@ namespace BJJ9B1_HFT_2022231.Logic
         }
         #endregion
         #region non-Crud
-        public TeamPrincipals GetMostChampionshipWinTeamPrincipal()
+        public IEnumerable<TeamPrincipals> GetMostChampionshipWinTeamPrincipal()
         {
             if (Repo == null)
             {
                 throw new Exception("Repository is null");
             }
-            return this.Repo
+            return new List<TeamPrincipals>() {this.Repo
                 .ReadAll()
                 .OrderBy(t => t.ChampionshipWins)
                 .Reverse()
-                .First();
+                .First() }; 
+                
         }
         public IEnumerable<TeamPrincipals> GetPrincipalsWithWin()
         {
@@ -120,16 +121,18 @@ namespace BJJ9B1_HFT_2022231.Logic
                 .Where(t => t.ChampionshipWins != null)
                 .OrderBy(t => t.PrincipalName);
         }
-        public TeamPrincipals GetPrincipalOfBestTeam()
+        public IEnumerable<TeamPrincipals> GetPrincipalOfBestTeam()
         {
             if (Repo == null)
             {
                 throw new Exception("Repository is null");
             }
-            return Repo
+            return new List<TeamPrincipals>(){Repo
                 .ReadAll()
-                .Where(t => t.Tm.Ranking == 1)
-                .Single();
+                .OrderBy(t => t.Tm.Ranking)
+                .Reverse()
+                .First()
+            };
         }
         #endregion
     }

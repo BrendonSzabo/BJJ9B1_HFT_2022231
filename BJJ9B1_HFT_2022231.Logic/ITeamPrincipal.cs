@@ -10,10 +10,10 @@ namespace BJJ9B1_HFT_2022231.Logic
         void UpdateTeamPrincipal(TeamPrincipals item);
         void DeleteTeamPrincipal(int id);
         TeamPrincipals ReadTeamPrincipal(int id);
-        TeamPrincipals GetMostChampionshipWinTeamPrincipal();
+        IEnumerable<TeamPrincipals> GetMostChampionshipWinTeamPrincipal();
         IEnumerable<TeamPrincipals> GetPrincipalsWithWin();
         IEnumerable<TeamPrincipals> GetPrincipalsWhoDebutedIn20thCentury();
         IEnumerable<TeamPrincipals> GetPrincipalsWithChampionship();
-        TeamPrincipals GetPrincipalOfBestTeam();
+        IEnumerable<TeamPrincipals> GetPrincipalOfBestTeam();
     }
 }

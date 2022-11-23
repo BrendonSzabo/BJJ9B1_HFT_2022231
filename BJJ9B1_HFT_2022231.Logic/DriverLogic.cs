@@ -76,7 +76,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             var driver = Repo
                 .ReadAll()
                 .Where(t => t.Id == id)
-                .Single();
+                .First();
             if (driver == null)
             {
                 throw new Exception("Driver does not exist");
@@ -93,8 +93,8 @@ namespace BJJ9B1_HFT_2022231.Logic
             }
             return Repo
                 .ReadAll()
-                .Where(t => t.Tm.Ranking == 1)
-                .OrderBy(t => t.Number);
+                .OrderByDescending(t => t.Tm.Ranking)
+                .ThenBy(t => t.Number);
         }
         public IEnumerable<Drivers> GetWorstDrivers()
         {
@@ -104,8 +104,8 @@ namespace BJJ9B1_HFT_2022231.Logic
             }
             return Repo
                 .ReadAll()
-                .Where(t => t.Tm.Ranking == 10)
-                .OrderBy(t => t.Number);
+                .OrderBy(t => t.Tm.Ranking == 10)
+                .ThenBy(t => t.Number);
         }
         public IEnumerable<Drivers> GetBritishDrivers()
         {
@@ -116,31 +116,33 @@ namespace BJJ9B1_HFT_2022231.Logic
             return Repo
                 .ReadAll()
                 .Where(t => t.Nationality == "United Kingdom")
-                .OrderBy(t => t.DriverName);
+                .OrderBy(t => t.Number);
         }
-        public Drivers GetOldestDriver()
+        public IEnumerable<Drivers> GetOldestDriver()
         {
             if (Repo == null)
             {
                 throw new Exception("Repository is null.");
             }
-            return Repo
+            return new List<Drivers>(){Repo
                 .ReadAll()
                 .OrderBy(t => DateTime.Now.Year - t.Born.Year)
-                .Reverse()
-                .First();
+                .Reverse() 
+                .First()
+            };
 
         }
-        public Drivers GetYoungestDriver()
+        public IEnumerable<Drivers> GetYoungestDriver()
         {
             if (Repo == null)
             {
                 throw new Exception("Repository is null.");
             }
-            return Repo
+            return new List<Drivers>(){Repo
                 .ReadAll()
                 .OrderBy(t => DateTime.Now.Year - t.Born.Year)
-                .First();
+                .First()
+            };
         }
         #endregion
     }
