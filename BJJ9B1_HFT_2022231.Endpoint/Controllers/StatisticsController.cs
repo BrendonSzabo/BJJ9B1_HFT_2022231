@@ -41,30 +41,30 @@ namespace BJJ9B1_HFT_2022231.Endpoint.Controllers
         }
 
         [HttpGet]
-        public Drivers GetOldestDriver()
+        public IEnumerable<Drivers> GetOldestDriver()
         {
             return this.driverLogic.GetOldestDriver();
         }
 
         [HttpGet]
-        public Drivers GetYoungestDriver()
+        public IEnumerable<Drivers> GetYoungestDriver()
         {
             return this.driverLogic.GetYoungestDriver();
         }
         #endregion
         #region teams httpget
         [HttpGet]
-        public Teams GetBestTeam()
+        public IEnumerable<Teams> GetBestTeam()
         {
             return this.teamsLogic.GetBestTeam();
         }
         [HttpGet]
-        public Teams GetWorstTeam()
+        public IEnumerable<Teams> GetWorstTeam()
         {
             return this.teamsLogic.GetWorstTeam();
         }
         [HttpGet]
-        public TeamPrincipals GetBestTeamPrincipal()
+        public IEnumerable<TeamPrincipals> GetBestTeamPrincipal()
         {
             return this.teamsLogic.GetBestTeamPrincipal();
         }
@@ -76,7 +76,7 @@ namespace BJJ9B1_HFT_2022231.Endpoint.Controllers
         #endregion
         #region team principal httpget
         [HttpGet]
-        public TeamPrincipals GetMostChampionshipWinTeamPrincipal()
+        public IEnumerable<TeamPrincipals> GetMostChampionshipWinTeamPrincipal()
         {
             return this.teamprincipalsLogic.GetMostChampionshipWinTeamPrincipal();
         }
@@ -96,7 +96,7 @@ namespace BJJ9B1_HFT_2022231.Endpoint.Controllers
             return this.teamprincipalsLogic.GetPrincipalsWithChampionship();
         }
         [HttpGet]
-        public TeamPrincipals GetPrincipalOfBestTeam()
+        public IEnumerable<TeamPrincipals> GetPrincipalOfBestTeam()
         {
             return this.teamprincipalsLogic.GetPrincipalOfBestTeam();
         }
