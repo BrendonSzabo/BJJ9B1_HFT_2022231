@@ -67,12 +67,6 @@ namespace BJJ9B1_HFT_2022231.Test
         }
 
         [Test]
-        public void DriverReadTest()
-        {
-            Assert.That(() => Dlogic.ReadDriver(4).ToString(), Is.EqualTo(new Drivers("4/Carlos Sainz/55/2/Ferrari/1994.9.1/Spain").ToString()));
-        }
-
-        [Test]
         public void DriverReadAllTest()
         {
             Assert.That(() => Dlogic.ReadAllDriver(), Throws.Nothing);
@@ -142,11 +136,7 @@ namespace BJJ9B1_HFT_2022231.Test
         }
         #endregion
         #region Team tests
-        [Test]
-        public void TeamReadTest()
-        {
-            Assert.That(() => Tlogic.ReadTeam(4).ToString(), Is.EqualTo(new Teams("4/McLaren F1 Team/1966.1.1/4/129/923").ToString()));
-        }
+
         [Test]
         public void TeamReadAllTest()
         {
@@ -185,11 +175,7 @@ namespace BJJ9B1_HFT_2022231.Test
         }
         #endregion
         #region Team Principal tests
-        [Test]
-        public void TeamPrincipalReadTest()
-        {
-            Assert.That(() => TPlogic.ReadTeamPrincipal(4).ToString(), Is.EqualTo(new TeamPrincipals("4/Andreas Seidl/2019.1.1/1976.1.6/0/2021.9.12/4").ToString()));
-        }
+
         [Test]
         public void TeamPrincipalReadAllTest()
         {

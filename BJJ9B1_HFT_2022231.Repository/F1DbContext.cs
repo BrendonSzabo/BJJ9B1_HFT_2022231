@@ -25,8 +25,6 @@ namespace BJJ9B1_HFT_2022231.Repository
         {
             if (!builder.IsConfigured)
             {
-                //string conn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\lordn\Desktop\BJJ9B1_HFT_2022231\BJJ9B1_HFT_2022231.Repository\F1Db.mdf;Integrated Security=True";
-                //.UseSqlServer(conn);
                 builder
                     .UseInMemoryDatabase("F1Db")
                     .UseLazyLoadingProxies();

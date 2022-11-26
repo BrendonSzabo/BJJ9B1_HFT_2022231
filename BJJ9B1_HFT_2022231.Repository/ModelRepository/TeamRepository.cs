@@ -3,6 +3,7 @@ using BJJ9B1_HFT_2022231.Repository.DbRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,16 +17,17 @@ namespace BJJ9B1_HFT_2022231.Repository.ModelRepository
 
         public override Teams Read(int id)
         {
-            return DbCont.Teams.FirstOrDefault(x => x.Id == id);
+            return DbCont.Teams.FirstOrDefault(t => t.Id == id);
         }
 
         public override void Update(Teams item)
         {
-            var o = Read(item.Id);
-            foreach (var tmp in o.GetType().GetProperties())
+            var old = Read(item.Id);
+            foreach (var prop in old.GetType().GetProperties())
             {
-                tmp.SetValue(o, tmp.GetValue(item));
+                    prop.SetValue(old, prop.GetValue(item));
             }
+            DbCont.SaveChanges();
         }
     }
 }

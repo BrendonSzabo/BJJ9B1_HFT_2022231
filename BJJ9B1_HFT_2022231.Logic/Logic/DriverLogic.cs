@@ -75,9 +75,7 @@ namespace BJJ9B1_HFT_2022231.Logic.Logic
                 throw new Exception("Repository is null");
             }
             var driver = Repo
-                .ReadAll()
-                .Where(t => t.Id == id)
-                .First();
+                .Read(id);
             if (driver == null)
             {
                 throw new Exception("Driver does not exist");

@@ -35,9 +35,7 @@ namespace BJJ9B1_HFT_2022231.Logic.Logic
                 throw new Exception("Repository is null");
             }
             var Team = Repo
-                .ReadAll()
-                .Where(t => t.Id == id)
-                .Single();
+                .Read(id);
             if (Team == null)
             {
                 throw new Exception("Team not found");
