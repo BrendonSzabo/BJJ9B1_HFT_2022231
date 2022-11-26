@@ -1,11 +1,12 @@
 ﻿using BJJ9B1_HFT_2022231.Models;
+using BJJ9B1_HFT_2022231.Repository.DbRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BJJ9B1_HFT_2022231.Repository
+namespace BJJ9B1_HFT_2022231.Repository.ModelRepository
 {
     public class TeamRepository : Repository<Teams>, IRepository<Teams>
     {

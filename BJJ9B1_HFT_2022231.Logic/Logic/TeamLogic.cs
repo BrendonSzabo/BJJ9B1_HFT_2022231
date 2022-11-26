@@ -1,19 +1,20 @@
-﻿using BJJ9B1_HFT_2022231.Models;
-using BJJ9B1_HFT_2022231.Repository;
+﻿using BJJ9B1_HFT_2022231.Logic.Interface;
+using BJJ9B1_HFT_2022231.Models;
+using BJJ9B1_HFT_2022231.Repository.DbRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BJJ9B1_HFT_2022231.Logic
+namespace BJJ9B1_HFT_2022231.Logic.Logic
 {
     public class TeamLogic : ITeam
     {
         public IRepository<Teams> Repo;
         public TeamLogic(IRepository<Teams> repository)
         {
-            this.Repo = repository;
+            Repo = repository;
         }
         #region Crud
         public void CreateTeam(Teams item)
@@ -25,7 +26,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             Repo.Create(item);
         }
 
-        
+
 
         public Teams ReadTeam(int id)
         {
@@ -49,7 +50,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             {
                 throw new Exception("Repository is null.");
             }
-            if (Repo.ReadAll().Where(t=>t.Id == id).Single() == null)
+            if (Repo.ReadAll().Where(t => t.Id == id).Single() == null)
             {
                 throw new Exception("Team not found");
             }

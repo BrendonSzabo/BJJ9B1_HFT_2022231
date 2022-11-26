@@ -1,7 +1,7 @@
 ﻿using BJJ9B1_HFT_2022231.Models;
 using System.Collections.Generic;
 
-namespace BJJ9B1_HFT_2022231.Logic
+namespace BJJ9B1_HFT_2022231.Logic.Interface
 {
     public interface ITeam
     {

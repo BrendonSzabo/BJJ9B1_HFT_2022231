@@ -1,17 +1,18 @@
-﻿using BJJ9B1_HFT_2022231.Models;
-using BJJ9B1_HFT_2022231.Repository;
+﻿using BJJ9B1_HFT_2022231.Logic.Interface;
+using BJJ9B1_HFT_2022231.Models;
+using BJJ9B1_HFT_2022231.Repository.DbRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BJJ9B1_HFT_2022231.Logic
+namespace BJJ9B1_HFT_2022231.Logic.Logic
 {
     public class TeamPrincipalLogic : ITeamPrincipal
     {
         IRepository<TeamPrincipals> Repo;
         public TeamPrincipalLogic(IRepository<TeamPrincipals> repository)
         {
-            this.Repo = repository;
+            Repo = repository;
         }
         #region Crud
         public void CreateTeamPrincipal(TeamPrincipals item)
@@ -81,12 +82,12 @@ namespace BJJ9B1_HFT_2022231.Logic
             {
                 throw new Exception("Repository is null");
             }
-            return new List<TeamPrincipals>() {this.Repo
+            return new List<TeamPrincipals>() {Repo
                 .ReadAll()
                 .OrderBy(t => t.ChampionshipWins)
                 .Reverse()
-                .First() }; 
-                
+                .First() };
+
         }
         public IEnumerable<TeamPrincipals> GetPrincipalsWithWin()
         {

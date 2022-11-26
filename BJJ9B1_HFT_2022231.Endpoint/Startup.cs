@@ -1,6 +1,9 @@
-using BJJ9B1_HFT_2022231.Logic;
+using BJJ9B1_HFT_2022231.Logic.Interface;
+using BJJ9B1_HFT_2022231.Logic.Logic;
 using BJJ9B1_HFT_2022231.Models;
 using BJJ9B1_HFT_2022231.Repository;
+using BJJ9B1_HFT_2022231.Repository.DbRepository;
+using BJJ9B1_HFT_2022231.Repository.ModelRepository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;

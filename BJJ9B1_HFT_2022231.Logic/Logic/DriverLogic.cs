@@ -1,25 +1,26 @@
-﻿using BJJ9B1_HFT_2022231.Models;
-using BJJ9B1_HFT_2022231.Repository;
+﻿using BJJ9B1_HFT_2022231.Logic.Interface;
+using BJJ9B1_HFT_2022231.Models;
+using BJJ9B1_HFT_2022231.Repository.DbRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BJJ9B1_HFT_2022231.Logic
+namespace BJJ9B1_HFT_2022231.Logic.Logic
 {
     public class DriverLogic : IDriver
     {
         IRepository<Drivers> Repo;
         public DriverLogic(IRepository<Drivers> repo)
         {
-            this.Repo = repo;
+            Repo = repo;
         }
         #region Crud
         public IEnumerable<Drivers> ReadAllDriver()
         {
-           //if (Repo == null)
-           // {
-           //     throw new Exception("Repository is null.");
-           // }
+            //if (Repo == null)
+            // {
+            //     throw new Exception("Repository is null.");
+            // }
             return Repo.ReadAll();
         }
 
@@ -29,7 +30,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             {
                 throw new Exception("Driver ineligible due to young age.");
             }
-            else if(item.DriverName == "")
+            else if (item.DriverName == "")
             {
                 throw new Exception("Driver needs to have a name.");
             }
@@ -127,7 +128,7 @@ namespace BJJ9B1_HFT_2022231.Logic
             return new List<Drivers>(){Repo
                 .ReadAll()
                 .OrderBy(t => DateTime.Now.Year - t.Born.Year)
-                .Reverse() 
+                .Reverse()
                 .First()
             };
 

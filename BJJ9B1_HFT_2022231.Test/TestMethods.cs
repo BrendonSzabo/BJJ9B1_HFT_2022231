@@ -1,12 +1,12 @@
 ﻿using System;
 using Moq;
 using NUnit.Framework;
-using BJJ9B1_HFT_2022231.Logic;
 using BJJ9B1_HFT_2022231.Models;
-using BJJ9B1_HFT_2022231.Repository;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Collections.Generic;
+using BJJ9B1_HFT_2022231.Repository.DbRepository;
+using BJJ9B1_HFT_2022231.Logic.Logic;
 
 namespace BJJ9B1_HFT_2022231.Test
 {

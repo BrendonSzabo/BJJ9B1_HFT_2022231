@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BJJ9B1_HFT_2022231.Repository
+namespace BJJ9B1_HFT_2022231.Repository.DbRepository
 {
     public interface IRepository<T> where T : class
     {

@@ -1,4 +1,4 @@
-﻿using BJJ9B1_HFT_2022231.Logic;
+﻿using BJJ9B1_HFT_2022231.Logic.Interface;
 using BJJ9B1_HFT_2022231.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
