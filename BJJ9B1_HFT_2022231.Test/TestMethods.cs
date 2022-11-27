@@ -59,6 +59,7 @@ namespace BJJ9B1_HFT_2022231.Test
             }.AsQueryable());
             TPlogic = new TeamPrincipalLogic(mockTeamPrincipals.Object);
         }
+
         #region Driver tests
         [Test]
         public void DriverCreateTest()
@@ -107,22 +108,10 @@ namespace BJJ9B1_HFT_2022231.Test
         {
             Assert.That(() => Dlogic.CreateDriver(null), Throws.Exception);
         }
-
-        [Test]
-        public void GetBestDriverTest()
-        {
-            Assert.That(() => Dlogic.GetBestDrivers(), Throws.Nothing);
-        }
-
         [Test]
         public void GetBritishDriversTest()
         {
             Assert.That(() => Dlogic.GetBritishDrivers(), Throws.Nothing);
-        }
-        [Test]
-        public void GetWorstDriverTest()
-        {
-            Assert.That(() => Dlogic.GetWorstDrivers(), Throws.Nothing);
         }
         [Test]
         public void GetOldestDriverTest()
@@ -195,7 +184,7 @@ namespace BJJ9B1_HFT_2022231.Test
         [Test]
         public void GetMostChampionshipWinTeamPrincipal()
         {
-            Assert.That(() => TPlogic.GetMostChampionshipWinTeamPrincipal().ToList()[0].ToString(), Is.EqualTo(new TeamPrincipals("3/Toto Wolff/2013.1.1/1972.1.12./7/2013.5.26/3").ToString()));
+            Assert.That(() => TPlogic.GetMostChampionshipWinTeamPrincipal(), Throws.Nothing);
         }
         [Test]
         public void GetPrincipalsWithWinTest()
@@ -206,11 +195,6 @@ namespace BJJ9B1_HFT_2022231.Test
         public void GetPrincipalWhoDebutedIn20thCentury()
         {
             Assert.That(() => TPlogic.GetPrincipalsWhoDebutedIn20thCentury(), Throws.Nothing);
-        }
-        [Test]
-        public void GetPrincipalWithChampionship()
-        {
-            Assert.That(() => TPlogic.GetPrincipalsWithChampionship(), Throws.Nothing);
         }
         #endregion
     }

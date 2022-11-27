@@ -23,17 +23,6 @@ namespace BJJ9B1_HFT_2022231.Endpoint.Controllers
         }
         #region driver httpget
         [HttpGet]
-        public IEnumerable<Drivers> GetBestDrivers()
-        {
-            return this.driverLogic.GetBestDrivers();
-        }
-
-        [HttpGet]
-        public IEnumerable<Drivers> GetWorstDrivers()
-        {
-            return this.driverLogic.GetWorstDrivers();
-        }
-
         [HttpGet]
         public IEnumerable<Drivers> GetBritishDrivers()
         {
@@ -89,11 +78,6 @@ namespace BJJ9B1_HFT_2022231.Endpoint.Controllers
         public IEnumerable<TeamPrincipals> GetPrincipalWhoDebutedIn20thCentury()
         {
             return this.teamprincipalsLogic.GetPrincipalsWhoDebutedIn20thCentury();
-        }
-        [HttpGet]
-        public IEnumerable<TeamPrincipals> GetPrincipalWithChampionship()
-        {
-            return this.teamprincipalsLogic.GetPrincipalsWithChampionship();
         }
         [HttpGet]
         public IEnumerable<TeamPrincipals> GetPrincipalOfBestTeam()

@@ -17,7 +17,7 @@ namespace BJJ9B1_HFT_2022231.Repository.ModelRepository
 
         public override Teams Read(int id)
         {
-            return DbCont.Teams.FirstOrDefault(t => t.Id == id);
+            return ctx.Teams.FirstOrDefault(t => t.Id == id);
         }
 
         public override void Update(Teams item)
@@ -25,9 +25,12 @@ namespace BJJ9B1_HFT_2022231.Repository.ModelRepository
             var old = Read(item.Id);
             foreach (var prop in old.GetType().GetProperties())
             {
+                if (prop.GetAccessors().FirstOrDefault(t => t.IsVirtual) == null)
+                {
                     prop.SetValue(old, prop.GetValue(item));
+                }
             }
-            DbCont.SaveChanges();
+            ctx.SaveChanges();
         }
     }
 }

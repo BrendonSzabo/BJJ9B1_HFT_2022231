@@ -13,21 +13,13 @@ namespace BJJ9B1_HFT_2022231.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Range(1, 10)]
-        [Required]
         public int Id { get; set; }
         [StringLength(240)]
-        [Required]
         
         public string PrincipalName { get; set; }
-        [Range(1,10)]
-        [Required]
         public int TeamID { get; set; }
-        [Required]
         public DateTime DebutDate { get; set; }
-        [Required]
         public DateTime Birth { get; set; }
-        [Required]
         public int ChampionshipWins { get; set; }
         public DateTime? FirstWin { get; set; }
 
@@ -35,8 +27,9 @@ namespace BJJ9B1_HFT_2022231.Models
         /// Teams virtual method
         /// </summary>
         /// 
-        
-        public virtual Teams Tm { get; set; }
+        [NotMapped]
+        [JsonIgnore]
+        public virtual Teams Team { get; set; }
 
         public TeamPrincipals()
         {
@@ -62,11 +55,6 @@ namespace BJJ9B1_HFT_2022231.Models
                 FirstWin = Convert.ToDateTime(f[5]);
             }
             TeamID = int.Parse(f[6]);
-        }
-
-        public override string ToString()
-        {
-            return $"Id: {Id}, Name: {PrincipalName}, Team Id: {TeamID}, Debute Date: {DebutDate.Year}.{DebutDate.Month}.{DebutDate.Day}, Birth Date: {Birth.Year}.{Birth.Month}.{Birth.Day}, Wins: {ChampionshipWins}, Team Id: {TeamID}";
         }
     }
 }

@@ -1,11 +1,12 @@
 ﻿using BJJ9B1_HFT_2022231.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BJJ9B1_HFT_2022231.Logic.Interface
 {
     public interface ITeam
     {
-        IEnumerable<Teams> ReadAllTeam();
+        IQueryable<Teams> ReadAllTeam();
         void UpdateTeam(Teams item);
         void CreateTeam(Teams item);
         void DeleteTeam(int id);

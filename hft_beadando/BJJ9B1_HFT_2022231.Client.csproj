@@ -11,9 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BJJ9B1_HFT_2022231.Logic\BJJ9B1_HFT_2022231.Logic.csproj" />
     <ProjectReference Include="..\BJJ9B1_HFT_2022231.Models\BJJ9B1_HFT_2022231.Models.csproj" />
-    <ProjectReference Include="..\BJJ9B1_HFT_2022231.Repository\BJJ9B1_HFT_2022231.Repository.csproj" />
   </ItemGroup>
 
 </Project>

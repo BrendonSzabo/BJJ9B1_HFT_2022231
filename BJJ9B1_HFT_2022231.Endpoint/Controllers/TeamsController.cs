@@ -1,4 +1,5 @@
 ﻿using BJJ9B1_HFT_2022231.Logic.Interface;
+using BJJ9B1_HFT_2022231.Logic.Logic;
 using BJJ9B1_HFT_2022231.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -17,39 +18,35 @@ namespace BJJ9B1_HFT_2022231.Endpoint.Controllers
         {
             this.logic = logic;
         }
-        // GET: api/<TeamsController>
+
         [HttpGet]
         public IEnumerable<Teams> ReadAll()
         {
-            return logic.ReadAllTeam();
+            return this.logic.ReadAllTeam();
         }
 
-        // GET api/<TeamsController>/5
         [HttpGet("{id}")]
         public Teams Read(int id)
         {
-            return logic.ReadTeam(id);
+            return this.logic.ReadTeam(id);
         }
 
-        // POST api/<TeamsController>
         [HttpPost]
         public void Create([FromBody] Teams value)
         {
-            logic.CreateTeam(value);
+            this.logic.CreateTeam(value);
         }
 
-        // PUT api/<TeamsController>/5
         [HttpPut]
         public void Update([FromBody] Teams value)
         {
-            logic.UpdateTeam(value);
+            this.logic.UpdateTeam(value);
         }
 
-        // DELETE api/<TeamsController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            logic.DeleteTeam(id);
+            this.logic.DeleteTeam(id);
         }
     }
 }

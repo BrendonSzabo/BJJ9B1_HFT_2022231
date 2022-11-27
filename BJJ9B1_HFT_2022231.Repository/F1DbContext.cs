@@ -37,16 +37,16 @@ namespace BJJ9B1_HFT_2022231.Repository
         {
             
             modelBuilder.Entity<Drivers>(driver => driver
-            .HasOne(driver => driver.Tm)
-            .WithMany(teams => teams.Drv)
+            .HasOne(driver => driver.Team)
+            .WithMany(teams => teams.Drivers)
             .HasForeignKey(driver => driver.TeamId)
-            .OnDelete(DeleteBehavior.SetNull));
+            .OnDelete(DeleteBehavior.Cascade));
 
             modelBuilder.Entity<TeamPrincipals>(principal => principal
-                .HasOne(principal => principal.Tm)
-                .WithOne(team => team.Princ)
+                .HasOne(principal => principal.Team)
+                .WithOne(team => team.Principals)
                 .HasForeignKey<TeamPrincipals>(principal => principal.TeamID)
-                .OnDelete(DeleteBehavior.SetNull));
+                .OnDelete(DeleteBehavior.Cascade));
 
 
             modelBuilder.Entity<TeamPrincipals>().HasData(new TeamPrincipals[]

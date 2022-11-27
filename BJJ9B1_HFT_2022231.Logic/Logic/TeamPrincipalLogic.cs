@@ -52,7 +52,7 @@ namespace BJJ9B1_HFT_2022231.Logic.Logic
             return tp;
         }
 
-        public IEnumerable<TeamPrincipals> ReadAllTeamPrincipal()
+        public IQueryable<TeamPrincipals> ReadAllTeamPrincipal()
         {
             if (Repo == null)
             {
@@ -109,17 +109,6 @@ namespace BJJ9B1_HFT_2022231.Logic.Logic
                 .Where(t => 2000 > t.DebutDate.Year && t.DebutDate.Year > 1900)
                 .OrderBy(t => t.Birth.Year);
         }
-        public IEnumerable<TeamPrincipals> GetPrincipalsWithChampionship()
-        {
-            if (Repo == null)
-            {
-                throw new Exception("Repository is null");
-            }
-            return Repo
-                .ReadAll()
-                .Where(t => t.ChampionshipWins != null)
-                .OrderBy(t => t.PrincipalName);
-        }
         public IEnumerable<TeamPrincipals> GetPrincipalOfBestTeam()
         {
             if (Repo == null)
@@ -128,8 +117,7 @@ namespace BJJ9B1_HFT_2022231.Logic.Logic
             }
             return new List<TeamPrincipals>(){Repo
                 .ReadAll()
-                .OrderBy(t => t.Tm.Ranking)
-                .Reverse()
+                .OrderBy(t => t.Team.Ranking)
                 .First()
             };
         }

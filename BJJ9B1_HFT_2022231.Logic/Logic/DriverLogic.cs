@@ -15,12 +15,12 @@ namespace BJJ9B1_HFT_2022231.Logic.Logic
             Repo = repo;
         }
         #region Crud
-        public IEnumerable<Drivers> ReadAllDriver()
+        public IQueryable<Drivers> ReadAllDriver()
         {
-            //if (Repo == null)
-            // {
-            //     throw new Exception("Repository is null.");
-            // }
+            if (Repo == null)
+            {
+                throw new Exception("Repository is null.");
+            }
             return Repo.ReadAll();
         }
 
@@ -84,28 +84,6 @@ namespace BJJ9B1_HFT_2022231.Logic.Logic
         }
         #endregion
         #region non-Crud
-        public IEnumerable<Drivers> GetBestDrivers()
-        {
-            if (Repo == null)
-            {
-                throw new Exception("Repository is null.");
-            }
-            return Repo
-                .ReadAll()
-                .OrderByDescending(t => t.Tm.Ranking)
-                .ThenBy(t => t.Number);
-        }
-        public IEnumerable<Drivers> GetWorstDrivers()
-        {
-            if (Repo == null)
-            {
-                throw new Exception("Repository is null.");
-            }
-            return Repo
-                .ReadAll()
-                .OrderBy(t => t.Tm.Ranking == 10)
-                .ThenBy(t => t.Number);
-        }
         public IEnumerable<Drivers> GetBritishDrivers()
         {
             if (Repo == null)

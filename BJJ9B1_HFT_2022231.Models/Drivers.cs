@@ -13,24 +13,13 @@ namespace BJJ9B1_HFT_2022231.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Range(1, 30)]
-        [Required]
         public int Id { get; set; }
         [StringLength(240)]
-        [Required]
         public string DriverName { get; set; }
-        [Required]
         public int Number { get; set; }
-        [Range(1,10)]
-        [Required]
         public int TeamId { get; set; }
-        [StringLength(240)]
-        [Required]
         public string TeamName { get; set; }
-        [Required]
         public DateTime Born { get; set; }
-        [StringLength(240)]
-        [Required]
         public string Nationality { get; set; }
 
         public Drivers()
@@ -40,8 +29,9 @@ namespace BJJ9B1_HFT_2022231.Models
         /// Teams virtual method
         /// </summary>
         /// 
+        [NotMapped]
         [JsonIgnore]
-        public virtual Teams Tm { get; set; }
+        public virtual Teams Team { get; set; }
         /// <summary>
         /// constructor values
         /// </summary>
@@ -57,11 +47,6 @@ namespace BJJ9B1_HFT_2022231.Models
             TeamName = f[4];
             Born = Convert.ToDateTime(f[5]);
             Nationality = f[6];
-        }
-
-        public override string ToString()
-        {
-            return $"Id: {Id}, Name: {DriverName}, Number: {Number}, Team Id: {TeamId}, Team: {TeamName}, Birth Date: {Born.Year}:{Born.Month}:{Born.Day}, Nationality: {Nationality}";
         }
     }
 }

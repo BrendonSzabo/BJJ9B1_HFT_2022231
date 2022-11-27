@@ -8,27 +8,27 @@ namespace BJJ9B1_HFT_2022231.Repository.DbRepository
 {
     public abstract class Repository<T> : IRepository<T> where T : class
     {
-        protected F1DbContext DbCont;
+        protected F1DbContext ctx;
 
-        public Repository(F1DbContext DbCont)
+        public Repository(F1DbContext ctx)
         {
-            this.DbCont = DbCont;
+            this.ctx = ctx;
         }
 
         public void Create(T item)
         {
-            DbCont.Set<T>().Add(item);
-            DbCont.SaveChanges();
+            ctx.Set<T>().Add(item);
+            ctx.SaveChanges();
         }
 
         public void Delete(int id)
         {
-            DbCont.Set<T>().Remove(Read(id));
-            DbCont.SaveChanges();
+            ctx.Set<T>().Remove(Read(id));
+            ctx.SaveChanges();
         }
         public IQueryable<T> ReadAll()
         {
-            return DbCont.Set<T>();
+            return ctx.Set<T>();
         }
 
         public abstract void Update(T item);
@@ -36,3 +36,4 @@ namespace BJJ9B1_HFT_2022231.Repository.DbRepository
     }
 
 }
+

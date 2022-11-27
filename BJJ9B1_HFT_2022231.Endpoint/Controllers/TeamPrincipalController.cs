@@ -1,4 +1,5 @@
 ﻿using BJJ9B1_HFT_2022231.Logic.Interface;
+using BJJ9B1_HFT_2022231.Logic.Logic;
 using BJJ9B1_HFT_2022231.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -9,47 +10,43 @@ namespace BJJ9B1_HFT_2022231.Endpoint.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class TeamPrincipalController : ControllerBase
+    public class TeamPrincipalsController : ControllerBase
     {
         ITeamPrincipal logic;
 
-        public TeamPrincipalController(ITeamPrincipal logic)
+        public TeamPrincipalsController(ITeamPrincipal logic)
         {
             this.logic = logic;
         }
-        // GET: api/<TeamPrincipalController>
+
         [HttpGet]
         public IEnumerable<TeamPrincipals> ReadAll()
         {
-            return logic.ReadAllTeamPrincipal();
+            return this.logic.ReadAllTeamPrincipal();
         }
 
-        // GET api/<TeamPrincipalController>/5
         [HttpGet("{id}")]
-        public TeamPrincipals Read(int id)
+        public TeamPrincipals Get(int id)
         {
-            return logic.ReadTeamPrincipal(id);
+            return this.logic.ReadTeamPrincipal(id);
         }
 
-        // POST api/<TeamPrincipalController>
         [HttpPost]
         public void Create([FromBody] TeamPrincipals value)
         {
-            logic.CreateTeamPrincipal(value);
+            this.logic.CreateTeamPrincipal(value);
         }
 
-        // PUT api/<TeamPrincipalController>/5
-        [HttpPut("{id}")]
+        [HttpPut]
         public void Update([FromBody] TeamPrincipals value)
         {
-            logic.UpdateTeamPrincipal(value);
+            this.logic.UpdateTeamPrincipal(value);
         }
 
-        // DELETE api/<TeamPrincipalController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            logic.DeleteTeamPrincipal(id);
+            this.logic.DeleteTeamPrincipal(id);
         }
     }
 }

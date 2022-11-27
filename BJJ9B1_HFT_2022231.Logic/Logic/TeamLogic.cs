@@ -19,10 +19,6 @@ namespace BJJ9B1_HFT_2022231.Logic.Logic
         #region Crud
         public void CreateTeam(Teams item)
         {
-            if (Repo.ReadAll().Count() >= 10)
-            {
-                throw new Exception("Can't add any more teams.");
-            }
             Repo.Create(item);
         }
 
@@ -55,7 +51,7 @@ namespace BJJ9B1_HFT_2022231.Logic.Logic
             Repo.Delete(id);
         }
 
-        public IEnumerable<Teams> ReadAllTeam()
+        public IQueryable<Teams> ReadAllTeam()
         {
             if (Repo == null)
             {
@@ -87,7 +83,6 @@ namespace BJJ9B1_HFT_2022231.Logic.Logic
             return new List<Teams>(){Repo
                 .ReadAll()
                 .OrderBy(t => t.Ranking)
-                .Reverse()
                 .First()
             };
         }
@@ -100,6 +95,7 @@ namespace BJJ9B1_HFT_2022231.Logic.Logic
             return new List<Teams>(){Repo
                 .ReadAll()
                 .OrderBy(t => t.Ranking)
+                .Reverse()
                 .First()
             };
         }
@@ -112,8 +108,7 @@ namespace BJJ9B1_HFT_2022231.Logic.Logic
             return new List<TeamPrincipals>(){Repo
                 .ReadAll()
                 .OrderBy(t => t.Ranking)
-                .Reverse()
-                .Select(t => t.Princ)
+                .Select(t => t.Principals)
                 .First()
             };
         }

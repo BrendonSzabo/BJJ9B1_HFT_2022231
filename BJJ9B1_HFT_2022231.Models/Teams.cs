@@ -13,41 +13,33 @@ namespace BJJ9B1_HFT_2022231.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Range(1,10)]
-        [Required]
         public int Id { get; set; }
-        [Range(1, 10)]
-        [Required]
         public int Ranking { get; set; }
         [StringLength(240)]
-        [Required]
         public string TeamName { get; set; }
-        [Required]
         public DateTime FirstEntry { get; set; }
-        [Required]
         public int ConstructorPoints { get; set; }
-        [Required]
         public int RaceStarts { get; set; }
-        [Range(1, 10)]
-        [Required]
         public int PrincipalID { get; set; }
-        [Required]
         public int Wins { get; set; }
 
         /// <summary>
         /// Driver virtual collection method
         /// </summary>
-        public virtual ICollection<Drivers> Drv { get; set; }
+        [NotMapped]
+        [JsonIgnore]
+        public virtual ICollection<Drivers> Drivers { get; set; }
         /// <summary>
         /// TeamPrincipals virtual method
         /// </summary>
         /// 
+        [NotMapped]
         [JsonIgnore]
-        public virtual TeamPrincipals Princ { get; set; }
+        public virtual TeamPrincipals Principals { get; set; }
 
         public Teams()
         {
-            Drv = new HashSet<Drivers>();
+            Drivers = new HashSet<Drivers>();
         }
         /// <summary>
         /// constructor values
@@ -62,7 +54,7 @@ namespace BJJ9B1_HFT_2022231.Models
             Ranking = int.Parse(f[3]);
             ConstructorPoints = int.Parse(f[4]);
             RaceStarts = int.Parse(f[5]);
-            Drv = new HashSet<Drivers>();
+            Drivers = new HashSet<Drivers>();
         }
 
         public override string ToString()

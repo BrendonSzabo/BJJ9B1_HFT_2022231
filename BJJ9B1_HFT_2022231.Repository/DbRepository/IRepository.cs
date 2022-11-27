@@ -10,8 +10,9 @@ namespace BJJ9B1_HFT_2022231.Repository.DbRepository
     {
         IQueryable<T> ReadAll();
         T Read(int id);
-        void Delete(int id);
         void Create(T item);
         void Update(T item);
+        void Delete(int id);
     }
+
 }
