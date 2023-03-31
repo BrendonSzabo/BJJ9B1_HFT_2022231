@@ -5,14 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BJJ9B1_GUI_2022232.WpfClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
+        Title="MainWindow" Height="450" Width="800"
+        Name="mainWindow">
+    <Grid Name="mainGrid" Width="{Binding ActualWidth, ElementName=mainWindow}" Height="{Binding ActualHeight, ElementName=mainWindow}">
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\lordn\source\repos\BrendonSzabo\BJJ9B1_HFT_2022231\hft_beadando\bin\Debug\net5.0\images\f1logo.png" Stretch="UniformToFill" x:Name="mainGrid_BG"/>
+        </Grid.Background>
+            <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="1">
+        <Grid Grid.Column="0" Name="row0Grid">
+            <Grid.Background>
+                <ImageBrush Stretch="Fill" x:Name="row0Grid_BG"/>
+            </Grid.Background>
+        </Grid>
+        <Grid Grid.Column="1" Name="row1Grid">
+            <Grid.Background>
+                <ImageBrush Stretch="Fill" x:Name="row1Grid_BG"/>
+            </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -22,11 +34,16 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
-            <Button Grid.Row="1" Margin="5"/>
-            <Button Grid.Row="2" Margin="5"/>
-            <Button Grid.Row="3" Margin="5"/>
-            <Button Grid.Row="5" Margin="5"/>
+            <Button Grid.Row="1" Margin="5" Background="#50000000" Content="Drivers" BorderBrush="#83D744" BorderThickness="2" Foreground="Lime" FontSize="20" FontFamily="TimesNewRoman" FontWeight="DemiBold" Name="drivers" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="button_Click"/>
+            <Button Grid.Row="2" Margin="5" Background="#50000000" Content="Teams" BorderBrush="#83D744" BorderThickness="2" Foreground="Lime" FontSize="20" FontFamily="TimesNewRoman" FontWeight="DemiBold" Name="teams" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="button_Click"/>
+            <Button Grid.Row="3" Margin="5" Background="#50000000" Content="Team Principals" BorderBrush="#83D744" BorderThickness="2" Foreground="Lime" FontSize="20" FontFamily="TimesNewRoman" FontWeight="DemiBold" Name="teamprincipals" MouseEnter="button_MouseEnter" MouseLeave="button_MouseLeave" Click="button_Click"/>
+            <Button Grid.Row="5" Margin="5" Background="#50000000" Content="Exit" BorderBrush="DarkTurquoise" BorderThickness="2" Foreground="Turquoise" FontSize="20" FontFamily="TimesNewRoman" FontWeight="DemiBold" Name="exit" Click="button_Click"/>
             <Label Grid.Row="6"/>
+        </Grid>
+        <Grid Grid.Column="2" Name="row2Grid">
+            <Grid.Background>
+                <ImageBrush Stretch="Fill" x:Name="row2Grid_BG"/>
+            </Grid.Background>
         </Grid>
     </Grid>
 </Window>
