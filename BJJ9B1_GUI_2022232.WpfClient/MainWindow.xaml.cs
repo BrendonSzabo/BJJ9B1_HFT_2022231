@@ -47,6 +47,10 @@ namespace BJJ9B1_GUI_2022232.WpfClient
                 {
                     background.UriSource = new Uri($"{imagesDir}/f1teamprincipals.jpg");
                 }
+                else if (button.Name == "statistics")
+                {
+                    background.UriSource = new Uri($"{imagesDir}/statistics.jpg");
+                }
                 background.EndInit();
                 mainGrid_BG.ImageSource = background;
             }
@@ -81,6 +85,11 @@ namespace BJJ9B1_GUI_2022232.WpfClient
                 {
                     TeamPrincipals teamPrincipals = new TeamPrincipals(mainWindow);
                     teamPrincipals.Show();
+                }
+                else if (button.Name == "statistics")
+                {
+                    Statistics statistics = new Statistics(mainWindow);
+                    statistics.Show();
                 }
                 else if (button.Name == "exit")
                 {
