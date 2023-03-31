@@ -24,16 +24,20 @@ namespace BJJ9B1_GUI_2022232.WpfClient
         {
             InitializeComponent();
         }
-        public TeamPrincipalsWindow(Window mainWindow)
+        public TeamPrincipalsWindow(Window mainWindow, string imagesDir)
         {
             InitializeComponent();
             this.indexWindow = mainWindow;
             indexWindow.Hide();
+            BitmapImage background = new BitmapImage();
+            background.BeginInit();
+            background.UriSource = new Uri($"{imagesDir}/f1teamprincipals.jpg");
+            background.EndInit();
+            mainGrid_BG.ImageSource = background;
         }
         private void mainWindow_Closed(object sender, EventArgs e)
         {
             indexWindow.Show();
-            this.Close();
         }
     }
 }

@@ -12,7 +12,7 @@
     </Window.DataContext>
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\lordn\source\repos\BrendonSzabo\BJJ9B1_HFT_2022231\BJJ9B1_GUI_2022232.WpfClient\bin\Debug\net5.0-windows\images\charactercreator.jpg" Stretch="UniformToFill" x:Name="mainGrid_BG"/>
+            <ImageBrush Stretch="UniformToFill" x:Name="mainGrid_BG"/>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>

@@ -24,21 +24,25 @@ namespace BJJ9B1_GUI_2022232.WpfClient
         {
             InitializeComponent();
         }
-        public DriversWindow(Window mainWindow)
+        public DriversWindow(Window mainWindow, string imagesDir)
         {
             InitializeComponent();
             this.indexWindow = mainWindow;
             indexWindow.Hide();
+            BitmapImage background = new BitmapImage();
+            background.BeginInit();
+            background.UriSource = new Uri($"{imagesDir}/charactercreator.jpg");
+            background.EndInit();
+            mainGrid_BG.ImageSource = background;
         }
         private void mainWindow_Closed(object sender, EventArgs e)
         {
             indexWindow.Show();
-            this.Close();
         }
 
         private void exit_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow_Closed(null, null);
+            this.Close();
         }
     }
 }

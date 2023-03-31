@@ -12,23 +12,106 @@
         <local:TeamViewModel />
     </Window.DataContext>
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\lordn\source\repos\BrendonSzabo\BJJ9B1_HFT_2022231\BJJ9B1_GUI_2022232.WpfClient\bin\Debug\net5.0-windows\images\teamwindowbg.jpg" Stretch="UniformToFill" x:Name="mainGrid_BG"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding Teams}" SelectedItem="{Binding SelectedTeam}">
+        <ListBox ItemsSource="{Binding Teams}" SelectedItem="{Binding SelectedTeam}" Background="#99000000" Grid.Column="0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding TeamName}" />
+                    <Label Content="{Binding TeamName}" Foreground="White" FontFamily="Comic Sans MS" FontSize="14"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <StackPanel Grid.Column="1">
-            <Label Content="Team Name" Background="LightBlue" Padding="10" />
-            <TextBox Text="{Binding SelectedTeam.TeamName}" Padding="10" Margin="0,0,0,30" />
-            <Button Content="Create Team" Command="{Binding CreateTeamCommand}" Margin="10" Padding="10"/>
-            <Button Content="Delete Team" Command="{Binding DeleteTeamCommand}" Margin="10" Padding="10"/>
-            <Button Content="Update Team" Command="{Binding UpdateTeamCommand}" Margin="10" Padding="10"/>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="8*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Team Name" Background="#EFB01C" VerticalContentAlignment="Center" Grid.Row="0" FontFamily="Comic Sans MS" FontSize="20"/>
+            <TextBox Text="{Binding SelectedTeam.TeamName}" Background="#99000000" Grid.Row="1" VerticalContentAlignment="Center" FontFamily="Comic Sans MS" FontSize="16" Foreground="White"/>
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Button  Height="150" Width="150" Content="Create Team" Command="{Binding CreateTeamCommand}" Grid.Column="0" Grid.Row="0" FontFamily="Comic Sans MS" FontSize="20">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Ellipse Stroke="Black"
+                         StrokeThickness="2">
+                                    <Ellipse.Fill>
+                                        <SolidColorBrush Color="#CC3DFF4A" />
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button  Height="150" Width="150" Content="Delete Team" Command="{Binding DeleteTeamCommand}" Grid.Column="0" Grid.Row="1" FontFamily="Comic Sans MS" FontSize="20">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Ellipse Stroke="Black"
+                         StrokeThickness="2">
+                                    <Ellipse.Fill>
+                                        <SolidColorBrush Color="#CC54A6FF" />
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Height="150" Width="150" Content="Update Team" Command="{Binding UpdateTeamCommand}" Grid.Column="1" Grid.Row="0" FontFamily="Comic Sans MS" FontSize="20">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Ellipse Stroke="Black"
+                         StrokeThickness="2">
+                                    <Ellipse.Fill>
+                                        <SolidColorBrush Color="#CCE8F02E" />
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <Button Content="Exit" Grid.Column="1" Grid.Row="1" Height="150" Width="150" FontFamily="Comic Sans MS" FontSize="20" Click="Button_Click">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Ellipse Stroke="Black"
+                         StrokeThickness="2">
+                                    <Ellipse.Fill>
+                                        <SolidColorBrush Color="#CCB70E0E" />
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+        </Grid>
+        <StackPanel>
+            
+           
         </StackPanel>
     </Grid>
 </Window>

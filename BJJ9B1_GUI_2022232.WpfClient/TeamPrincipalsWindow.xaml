@@ -11,25 +11,28 @@
         <local:TeamPrincipalsViewModel />
     </Window.DataContext>
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\lordn\source\repos\BrendonSzabo\BJJ9B1_HFT_2022231\BJJ9B1_GUI_2022232.WpfClient\bin\Debug\net5.0-windows\images\f1teamprincipals.jpg" Stretch="UniformToFill" x:Name="mainGrid_BG"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding TeamPrincipals}" SelectedItem="{Binding SelectedTeamPrincipal}">
+        <ListBox ItemsSource="{Binding TeamPrincipals}" SelectedItem="{Binding SelectedTeamPrincipal}" Background="#00000000" Grid.Column="0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding PrincipalName}" />
+                    <Label Content="{Binding PrincipalName}" Foreground="White" FontFamily="Comic Sans MS" FontSize="14"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel Grid.Column="1">
-            <Label Content="Team Principal Name" Background="LightBlue" Padding="10" />
-            <TextBox Text="{Binding SelectedTeamPrincipal.PrincipalName}" Padding="10" Margin="0,0,0,30" />
-            <Label Content="Birthdate" Background="LightBlue" Padding="10" />
-            <TextBox Text="{Binding SelectedTeamPrincipal.Birth,StringFormat='yyyy-MM-dd'}" Padding="10" Margin="0,0,0,30" />
-            <Button Content="Create Team Principal" Command="{Binding CreateTeamPrincipalCommand}" Margin="10" Padding="10"/>
-            <Button Content="Delete Team Principal" Command="{Binding DeleteTeamPrincipalCommand}" Margin="10" Padding="10"/>
-            <Button Content="Update Team Principal" Command="{Binding UpdateTeamPrincipalCommand}" Margin="10" Padding="10"/>
+            <Label Content="Team Principal Name" Background="#CCEDC437"  FontFamily="Comic Sans MS" FontSize="20" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding SelectedTeamPrincipal.PrincipalName}" Margin="0,0,0,30" Background="#4D000000" VerticalContentAlignment="Center" FontFamily="Comic Sans MS" FontSize="20" Foreground="White"/>
+            <Label Content="Birthdate" Background="#CCEDC437"  FontFamily="Comic Sans MS" FontSize="20" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding SelectedTeamPrincipal.Birth,StringFormat='yyyy-MM-dd'}" Margin="0,0,0,30"  Background="#4D000000" VerticalContentAlignment="Center" FontFamily="Comic Sans MS" FontSize="20" Foreground="White"/>
+            <Button Content="Create Team Principal" Command="{Binding CreateTeamPrincipalCommand}" Margin="10" Padding="10" FontFamily="Comic Sans MS" FontSize="20" Background="#CC14CE07" Foreground="Black"/>
+            <Button Content="Delete Team Principal" Command="{Binding DeleteTeamPrincipalCommand}" Margin="10" Padding="10" FontFamily="Comic Sans MS" FontSize="20" Background="#CC14CE07" Foreground="Black"/>
+            <Button Content="Update Team Principal" Command="{Binding UpdateTeamPrincipalCommand}" Margin="10" Padding="10" FontFamily="Comic Sans MS" FontSize="20" Background="#CC14CE07" Foreground="Black"/>
         </StackPanel>
     </Grid>
 </Window>

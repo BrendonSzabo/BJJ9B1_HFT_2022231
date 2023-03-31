@@ -38,18 +38,22 @@ namespace BJJ9B1_GUI_2022232.WpfClient
                 if (button.Name == "drivers")
                 {
                     background.UriSource = new Uri($"{imagesDir}/2022Grid.jpg");
+                    description.Text = "Drivers and information about them";
                 }
                 else if (button.Name == "teams")
                 {
                     background.UriSource = new Uri($"{imagesDir}/f1teams.png");
+                    description.Text = "Teams and information about them";
                 }
                 else if (button.Name == "teamprincipals")
                 {
                     background.UriSource = new Uri($"{imagesDir}/f1teamprincipals.jpg");
+                    description.Text = "Team Principals and information about them";
                 }
-                else if (button.Name == "statistics")
+                else if (button.Name == "exit")
                 {
-                    background.UriSource = new Uri($"{imagesDir}/statistics.jpg");
+                    background.UriSource = new Uri($"{imagesDir}/f1logo.png");
+                    description.Text = "Exit";
                 }
                 background.EndInit();
                 mainGrid_BG.ImageSource = background;
@@ -62,6 +66,7 @@ namespace BJJ9B1_GUI_2022232.WpfClient
             background.UriSource = new Uri($"{imagesDir}/f1logo.png");
             background.EndInit();
             mainGrid_BG.ImageSource = background;
+            description.Text = "Button descriptions here";
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -73,23 +78,18 @@ namespace BJJ9B1_GUI_2022232.WpfClient
                 string name = button.Name;
                 if (button.Name == "drivers")
                 {
-                    DriversWindow driverWindow = new DriversWindow(mainWindow);
+                    DriversWindow driverWindow = new DriversWindow(mainWindow,imagesDir);
                     driverWindow.Show();
                 }
                 else if (button.Name == "teams")
                 {
-                    TeamsWindow teamsWindow = new TeamsWindow(mainWindow);
+                    TeamsWindow teamsWindow = new TeamsWindow(mainWindow,imagesDir);
                     teamsWindow.Show();
                 }
                 else if (button.Name == "teamprincipals")
                 {
-                    TeamPrincipalsWindow teamPrincipals = new TeamPrincipalsWindow(mainWindow);
+                    TeamPrincipalsWindow teamPrincipals = new TeamPrincipalsWindow(mainWindow, imagesDir);
                     teamPrincipals.Show();
-                }
-                else if (button.Name == "statistics")
-                {
-                    StatisticsWindow statistics = new StatisticsWindow(mainWindow);
-                    statistics.Show();
                 }
                 else if (button.Name == "exit")
                 {
