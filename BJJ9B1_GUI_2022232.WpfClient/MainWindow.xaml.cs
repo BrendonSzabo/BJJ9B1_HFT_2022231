@@ -26,46 +26,38 @@ namespace BJJ9B1_GUI_2022232.WpfClient
         {
             InitializeComponent();
             imagesDir = Directory.GetCurrentDirectory() + "/images";
-            button_MouseLeave(null, null);
+            setBG("f1logo.png", mainGrid_BG);
         }
         private void button_MouseEnter(object sender, MouseEventArgs e)
         {
             if (sender is Button)
             {
-                BitmapImage background = new BitmapImage();
-                background.BeginInit();
                 Button button = (Button)sender;
                 if (button.Name == "drivers")
                 {
-                    background.UriSource = new Uri($"{imagesDir}/2022Grid.jpg");
+                    setBG("2022Grid.jpg", mainGrid_BG);
                     description.Text = "Drivers and information about them";
                 }
                 else if (button.Name == "teams")
                 {
-                    background.UriSource = new Uri($"{imagesDir}/f1teams.png");
+                    setBG("f1teams.png", mainGrid_BG);
                     description.Text = "Teams and information about them";
                 }
                 else if (button.Name == "teamprincipals")
                 {
-                    background.UriSource = new Uri($"{imagesDir}/f1teamprincipals.jpg");
+                    setBG("f1teamprincipals.jpg", mainGrid_BG);
                     description.Text = "Team Principals and information about them";
                 }
                 else if (button.Name == "exit")
                 {
-                    background.UriSource = new Uri($"{imagesDir}/f1logo.png");
+                    setBG("f1logo.png", mainGrid_BG);
                     description.Text = "Exit";
                 }
-                background.EndInit();
-                mainGrid_BG.ImageSource = background;
             }
         }
         private void button_MouseLeave(object sender, MouseEventArgs e)
         {
-            BitmapImage background = new BitmapImage();
-            background.BeginInit();
-            background.UriSource = new Uri($"{imagesDir}/f1logo.png");
-            background.EndInit();
-            mainGrid_BG.ImageSource = background;
+            setBG("f1logo.png", mainGrid_BG);
             description.Text = "Button descriptions here";
         }
 
@@ -98,5 +90,13 @@ namespace BJJ9B1_GUI_2022232.WpfClient
             }
         }
 
+        private void setBG(string img, ImageBrush image)
+        {
+            BitmapImage background = new BitmapImage();
+            background.BeginInit();
+            background.UriSource = new Uri($"{imagesDir}/{img}");
+            background.EndInit();
+            image.ImageSource = background;
+        }
     }
 }
