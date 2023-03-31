@@ -1,0 +1,35 @@
+﻿<Window x:Class="BJJ9B1_GUI_2022232.WpfClient.TeamPrincipalsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BJJ9B1_GUI_2022232.WpfClient"
+        mc:Ignorable="d"
+        Title="TeamPrincipalsWindow" Height="450" Width="800"
+        Closed="mainWindow_Closed">
+    <Window.DataContext>
+        <local:TeamPrincipalsViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding TeamPrincipals}" SelectedItem="{Binding SelectedTeamPrincipal}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding PrincipalName}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1">
+            <Label Content="Team Principal Name" Background="LightBlue" Padding="10" />
+            <TextBox Text="{Binding SelectedTeamPrincipal.PrincipalName}" Padding="10" Margin="0,0,0,30" />
+            <Label Content="Birthdate" Background="LightBlue" Padding="10" />
+            <TextBox Text="{Binding SelectedTeamPrincipal.Birth,StringFormat='yyyy-MM-dd'}" Padding="10" Margin="0,0,0,30" />
+            <Button Content="Create Team Principal" Command="{Binding CreateTeamPrincipalCommand}" Margin="10" Padding="10"/>
+            <Button Content="Delete Team Principal" Command="{Binding DeleteTeamPrincipalCommand}" Margin="10" Padding="10"/>
+            <Button Content="Update Team Principal" Command="{Binding UpdateTeamPrincipalCommand}" Margin="10" Padding="10"/>
+        </StackPanel>
+    </Grid>
+</Window>

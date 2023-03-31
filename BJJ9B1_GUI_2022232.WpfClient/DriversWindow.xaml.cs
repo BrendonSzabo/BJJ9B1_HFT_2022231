@@ -15,16 +15,16 @@ using System.Windows.Shapes;
 namespace BJJ9B1_GUI_2022232.WpfClient
 {
     /// <summary>
-    /// Interaction logic for TeamPrincipals.xaml
+    /// Interaction logic for Drivers.xaml
     /// </summary>
-    public partial class TeamPrincipals : Window
+    public partial class DriversWindow : Window
     {
         private Window indexWindow;
-        public TeamPrincipals()
+        public DriversWindow()
         {
             InitializeComponent();
         }
-        public TeamPrincipals(Window mainWindow)
+        public DriversWindow(Window mainWindow)
         {
             InitializeComponent();
             this.indexWindow = mainWindow;
@@ -34,6 +34,11 @@ namespace BJJ9B1_GUI_2022232.WpfClient
         {
             indexWindow.Show();
             this.Close();
+        }
+
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow_Closed(null, null);
         }
     }
 }

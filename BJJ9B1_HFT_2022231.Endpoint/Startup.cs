@@ -1,3 +1,4 @@
+using BJJ9B1_HFT_2022231.Endpoint.Services;
 using BJJ9B1_HFT_2022231.Logic.Interface;
 using BJJ9B1_HFT_2022231.Logic.Logic;
 using BJJ9B1_HFT_2022231.Models;
@@ -43,6 +44,8 @@ namespace BJJ9B1_HFT_2022231.Endpoint
             services.AddTransient<ITeam, TeamLogic>();
             services.AddTransient<IDriver, DriverLogic>();
 
+            services.AddSignalR();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -69,6 +72,12 @@ namespace BJJ9B1_HFT_2022231.Endpoint
             }
             ));
 
+            app.UseCors(x => x
+                .AllowCredentials()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .WithOrigins("http://localhost:5031"));
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -76,6 +85,7 @@ namespace BJJ9B1_HFT_2022231.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }

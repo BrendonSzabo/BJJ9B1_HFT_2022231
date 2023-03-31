@@ -15,21 +15,22 @@ using System.Windows.Shapes;
 namespace BJJ9B1_GUI_2022232.WpfClient
 {
     /// <summary>
-    /// Interaction logic for Drivers.xaml
+    /// Interaction logic for Statistics.xaml
     /// </summary>
-    public partial class Drivers : Window
+    public partial class StatisticsWindow : Window
     {
         private Window indexWindow;
-        public Drivers()
+        public StatisticsWindow()
         {
             InitializeComponent();
         }
-        public Drivers(Window mainWindow)
+        public StatisticsWindow(Window mainWindow)
         {
             InitializeComponent();
             this.indexWindow = mainWindow;
             indexWindow.Hide();
         }
+
         private void mainWindow_Closed(object sender, EventArgs e)
         {
             indexWindow.Show();

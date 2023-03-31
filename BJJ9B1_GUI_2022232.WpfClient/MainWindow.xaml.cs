@@ -26,7 +26,7 @@ namespace BJJ9B1_GUI_2022232.WpfClient
         {
             InitializeComponent();
             imagesDir = Directory.GetCurrentDirectory() + "/images";
-
+            button_MouseLeave(null, null);
         }
         private void button_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -73,22 +73,22 @@ namespace BJJ9B1_GUI_2022232.WpfClient
                 string name = button.Name;
                 if (button.Name == "drivers")
                 {
-                    Drivers driverWindow = new Drivers(mainWindow);
+                    DriversWindow driverWindow = new DriversWindow(mainWindow);
                     driverWindow.Show();
                 }
                 else if (button.Name == "teams")
                 {
-                    Teams teamsWindow = new Teams(mainWindow);
+                    TeamsWindow teamsWindow = new TeamsWindow(mainWindow);
                     teamsWindow.Show();
                 }
                 else if (button.Name == "teamprincipals")
                 {
-                    TeamPrincipals teamPrincipals = new TeamPrincipals(mainWindow);
+                    TeamPrincipalsWindow teamPrincipals = new TeamPrincipalsWindow(mainWindow);
                     teamPrincipals.Show();
                 }
                 else if (button.Name == "statistics")
                 {
-                    Statistics statistics = new Statistics(mainWindow);
+                    StatisticsWindow statistics = new StatisticsWindow(mainWindow);
                     statistics.Show();
                 }
                 else if (button.Name == "exit")

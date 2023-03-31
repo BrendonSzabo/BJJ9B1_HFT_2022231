@@ -15,22 +15,21 @@ using System.Windows.Shapes;
 namespace BJJ9B1_GUI_2022232.WpfClient
 {
     /// <summary>
-    /// Interaction logic for Statistics.xaml
+    /// Interaction logic for TeamPrincipals.xaml
     /// </summary>
-    public partial class Statistics : Window
+    public partial class TeamPrincipalsWindow : Window
     {
         private Window indexWindow;
-        public Statistics()
+        public TeamPrincipalsWindow()
         {
             InitializeComponent();
         }
-        public Statistics(Window mainWindow)
+        public TeamPrincipalsWindow(Window mainWindow)
         {
             InitializeComponent();
             this.indexWindow = mainWindow;
             indexWindow.Hide();
         }
-
         private void mainWindow_Closed(object sender, EventArgs e)
         {
             indexWindow.Show();

@@ -9,9 +9,9 @@
         Name="mainWindow">
     <Grid Name="mainGrid" Width="{Binding ActualWidth, ElementName=mainWindow}" Height="{Binding ActualHeight, ElementName=mainWindow}">
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\lordn\source\repos\BrendonSzabo\BJJ9B1_HFT_2022231\hft_beadando\bin\Debug\net5.0\images\f1logo.png" Stretch="UniformToFill" x:Name="mainGrid_BG"/>
+            <ImageBrush Stretch="UniformToFill" x:Name="mainGrid_BG"/>
         </Grid.Background>
-            <Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>

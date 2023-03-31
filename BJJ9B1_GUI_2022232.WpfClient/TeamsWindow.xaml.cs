@@ -17,14 +17,14 @@ namespace BJJ9B1_GUI_2022232.WpfClient
     /// <summary>
     /// Interaction logic for Teams.xaml
     /// </summary>
-    public partial class Teams : Window
+    public partial class TeamsWindow : Window
     {
         private Window indexWindow;
-        public Teams()
+        public TeamsWindow()
         {
             InitializeComponent();
         }
-        public Teams(Window mainWindow)
+        public TeamsWindow(Window mainWindow)
         {
             InitializeComponent();
             this.indexWindow = mainWindow;
