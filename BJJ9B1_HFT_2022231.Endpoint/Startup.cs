@@ -76,7 +76,7 @@ namespace BJJ9B1_HFT_2022231.Endpoint
                 .AllowCredentials()
                 .AllowAnyMethod()
                 .AllowAnyHeader()
-                .WithOrigins("http://localhost:5031"));
+                .WithOrigins("http://localhost:53458"));
 
             app.UseRouting();
 

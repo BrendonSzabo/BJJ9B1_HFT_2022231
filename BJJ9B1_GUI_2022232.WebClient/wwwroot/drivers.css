@@ -1,0 +1,136 @@
+﻿@font-face {
+  font-family: "FerroRosso";
+  src: url("fonts/ferrorosso-webfont.woff") format("woff"), url("fonts/ferrorosso-webfont.woff2") format("woff2");
+}
+.bodydriver {
+  background-image: url("images/2022Grid.jpg");
+  background-size: cover;
+  max-height: 100vh;
+}
+
+.bodyteam {
+  background-image: url("images/teamwindowbg.jpg");
+  background-size: cover;
+  max-height: 100vh;
+}
+
+.bodyprinc {
+  background-image: url("images/f1teamprincipals.jpg");
+  background-size: cover;
+  max-height: 100vh;
+}
+
+.flex-container {
+  display: flex;
+  height: 98vh;
+  background-color: rgba(234, 235, 234, 0.5);
+}
+
+.flex-container > div {
+  margin: 10px;
+  font-size: 30px;
+}
+
+.flex-subcontainer {
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid #EEEEEE;
+}
+
+.flex-subcontainer > a {
+  margin: 10px;
+  font-size: 20px;
+}
+
+a, a:visited, a:hover, a:active {
+  color: white;
+  text-decoration: none;
+}
+
+.button-size {
+  width: auto;
+  text-align: center;
+}
+
+.button-sizetoo {
+  width: 100%;
+  text-align: center;
+  margin-top: 1%;
+  border: none;
+  font-family: FerroRosso;
+  height: 7%;
+}
+
+.maintext-bottompadding {
+  text-align: center;
+  padding-bottom: 240%;
+  color: black;
+  font-family: FerroRosso;
+  font-size: 50px;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0cf;
+  border-radius: 10rem;
+  z-index: -2;
+}
+.button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #008fb3;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+.button:hover {
+  color: #fff;
+}
+.button:hover:before {
+  width: 100%;
+}
+
+.griddy {
+  display: grid;
+  grid-template-areas: "myArea" "myArea2" "myArea3";
+}
+
+.griddy-item {
+  grid-area: myArea;
+  margin-bottom: 2%;
+}
+
+.griddy-item2 {
+  grid-area: myArea2;
+  margin-bottom: 2%;
+}
+
+.griddy-item3 {
+  grid-area: myArea3;
+  margin-bottom: 2%;
+}
+
+.fontSet {
+  font-family: FerroRosso;
+}

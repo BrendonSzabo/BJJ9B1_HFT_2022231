@@ -1,0 +1,179 @@
+﻿@font-face {
+    font-family: "FerroRosso";
+    src: url("fonts/ferrorosso-webfont.woff") format("woff"),
+        url("fonts/ferrorosso-webfont.woff2") format("woff2"),
+}
+
+body {
+    background-image: url("./images/f1logo169.png");
+    background-size:cover;
+}
+
+.button-default {
+    color: white;
+    text-transform: uppercase;
+    margin: 20px;
+    display: inline-block;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.button-slanted {
+    -ms-transform: skewX(-10deg);
+    -webkit-transform: skewX(-10deg);
+    transform: skewX(-10deg);
+}
+
+.button-slanted-content {
+    -ms-transform: skewX(10deg);
+    -webkit-transform: skewX(10deg);
+    transform: skewX(10deg);
+    display: inline-block;
+}
+
+.span-floatleft {
+    text-align: center;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    bottom: 15%;
+    right: 50%;
+    font-size: 25px;
+}
+
+.button-autosize{
+    width: 16%;
+    height: 90vh;
+}
+
+.button-left {
+    position: absolute;
+    top: auto;
+    left: 7%;
+    bottom: auto;
+    right: auto;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    text-decoration: none;
+    color: white;
+    font-family:FerroRosso;
+    font-weight: 600;
+}
+.button-centerLeft {
+    position: absolute;
+    top: auto;
+    left: 38%;
+    bottom: auto;
+    right: auto;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    text-decoration: none;
+    color: white;
+    font-family: FerroRosso;
+    font-weight: 600;
+}
+
+.button-centerRight {
+    position: absolute;
+    top: auto;
+    left: auto;
+    bottom: auto;
+    right: 7%;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    text-decoration: none;
+    color: white;
+    font-family: FerroRosso;
+    font-weight: 600;
+}
+
+.button-left::before {
+    content: "";
+    background-image: url('./images/drivers.jpg');
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.5;
+}
+.button-centerLeft::before {
+    content: "";
+    background-image: url('./images/f1teamsvert.png');
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.5;
+}
+.button-centerRight::before {
+    content: "";
+    background-image: url('./images/princ.jpg');
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.5;
+}
+
+a:link {
+    text-decoration: none;
+    font-family: FerroRosso;
+    font-weight: 600;
+}
+
+a:visited {
+    text-decoration: none;
+    font-family: FerroRosso;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: none;
+    font-family: FerroRosso;
+    font-weight: 600;
+}
+
+a:active {
+    text-decoration: none;
+    font-family: FerroRosso;
+    font-weight: 600;
+}
+
+a, a:visited, a:hover, a:active {
+    color: inherit;
+}
+
+.button-89 {
+    --b: 3px; /* border thickness */
+    --s: .45em; /* size of the corner */
+    --color: #FFFFFF;
+    padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+    color: var(--color);
+    --_p: var(--s);
+    background: conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0) var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    transition: .3s linear, color 0s, background-color 0s;
+    outline: var(--b) solid #24c943;
+    outline-offset: .6em;
+    border: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+    .button-89:hover,
+    .button-89:focus-visible {
+        --_p: 0px;
+        outline-color: #373B44;
+        outline-offset: .05em;
+    }
+
+    .button-89:hover {
+        background: #373B44;
+        color: #fff;
+    }

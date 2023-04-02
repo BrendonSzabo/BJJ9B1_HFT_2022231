@@ -1,0 +1,22 @@
+﻿[
+  {
+    "outputFile": "wwwroot/drivers.css",
+    "inputFile": "wwwroot/drivers.scss"
+  },
+  {
+    "outputFile": "wwwroot/coolinput.css",
+    "inputFile": "wwwroot/coolinput.scss"
+  },
+  {
+    "outputFile": "wwwroot/othercoolinput.css",
+    "inputFile": "wwwroot/othercoolinput.scss"
+  },
+  {
+    "outputFile": "wwwroot/tabledesignt.css",
+    "inputFile": "wwwroot/tabledesignt.scss"
+  },
+  {
+    "outputFile": "wwwroot/dualinput.css",
+    "inputFile": "wwwroot/dualinput.scss"
+  }
+]

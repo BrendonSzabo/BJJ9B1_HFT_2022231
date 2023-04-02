@@ -21,7 +21,8 @@
         <ListBox ItemsSource="{Binding Drivers}" SelectedItem="{Binding SelectedDriver}" Grid.Column="0" Background="#00000000" Foreground="Black">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Label Content="{Binding DriverName}" FontSize="16" FontFamily="Comic Sans MS"/>
+                    <Label Content="{Binding DriverName}" FontSize="16" FontFamily="Comic Sans MS" ContentStringFormat="{}{0}:"/>
+
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

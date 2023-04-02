@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Team Principals page</title>
+    <link rel="stylesheet" href="drivers.css">
+    <link rel="stylesheet" href="coolinput.css">
+    <link rel="stylesheet" href="dualinput.scss">
+    <link rel="stylesheet" href="tabledesignt.css">
+</head>
+<body class="bodyprinc">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script type="text/javascript" src="principals.js"></script>
+    <div class="flex-container">
+        <div style="width:min-content" class="flex-subcontainer">
+            <span class="maintext-bottompadding">Team Principals page</span>
+            <a class="button button-size" href="./index.html" draggable="false">
+                <div>
+                    Home
+                </div>
+            </a>
+            <a class="button button-size" href="./teams.html" draggable="false">
+                <div>
+                    Teams
+                </div>
+            </a>
+            <a class="button button-size" href="./drivers.html" draggable="false">
+                <div>
+                    Drivers
+                </div>
+            </a>
+        </div>
+        <div style="flex-grow:90">
+            <div class="griddy">
+                <div id="formdiv" class="griddy-item">
+                    <input class="c-checkbox" type="checkbox" id="checkbox">
+                    <div class="c-formContainer">
+                        <form class="c-form">
+                            <input class="c-form__input" placeholder="name" type="text" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" required id="principalName">
+                            <input class="c-form__input" placeholder="birthdate" type="text" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" required id="principalBirthdate">
+                            <label class="c-form__buttonLabel" for="checkbox">
+                                <button class="button c-form__button" type="button" onclick="create()">Add</button>
+                            </label>
+                            <label class="c-form__toggle" for="checkbox" data-title="Add a principal"></label>
+                        </form>
+                    </div>
+                </div>
+                <div id="updatediv" class="griddy-item2 form-group">
+                    <label>Name</label>
+                    <input type="text" id="principalNameToUpdate" />
+                    <label>Birthdate</label>
+                    <input type="text" id="principalBirthDateToUpdate" />
+                    <button type="button" onclick="update()" class="button fontSet form-field">Update Driver</button>
+                </div>
+                <div class="container griddy-item3">
+                    <div class="table">
+                        <div class="table-header">
+                            <div class="header__item">Id</div>
+                            <div class="header__item">Name</div>
+                            <div class="header__item">Birth date</div>
+                            <div class="header__item">Actions</div>
+                        </div>
+                        <div class="table-content" id="resultarea">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
