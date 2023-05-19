@@ -143,9 +143,9 @@ svg {
     background: #4F95DA;
 }
 
-    .btn:hover svg {
-        stroke-dashoffset: -480;
-    }
+.btn:hover svg {
+    stroke-dashoffset: -480;
+}
 
 .btn span {
     color: white;
@@ -187,4 +187,8 @@ svg {
     justify-content: center;
     align-items: center;
     background: rgba(16, 171, 255, 0.3);
+}
+
+#updatable {
+    display: none;
 }

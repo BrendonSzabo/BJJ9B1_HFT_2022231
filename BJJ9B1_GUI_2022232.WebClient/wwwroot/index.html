@@ -4,28 +4,24 @@
     <meta charset="utf-8" />
     <title></title>
     <link rel="stylesheet" href="index.css">
+    <style>
+        @font-face {
+            font-family: "FerroRosso";
+            src: url("fonts/ferrorosso-webfont.woff") format("woff"), url("fonts/ferrorosso-webfont.woff2") format("woff2"),
+        }
+    </style>
 </head>
 <body>
-    <a href="./drivers.html" draggable="false">
-        <div class="button-default button-slanted button-autosize button-left button-89">
-            <span class="button-slanted-content span-floatleft">
-                Drivers
-            </span>
+    <script type="text/javascript" src="index.js"></script>
+    <div id="menu">
+        <div id="menu-items">
+            <div class="menu-item" onclick="linker('drivers')" style="font-family:FerroRosso">Drivers</div>
+            <div class="menu-item" onclick="linker('teams')" style="font-family:FerroRosso">Teams</div>
+            <div class="menu-item" onclick="linker('principals')" style="font-family:FerroRosso">Team Principals</div>
+            <div class="menu-item" onclick="linker('stats')" style="font-family:FerroRosso">Statistics</div>
         </div>
-    </a>
-    <a href="./teams.html" draggable="false">
-        <div class="button-default button-slanted button-autosize button-centerLeft button-89">
-            <span class="button-slanted-content span-floatleft">
-                Teams
-            </span>
-        </div>
-    </a>
-    <a href="./principals.html" draggable="false">
-        <div class="button-default button-slanted button-autosize button-centerRight button-89">
-            <span class="button-slanted-content span-floatleft">
-                Team Principals
-            </span>
-        </div>
-    </a>
+        <div id="menu-background-pattern"></div>
+        <div id="menu-background-image"></div>
+    </div>
 </body>
 </html>

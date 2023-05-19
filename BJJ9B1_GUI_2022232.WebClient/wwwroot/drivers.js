@@ -96,6 +96,8 @@ function remove(id) {
 function showupdate(id) {
     document.getElementById('driverNameToUpdate').value = drivers.find(t => t['id'] == id)['driverName']
     driverIdToUpdate = id;
+    let elem = document.getElementById('updatable');
+    elem.style.display = "block";
 }
 
 function update() {
@@ -114,4 +116,6 @@ function update() {
             getdata();
         })
         .catch((error) => { console.error('Error:', error); })
+    let elem = document.getElementById('updatable');
+    elem.style.display = "none";
 }

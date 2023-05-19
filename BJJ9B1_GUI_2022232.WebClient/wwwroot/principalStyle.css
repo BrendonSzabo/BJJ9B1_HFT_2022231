@@ -26,9 +26,8 @@ body {
   height: 60%;
   position: absolute;
   bottom: 35%;
-  left: 3%;
   font-family: FerroRosso;
-  font-size: 36px;
+  font-size: 28px;
   color: white; }
 
 .navbtn1 {
@@ -79,7 +78,8 @@ body {
 .maingridupdate {
   grid-area: update;
   border: 2px solid green;
-  height: 19.6vh; }
+  height: 19.6vh;
+  z-index: 2; }
 
 .maingridmain {
   grid-area: main;
@@ -163,6 +163,12 @@ svg {
   justify-content: center;
   align-items: center;
   background: rgba(16, 171, 255, 0.3); }
+
+.inpertuante {
+  width: 49.2%;
+  height: 20%;
+  background: linear-gradient(90deg, #00d4ff 0%, rgba(44, 131, 136, 0.613883) 89%, #020024 98%);
+  color: white; }
 
 #updatable {
   display: none; }

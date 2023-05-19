@@ -1,0 +1,60 @@
+﻿<Window x:Class="BJJ9B1_GUI_2022232.WpfClient.StatisticsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BJJ9B1_GUI_2022232.WpfClient.ViewModels"
+        mc:Ignorable="d"
+        Title="StatisticsWindow" Height="450" Width="800" Name="mainWindow" Closing="mainWindow_Closing">
+    <Window.DataContext>
+        <local:StatisticsViewModel />
+    </Window.DataContext>
+    <Grid Name="mainGrid">
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\lordn\source\repos\BrendonSzabo\BJJ9B1_HFT_2022231\BJJ9B1_GUI_2022232.WpfClient\bin\Debug\net5.0-windows\images\f1stats.png" Stretch="UniformToFill" x:Name="mainGrid_BG"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.3*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <ScrollViewer HorizontalAlignment="Center" VerticalScrollBarVisibility="Auto" Grid.Column="0">
+            <StackPanel>
+                <Button Height="39" Content="GetBritishDrivers" Command="{Binding GetBritishDrivers}" Name="british" FontSize="16" Click="button_Click"/>
+                <ListBox x:Name="britishDrivers" ItemsSource="{Binding britishDrivers}" Background="Transparent" Foreground="AliceBlue" Visibility="Hidden" Height="0" Width="0"/>
+                
+                <Button Height="39" Content="GetOldestDriver" Command="{Binding GetOldestDriver}" Name="oldest" FontSize="16" Click="button_Click"/>
+                <Label x:Name="oldestDriver" Content="{Binding oldestDriver}" Foreground="AliceBlue" Visibility="Hidden"  Height="0" Width="0"/>
+                
+                <Button Height="39" Content="GetYoungestDriver" Command="{Binding GetYoungestDriver}" Name="youngest" FontSize="16" Click="button_Click"/>
+                <Label x:Name="youngestDriver" Content="{Binding youngestDriver}" Foreground="AliceBlue" Visibility="Hidden"  Height="0" Width="0"/>
+                
+                <Button Height="39" Content="GetBestTeam" Command="{Binding GetBestTeam}" Name="bestteam" FontSize="16" Click="button_Click"/>
+                <Label x:Name="bestTeam" Content="{Binding bestTeam}" Foreground="AliceBlue" Visibility="Hidden"  Height="0" Width="0"/>
+                
+                <Button Height="39" Content="GetWorstTeam" Command="{Binding GetWorstTeam}" Name="worstteam" FontSize="16" Click="button_Click"/>
+                <Label x:Name="worstTeam" Content="{Binding worstTeam}" Foreground="AliceBlue" Visibility="Hidden"  Height="0" Width="0"/>
+                
+                <Button Height="39" Content="GetBestTeamPrincipal" Command="{Binding GetBestTeamPrincipal}" Name="bestprinc" FontSize="16" Click="button_Click"/>
+                <Label x:Name="bestTeamPrincipal" Content="{Binding bestTeamPrincipal}" Foreground="AliceBlue" Visibility="Hidden"  Height="0" Width="0"/>
+                
+                <Button Height="40" Content="TeamsDebutIn20thCentury" Command="{Binding TeamsDebutIn20thCentury}" Name="teams20" FontSize="16" Click="button_Click"/>
+                <ListBox x:Name="teamsDebutIn20th" ItemsSource="{Binding teamsDebutIn20th}" Background="Transparent" Foreground="AliceBlue" Visibility="Hidden"  Height="0" Width="0"/>
+                
+                <Button Height="40" Width="312" Content="GetMostChampionshipWinTeamPrincipal" Command="{Binding GetMostChampionshipWinTeamPrincipal}" Name="champ" FontSize="16" Click="button_Click"/>
+                <Label x:Name="mostChampionshipWinTeamPrincipal" Content="{Binding mostChampionshipWinTeamPrincipal}" Foreground="White" Visibility="Hidden"  Height="0" Width="0"/>
+                
+                <Button Height="40" Content="GetPrincipalsWithWin" Command="{Binding GetPrincipalsWithWin}" Name="wins" FontSize="16" Click="button_Click"/>
+                <ListBox x:Name="principalsWithWin" ItemsSource="{Binding principalsWithWin}" Background="Transparent" Foreground="AliceBlue" Visibility="Hidden"  Height="0" Width="0"/>
+                
+                <Button Height="40" Content="GetPrincipalsWhoDebutedIn20thCentury" Command="{Binding GetPrincipalsWhoDebutedIn20thCentury}" Name="princ20" FontSize="16" Click="button_Click"/>
+                <ListBox x:Name="principalWhoDebutedIn20thCentury" ItemsSource="{Binding principalWhoDebutedIn20thCentury}" Background="Transparent" Foreground="AliceBlue" Visibility="Hidden"  Height="0" Width="0"/>
+                
+                <Button Height="40" Content="GetPrincipalOfBestTeam" Command="{Binding GetPrincipalOfBestTeam}" Name="princbest" FontSize="16" Click="button_Click"/>
+                <Label x:Name="principalOfBestTeam" Content="{Binding principalOfBestTeam}" Foreground="AliceBlue" Visibility="Hidden"  Height="0" Width="0"/>
+            </StackPanel>
+        </ScrollViewer>
+        <Grid Grid.Column="1">
+            <ListBox Name="MainBox" Background="#99ADD8E6" Foreground="White"/>
+        </Grid>
+    </Grid>
+</Window>

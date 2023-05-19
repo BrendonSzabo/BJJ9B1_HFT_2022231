@@ -1,10 +1,81 @@
-﻿<!DOCTYPE html>
+﻿﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Statistics</title>
+    <link rel="stylesheet" href="stats.css" />
 </head>
 <body>
+    <script type="text/javascript" src="stats.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <button type="button" onclick="linker('home')">Home</button>
+    <h1>Statistics</h1>
+    <table class="fl-table">
+        <thead>
+            <tr>
+                <th>Function name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>British Drivers</td>
+                <td><button type="button" onclick="britishest()">Get</button></td>
+            </tr>
+            <tr>
+                <td>Oldest Driver</td>
+                <td><button type="button" onclick="oldest()">Get</button></td>
+            </tr>
+            <tr>
+                <td>Youngest Driver</td>
+                <td><button type="button" onclick="youngest()">Get</button></td>
+            </tr>
+            <tr>
+                <td>Best Team</td>
+                <td><button type="button" onclick="bestestteam()">Get</button></td>
+            </tr>
+            <tr>
+                <td>Worst Team</td>
+                <td><button type="button" onclick="worstestteam()">Get</button></td>
+            </tr>
+            <tr>
+                <td>Best Team Principal</td>
+                <td><button type="button" onclick="bestprinc()">Get</button></td>
+            </tr>
+            <tr>
+                <td>Teams Debuted in 20th Century</td>
+                <td><button type="button" onclick="team20()">Get</button></td>
+            </tr>
+            <tr>
+                <td>Principal with most championship wins</td>
+                <td><button type="button" onclick="championship()">Get</button></td>
+            </tr>
+            <tr>
+                <td>Principals who won</td>
+                <td><button type="button" onclick="winners()">Get</button></td>
+            </tr>
+            <tr>
+                <td>Principals who debuted in the 20th century</td>
+                <td><button type="button" onclick="princ20()">Get</button></td>
+            </tr>
+            <tr>
+                <td>Principal of best team</td>
+                <td><button type="button" onclick="princbest()">Get</button></td>
+            </tr>
+        </tbody>
+    </table>
 
+    <h2>Result:</h2>
+    <table class="fl-table">
+        <thead>
+            <tr>
+                <th>Index</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody id="resultdiv">
+        </tbody>
+    </table>
 </body>
 </html>

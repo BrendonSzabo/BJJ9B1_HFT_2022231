@@ -48,5 +48,10 @@ namespace BJJ9B1_HFT_2022231.Models
             Born = Convert.ToDateTime(f[5]);
             Nationality = f[6];
         }
+
+        public override string ToString()
+        {
+            return DriverName;
+        }
     }
 }

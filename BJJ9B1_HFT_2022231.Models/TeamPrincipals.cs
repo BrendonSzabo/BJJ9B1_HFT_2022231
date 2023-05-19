@@ -56,5 +56,9 @@ namespace BJJ9B1_HFT_2022231.Models
             }
             TeamID = int.Parse(f[6]);
         }
+        public override string ToString()
+        {
+            return PrincipalName;
+        }
     }
 }

@@ -4,19 +4,27 @@
     "inputFile": "wwwroot/drivers.scss"
   },
   {
-    "outputFile": "wwwroot/coolinput.css",
-    "inputFile": "wwwroot/coolinput.scss"
+    "outputFile": "wwwroot/index.css",
+    "inputFile": "wwwroot/index.scss"
   },
   {
-    "outputFile": "wwwroot/othercoolinput.css",
-    "inputFile": "wwwroot/othercoolinput.scss"
+    "outputFile": "wwwroot/tabledesign.css",
+    "inputFile": "wwwroot/tabledesign.scss"
   },
   {
-    "outputFile": "wwwroot/tabledesignt.css",
-    "inputFile": "wwwroot/tabledesignt.scss"
+    "outputFile": "wwwroot/input.css",
+    "inputFile": "wwwroot/input.scss"
   },
   {
-    "outputFile": "wwwroot/dualinput.css",
-    "inputFile": "wwwroot/dualinput.scss"
+    "outputFile": "wwwroot/stats.css",
+    "inputFile": "wwwroot/stats.scss"
+  },
+  {
+    "outputFile": "wwwroot/principalStyle.css",
+    "inputFile": "wwwroot/principalStyle.scss"
+  },
+  {
+    "outputFile": "wwwroot/teamDesign.css",
+    "inputFile": "wwwroot/teamDesign.scss"
   }
 ]

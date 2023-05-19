@@ -59,7 +59,7 @@ namespace BJJ9B1_HFT_2022231.Models
 
         public override string ToString()
         {
-            return $"Id: {Id}, Team Name: {TeamName}, First Entry: {FirstEntry.Year}.{FirstEntry.Month}.{FirstEntry.Day}, Rank: {Ranking}, Championship points: {ConstructorPoints}, Race Starts: {RaceStarts}";
+            return TeamName;
         }
     }
 }

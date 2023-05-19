@@ -48,6 +48,11 @@ namespace BJJ9B1_GUI_2022232.WpfClient
                     setBG("f1teamprincipals.jpg", mainGrid_BG);
                     description.Text = "Team Principals and information about them";
                 }
+                else if (button.Name == "stats")
+                {
+                    setBG("f1stats.png", mainGrid_BG);
+                    description.Text = "Statistics!";
+                }
                 else if (button.Name == "exit")
                 {
                     setBG("f1logo.png", mainGrid_BG);
@@ -82,6 +87,11 @@ namespace BJJ9B1_GUI_2022232.WpfClient
                 {
                     TeamPrincipalsWindow teamPrincipals = new TeamPrincipalsWindow(mainWindow, imagesDir);
                     teamPrincipals.Show();
+                }
+                else if (button.Name == "stats")
+                {
+                    StatisticsWindow stats = new StatisticsWindow(mainWindow, imagesDir);
+                    stats.Show();
                 }
                 else if (button.Name == "exit")
                 {

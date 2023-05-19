@@ -4,69 +4,108 @@
     <meta charset="utf-8" />
     <title>Drivers page</title>
     <link rel="stylesheet" href="drivers.css">
-    <link rel="stylesheet" href="coolinput.css">
-    <link rel="stylesheet" href="othercoolinput.css">
-    <link rel="stylesheet" href="tabledesignt.css">
+    <link rel="stylesheet" href="input.css">
+    <link rel="stylesheet" href="tabledesign.css">
 </head>
 <body class="bodydriver">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
     <script type="text/javascript" src="drivers.js"></script>
-    <div class="flex-container">
-        <div style="width:min-content" class="flex-subcontainer">
-            <span class="maintext-bottompadding">Drivers page</span>
-            <a class="button button-size" href="./index.html" draggable="false">
-                <div>
-                    Home
-                </div>
-            </a>
-            <a class="button button-size" href="./teams.html" draggable="false">
-                <div>
-                    Teams
-                </div>
-            </a>
-            <a class="button button-size" href="./principals.html" draggable="false">
-                <div>
-                    Principals
-                </div>
-            </a>
+    <script type="text/javascript" src="index.js"></script>
+    <div class="maingridmenu">
+        <div class="navtext">
+            Drivers Page
         </div>
-        <div style="flex-grow:90">
-            <div class="griddy">
-                <div id="formdiv" class="griddy-item">
-                    <input class="c-checkbox" type="checkbox" id="checkbox">
-                    <div class="c-formContainer">
-                        <form class="c-form">
-                            <input class="c-form__input" placeholder="Driver name" type="text" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" required id="driverName">
-                            <label class="c-form__buttonLabel" for="checkbox">
-                                <button class="button c-form__button" type="button" onclick="create()">Add</button>
-                            </label>
-                            <label class="c-form__toggle" for="checkbox" data-title="Add a driver"></label>
-                        </form>
-                    </div>
-                </div>
-                <div class="button-sizetoo griddy-item2" id="updatediv">
-                    <div class="containerinput2">
-                        <div class="container__item">
-                            <form class="form">
-                                <input type="text" class="form__field" placeholder="Driver name" id="driverNameToUpdate" />
-                                <button type="button" class="btn btn--primary btn--inside uppercase" onclick="update()">Update</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="container griddy-item3">
-                    <div class="table">
-                        <div class="table-header">
-                            <div class="header__item">Id</div>
-                            <div class="header__item">Name</div>
-                            <div class="header__item">Actions</div>
-                        </div>
-                        <div class="table-content" id="resultarea">
-                        </div>
-                    </div>
-                </div>
+        <div class="navbtn1" onclick="linker('home')">
+            <div class="center">
+                <button class="btn">
+                    <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+                        <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+                        <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+                    </svg>
+                    <span>Home</span>
+                </button>
+            </div>
+        </div>
+        <div class="navbtn2" onclick="linker('teams')">
+            <div class="center">
+                <button class="btn">
+                    <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+                        <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+                        <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+                    </svg>
+                    <span>Teams</span>
+                </button>
+            </div>
+
+        </div>
+        <div class="navbtn3" onclick="linker('principals')">
+            <div class="center">
+                <button class="btn">
+                    <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+                        <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+                        <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+                    </svg>
+                    <span>Principals</span>
+                </button>
+            </div>
+
+        </div>
+        <div class="navbtn4" onclick="linker('stats')">
+            <div class="center">
+                <button class="btn">
+                    <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+                        <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+                        <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+                    </svg>
+                    <span>Stats</span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+    <div class="maingridcreate">
+        <span class="inputed spanning movingcompany">
+            <input class="inpertuante" type="text" placeholder="Create driver" id="driverName">
+            <span class="spanning"></span>
+        </span>
+        <div class="create">
+            <div class="center">
+                <button class="btn" onclick="create()">
+                    <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+                        <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+                        <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+                    </svg>
+                    <span>Create</span>
+                </button>
             </div>
         </div>
     </div>
+    <div class="maingridupdate">
+        <span class="inputed spanning movingcompany">
+            <input class="inpertuante" type="text" placeholder="Update driver" id="driverNameToUpdate">
+            <span class="spanning"></span>
+        </span>
+        <div class="update" id="updatable">
+            <div class="center">
+                <button class="btn" onclick="update()">
+                    <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+                        <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+                        <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+                    </svg>
+                    <span>Update</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="table">
+        <div class="table-header">
+            <div class="header__item">ID</div>
+            <div class="header__item">Name</div>
+            <div class="header__item">Action</div>
+        </div>
+		<div class="table-content" id="resultarea">	
+			
+		</div>	
+	</div>
 </body>
 </html>

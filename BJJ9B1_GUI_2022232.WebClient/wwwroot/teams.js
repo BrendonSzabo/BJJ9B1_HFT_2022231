@@ -96,6 +96,8 @@ function remove(id) {
 function showupdate(id) {
     document.getElementById('teamNameToUpdate').value = teams.find(t => t['id'] == id)['teamName']
     teamIdToUpdate = id;
+    let elem = document.getElementById('updatable');
+    elem.style.display = "block";
 }
 
 function update() {
@@ -115,4 +117,6 @@ function update() {
             getdata();
         })
         .catch((error) => { console.error('Error:', error); })
+    let elem = document.getElementById('updatable');
+    elem.style.display = "none";
 }

@@ -23,7 +23,6 @@ namespace BJJ9B1_HFT_2022231.Endpoint.Controllers
         }
         #region driver httpget
         [HttpGet]
-        [HttpGet]
         public IEnumerable<Drivers> GetBritishDrivers()
         {
             return this.driverLogic.GetBritishDrivers();

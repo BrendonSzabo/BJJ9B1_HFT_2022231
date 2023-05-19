@@ -102,6 +102,8 @@ function showupdate(id) {
     document.getElementById('principalNameToUpdate').value = principals.find(t => t['id'] == id)['principalName']
     document.getElementById('principalBirthDateToUpdate').value = principals.find(t => t['id'] == id)['birth']
     principalIdToUpdate = id;
+    let elem = document.getElementById('updatable');
+    elem.style.display = "block";
 }
 
 function update() {
@@ -121,4 +123,6 @@ function update() {
             getdata();
         })
         .catch((error) => { console.error('Error:', error); })
+    let elem = document.getElementById('updatable');
+    elem.style.display = "none";
 }

@@ -30,9 +30,8 @@ body {
     height: 60%;
     position: absolute;
     bottom: 35%;
-    left: 3%;
     font-family: FerroRosso;
-    font-size: 36px;
+    font-size: 28px;
     color: white;
 }
 
@@ -90,6 +89,7 @@ body {
     grid-area: update;
     border: 2px solid green;
     height: 19.6vh;
+    z-index: 2;
 }
 
 .maingridmain {
@@ -143,9 +143,9 @@ svg {
     background: #4F95DA;
 }
 
-    .btn:hover svg {
-        stroke-dashoffset: -480;
-    }
+.btn:hover svg {
+    stroke-dashoffset: -480;
+}
 
 .btn span {
     color: white;
@@ -187,4 +187,13 @@ svg {
     justify-content: center;
     align-items: center;
     background: rgba(16, 171, 255, 0.3);
+}
+.inpertuante {
+    width: 49.2%;
+    height: 20%;
+    background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(44,131,136,0.6138830532212884) 89%, rgba(2,0,36,1) 98%);
+    color:white;
+}
+#updatable{
+    display:none;
 }
